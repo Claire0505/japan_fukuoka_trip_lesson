@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ff8fab">
+<title>第 1 課｜日本福岡機場入境</title>
+<style>
+:root{
+  --pink:#ff8fab; --pink2:#ffd6e0; --cream:#fffaf5; --ink:#493b42;
+  --jp:#fff0f5; --en:#eef8ff; --zh:#fff8df; --card:#fff;
+  --line:#f1dce3; --accent:#7b61ff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#fff7fa,#fffdf9);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif}
+.wrap{max-width:720px;margin:auto;padding:14px 12px 90px}
+.hero{background:linear-gradient(135deg,#ff8fab,#ffb3c6);color:white;border-radius:28px;padding:24px 18px;box-shadow:0 10px 28px #eeb5c855}
+.hero h1{font-size:26px;margin:4px 0 8px}.hero p{margin:4px 0;opacity:.96}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.badge{background:#ffffff36;border:1px solid #ffffff66;padding:6px 10px;border-radius:99px;font-size:13px}
+.nav{position:sticky;top:0;z-index:9;margin:10px -12px;padding:8px 12px;background:#fffdfaee;backdrop-filter:blur(10px);display:flex;gap:7px;overflow:auto}
+.nav a{text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);padding:8px 12px;border-radius:99px;white-space:nowrap;font-size:13px}
+.section-title{margin:25px 4px 10px;font-size:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;margin:12px 0;overflow:hidden;box-shadow:0 4px 15px #e8dce633}
+.card summary{list-style:none;padding:16px 16px;font-weight:800;cursor:pointer;font-size:17px}
+.card summary::-webkit-details-marker{display:none}
+.card[open] summary{border-bottom:1px solid var(--line)}
+.content{padding:14px 14px 18px}
+.q{font-weight:800;margin:10px 0 6px}.label{font-size:12px;font-weight:800;letter-spacing:.06em;opacity:.65}
+.lang{padding:12px;border-radius:16px;margin:8px 0}.jp{background:var(--jp)}.en{background:var(--en)}.zh{background:var(--zh)}
+.phrase{font-size:20px;font-weight:800;margin:4px 0}.reading{font-size:14px;margin:4px 0}.meaning{font-size:14px;margin-top:5px}
+.answer{border:2px solid var(--pink2);background:#fff8fb;padding:12px;border-radius:17px;margin-top:12px}
+button{border:0;border-radius:99px;padding:8px 12px;background:white;color:var(--accent);font-weight:800;box-shadow:0 2px 8px #aaa3;cursor:pointer;margin-top:7px}
+.note{background:#fff6cf;padding:11px 13px;border-radius:14px;margin-top:10px;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mini{padding:10px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:14px;overflow:hidden}th,td{padding:9px 7px;border-bottom:1px solid var(--line);text-align:left}th{background:#fff2f6}
+.ten li{margin:10px 0;padding:11px 12px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.footer{margin-top:28px;padding:18px;text-align:center;font-size:13px;opacity:.7}
+@media(max-width:430px){.hero h1{font-size:23px}.phrase{font-size:18px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div style="font-size:34px">✈️ 🇯🇵 🇺🇸</div>
+  <h1>第 1 課：福岡機場入境</h1>
+  <p>日本旅行實用口說｜9 天 8 夜</p>
+  <div class="badges"><span class="badge">10/21 出發</span><span class="badge">福岡</span><span class="badge">觀光＋購物</span><span class="badge">10/29 回程</span></div>
+</header>
+
+<nav class="nav">
+<a href="#q1">① 旅行</a><a href="#q2">② 幾天</a><a href="#q3">③ 飯店</a><a href="#q4">④ 朋友</a><a href="#q5">⑤ 第一次</a><a href="#q6">⑥ 目的</a><a href="#q7">⑦ 回程</a><a href="#q8">⑧ 去哪</a><a href="#q9">⑨ 做什麼</a><a href="#words">📚 單字</a><a href="#must">⭐ 必背</a>
+</nav>
+
+<h2 class="section-title">🛂 入境問答練習</h2>
+
+<details class="card" id="q1" open><summary>① 來日本做什麼？</summary><div class="content">
+<div class="q">👮‍♂️ 入境人員</div>
+<div class="lang jp"><div class="label">🇯🇵 日文</div><div class="phrase">旅行ですか？</div><div class="reading">りょこうですか？｜Ryokō desu ka?</div><button onclick="speak('旅行ですか？','ja-JP')">🔊 聽日文</button></div>
+<div class="lang en"><div class="label">🇺🇸 English</div><div class="phrase">Are you here for a trip?</div><button onclick="speak('Are you here for a trip?','en-US')">🔊 Listen</button></div>
+<div class="lang zh">🇹🇼 你是來旅行的嗎？</div>
+<div class="answer"><b>🙋 你的回答</b><div class="phrase">はい、旅行です。</div><div class="reading">Hai, ryokō desu.</div><div class="meaning">是的，我是來旅行的。</div><button onclick="speak('はい、旅行です。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">Yes, I'm here for a trip.</div><button onclick="speak(`Yes, I'm here for a trip.`,'en-US')">🔊 English</button></div>
+</div></details>
+
+<details class="card" id="q2"><summary>② 在日本待幾天？</summary><div class="content">
+<div class="q">👮‍♂️ 何日間、日本にいますか？</div><div class="reading">なんにちかん、日本にいますか？｜Nan-nichi-kan, Nihon ni imasu ka?</div><button onclick="speak('何日間、日本にいますか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">How many days are you staying in Japan?</div><button onclick="speak('How many days are you staying in Japan?','en-US')">🔊 English</button></div>
+<div class="answer"><b>🙋 你的回答</b><div class="phrase">九日間です。</div><div class="reading">きゅうにちかんです。｜Kyū-nichi-kan desu.</div><div class="meaning">九天。</div><button onclick="speak('九日間です。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm staying for nine days.</div><button onclick="speak(`I'm staying for nine days.`,'en-US')">🔊 English</button><div class="note">⭐ 注意：❌ I am stay　✅ I'm staying for nine days.</div></div>
+</div></details>
+
+<details class="card" id="q3"><summary>③ 你住在哪裡？</summary><div class="content">
+<div class="q">👮‍♂️ どこに泊まりますか？</div><div class="reading">どこに とまりますか？｜Doko ni tomarimasu ka?</div><button onclick="speak('どこに泊まりますか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">Where are you staying?</div><button onclick="speak('Where are you staying?','en-US')">🔊 English</button></div>
+<div class="answer"><b>🙋 你的回答</b><div class="phrase">ベースレイヤーホテル福岡に泊まります。</div><div class="reading">Bēsu reiyā hoteru Fukuoka ni tomarimasu.</div><button onclick="speak('ベースレイヤーホテル福岡に泊まります。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm staying at BASE LAYER HOTEL FUKUOKA.</div></div>
+<div class="note">⭐ 泊まります＝住宿。旅行住飯店常用「ホテルに泊まります」。</div>
+</div></details>
+
+<details class="card" id="q4"><summary>④ 是一個人來嗎？</summary><div class="content">
+<div class="q">👮‍♂️ 一人で来ましたか？</div><div class="reading">ひとりで きましたか？｜Hitori de kimashita ka?</div><button onclick="speak('一人で来ましたか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">Did you come alone?</div><button onclick="speak('Did you come alone?','en-US')">🔊 English</button></div>
+<div class="answer"><div class="phrase">いいえ、友達と一緒に来ました。</div><div class="reading">Iie, tomodachi to issho ni kimashita.</div><div class="meaning">不，我是和朋友一起來的。</div><button onclick="speak('いいえ、友達と一緒に来ました。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">No, I'm here with my friend.</div></div>
+<div class="note">⭐ A と一緒に＝和 A 一起</div>
+</div></details>
+
+<details class="card" id="q5"><summary>⑤ 第一次來日本嗎？</summary><div class="content">
+<div class="q">👮‍♂️ 日本は初めてですか？</div><div class="reading">にほんは はじめてですか？｜Nihon wa hajimete desu ka?</div><button onclick="speak('日本は初めてですか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">Is this your first time in Japan?</div></div>
+<div class="answer"><div class="phrase">はい、日本は初めてです。</div><div class="reading">Hai, Nihon wa hajimete desu.</div><div class="meaning">是的，這是我第一次來日本。</div><button onclick="speak('はい、日本は初めてです。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">Yes, it's my first time in Japan.</div></div>
+<div class="note">⭐ 初めて（はじめて）＝第一次</div>
+</div></details>
+
+<details class="card" id="q6"><summary>⑥ 旅行的目的是什麼？</summary><div class="content">
+<div class="q">👮‍♂️ 旅行の目的は何ですか？</div><div class="reading">りょこうの もくてきは なんですか？｜Ryokō no mokuteki wa nan desu ka?</div><button onclick="speak('旅行の目的は何ですか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">What is the purpose of your trip?</div></div>
+<div class="answer"><div class="phrase">観光に来ました。</div><div class="reading">かんこうに きました。｜Kankō ni kimashita.</div><div class="meaning">我是來觀光的。</div><button onclick="speak('観光に来ました。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm here for sightseeing.</div></div>
+</div></details>
+
+<details class="card" id="q7"><summary>⑦ 回程班機是什麼時候？</summary><div class="content">
+<div class="q">👮‍♂️ 帰りの飛行機はいつですか？</div><div class="reading">かえりの ひこうきは いつですか？｜Kaeri no hikōki wa itsu desu ka?</div><button onclick="speak('帰りの飛行機はいつですか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">When is your return flight?</div></div>
+<div class="answer"><div class="phrase">10月29日です。</div><div class="reading">じゅうがつ にじゅうくにちです。｜Jūgatsu nijūku-nichi desu.</div><button onclick="speak('10月29日です。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">My return flight is on October 29th.</div></div>
+</div></details>
+
+<details class="card" id="q8"><summary>⑧ 在日本去哪裡？</summary><div class="content">
+<div class="q">👮‍♂️ 日本でどこに行きますか？</div><div class="reading">にほんで どこに いきますか？｜Nihon de doko ni ikimasu ka?</div><button onclick="speak('日本でどこに行きますか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">Where will you go in Japan?</div></div>
+<div class="answer"><div class="phrase">福岡に行きます。</div><div class="reading">ふくおかに いきます。｜Fukuoka ni ikimasu.</div><button onclick="speak('福岡に行きます。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm going to Fukuoka.</div></div>
+<div class="grid"><div class="mini"><b>行きます</b><br>いきます｜去</div><div class="mini"><b>来ます</b><br>きます｜來</div><div class="mini"><b>帰ります</b><br>かえります｜回去</div></div>
+</div></details>
+
+<details class="card" id="q9"><summary>⑨ 在福岡做什麼？</summary><div class="content">
+<div class="q">👮‍♂️ 福岡で何をしますか？</div><div class="reading">ふくおかで なにを しますか？｜Fukuoka de nani o shimasu ka?</div><button onclick="speak('福岡で何をしますか？','ja-JP')">🔊 日文</button>
+<div class="lang en"><div class="phrase">What are you going to do in Fukuoka?</div></div>
+<div class="answer"><div class="phrase">観光と買い物をします。</div><div class="reading">かんこうと かいものを します。｜Kankō to kaimono o shimasu.</div><button onclick="speak('観光と買い物をします。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm going sightseeing and shopping.</div></div>
+</div></details>
+
+<section id="words"><h2 class="section-title">📚 第 1 課必背單字</h2>
+<table><tr><th>日文</th><th>假名</th><th>羅馬拼音</th><th>中文</th></tr>
+<tr><td>日本</td><td>にほん</td><td>Nihon</td><td>日本</td></tr><tr><td>福岡</td><td>ふくおか</td><td>Fukuoka</td><td>福岡</td></tr><tr><td>旅行</td><td>りょこう</td><td>Ryokō</td><td>旅行</td></tr><tr><td>観光</td><td>かんこう</td><td>Kankō</td><td>觀光</td></tr><tr><td>買い物</td><td>かいもの</td><td>Kaimono</td><td>購物</td></tr><tr><td>友達</td><td>ともだち</td><td>Tomodachi</td><td>朋友</td></tr><tr><td>一人</td><td>ひとり</td><td>Hitori</td><td>一個人</td></tr><tr><td>初めて</td><td>はじめて</td><td>Hajimete</td><td>第一次</td></tr><tr><td>泊まります</td><td>とまります</td><td>Tomarimasu</td><td>住宿</td></tr><tr><td>行きます</td><td>いきます</td><td>Ikimasu</td><td>去</td></tr><tr><td>来ます</td><td>きます</td><td>Kimasu</td><td>來</td></tr><tr><td>帰ります</td><td>かえります</td><td>Kaerimasu</td><td>回去</td></tr><tr><td>飛行機</td><td>ひこうき</td><td>Hikōki</td><td>飛機</td></tr><tr><td>帰り</td><td>かえり</td><td>Kaeri</td><td>回程</td></tr><tr><td>何日間</td><td>なんにちかん</td><td>Nan-nichi-kan</td><td>幾天</td></tr><tr><td>目的</td><td>もくてき</td><td>Mokuteki</td><td>目的</td></tr><tr><td>どこ</td><td>どこ</td><td>Doko</td><td>哪裡</td></tr><tr><td>いつ</td><td>いつ</td><td>Itsu</td><td>什麼時候</td></tr>
+</table></section>
+
+<section id="must"><h2 class="section-title">⭐ 一定要會的 10 句</h2><ol class="ten">
+<li>はい、旅行です。<br><small>是的，我是來旅行的。</small></li>
+<li>九日間です。<br><small>九天。</small></li>
+<li>ベースレイヤーホテル福岡に泊まります。<br><small>我住在 BASE LAYER HOTEL FUKUOKA。</small></li>
+<li>友達と一緒に来ました。<br><small>我跟朋友一起來的。</small></li>
+<li>はい、日本は初めてです。<br><small>是的，第一次來日本。</small></li>
+<li>観光に来ました。<br><small>我是來觀光的。</small></li>
+<li>10月29日です。<br><small>10 月 29 日。</small></li>
+<li>福岡に行きます。<br><small>我要去福岡。</small></li>
+<li>観光と買い物をします。<br><small>我要觀光和購物。</small></li>
+<li>I'm staying for nine days.<br><small>我會待九天。</small></li>
+</ol></section>
+
+<h2 class="section-title">🎯 5 個核心句型</h2>
+<div class="grid"><div class="mini">① ～です。<br>→ 是～</div><div class="mini">② ～に泊まります。<br>→ 住在～</div><div class="mini">③ ～と一緒に来ました。<br>→ 和～一起來</div><div class="mini">④ ～に行きます。<br>→ 去～</div><div class="mini">⑤ ～をします。<br>→ 做～</div></div>
+
+<div class="footer">🇯🇵 日本福岡旅行口說練習｜第 1 課：機場入境 ✈️</div>
+</div>
+<script>
+function speak(text,lang){
+ if(!('speechSynthesis' in window)){alert('此瀏覽器不支援語音朗讀');return}
+ speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(text);u.lang=lang;u.rate=.85;speechSynthesis.speak(u);
+}
+</script>
+</body></html>
