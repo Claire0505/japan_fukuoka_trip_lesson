@@ -1,147 +1,865 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#ff8fab">
-<title>第 1 課｜日本福岡機場入境</title>
-<style>
-:root{
-  --pink:#ff8fab; --pink2:#ffd6e0; --cream:#fffaf5; --ink:#493b42;
-  --jp:#fff0f5; --en:#eef8ff; --zh:#fff8df; --card:#fff;
-  --line:#f1dce3; --accent:#7b61ff;
-}
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(180deg,#fff7fa,#fffdf9);color:var(--ink);
-font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif}
-.wrap{max-width:720px;margin:auto;padding:14px 12px 90px}
-.hero{background:linear-gradient(135deg,#ff8fab,#ffb3c6);color:white;border-radius:28px;padding:24px 18px;box-shadow:0 10px 28px #eeb5c855}
-.hero h1{font-size:26px;margin:4px 0 8px}.hero p{margin:4px 0;opacity:.96}
-.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.badge{background:#ffffff36;border:1px solid #ffffff66;padding:6px 10px;border-radius:99px;font-size:13px}
-.nav{position:sticky;top:0;z-index:9;margin:10px -12px;padding:8px 12px;background:#fffdfaee;backdrop-filter:blur(10px);display:flex;gap:7px;overflow:auto}
-.nav a{text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);padding:8px 12px;border-radius:99px;white-space:nowrap;font-size:13px}
-.section-title{margin:25px 4px 10px;font-size:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;margin:12px 0;overflow:hidden;box-shadow:0 4px 15px #e8dce633}
-.card summary{list-style:none;padding:16px 16px;font-weight:800;cursor:pointer;font-size:17px}
-.card summary::-webkit-details-marker{display:none}
-.card[open] summary{border-bottom:1px solid var(--line)}
-.content{padding:14px 14px 18px}
-.q{font-weight:800;margin:10px 0 6px}.label{font-size:12px;font-weight:800;letter-spacing:.06em;opacity:.65}
-.lang{padding:12px;border-radius:16px;margin:8px 0}.jp{background:var(--jp)}.en{background:var(--en)}.zh{background:var(--zh)}
-.phrase{font-size:20px;font-weight:800;margin:4px 0}.reading{font-size:14px;margin:4px 0}.meaning{font-size:14px;margin-top:5px}
-.answer{border:2px solid var(--pink2);background:#fff8fb;padding:12px;border-radius:17px;margin-top:12px}
-button{border:0;border-radius:99px;padding:8px 12px;background:white;color:var(--accent);font-weight:800;box-shadow:0 2px 8px #aaa3;cursor:pointer;margin-top:7px}
-.note{background:#fff6cf;padding:11px 13px;border-radius:14px;margin-top:10px;font-size:14px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mini{padding:10px;border-radius:14px;background:#fff;border:1px solid var(--line)}
-table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:14px;overflow:hidden}th,td{padding:9px 7px;border-bottom:1px solid var(--line);text-align:left}th{background:#fff2f6}
-.ten li{margin:10px 0;padding:11px 12px;background:#fff;border:1px solid var(--line);border-radius:14px}
-.footer{margin-top:28px;padding:18px;text-align:center;font-size:13px;opacity:.7}
-@media(max-width:430px){.hero h1{font-size:23px}.phrase{font-size:18px}.grid{grid-template-columns:1fr}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第 1 課：日本福岡機場入境 ✈️ | 雙語口說特訓筆記</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jpRed: '#E60012',
+                        jpDark: '#1E293B',
+                        jpBg: '#F8FAFC',
+                        accentBlue: '#2563EB',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .ruby-text ruby { ruby-position: over; }
+        .ruby-text rt { font-size: 0.7em; color: #64748B; font-weight: normal; }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
 </head>
-<body>
-<div class="wrap">
-<header class="hero">
-  <div style="font-size:34px">✈️ 🇯🇵 🇺🇸</div>
-  <h1>第 1 課：福岡機場入境</h1>
-  <p>日本旅行實用口說｜9 天 8 夜</p>
-  <div class="badges"><span class="badge">10/21 出發</span><span class="badge">福岡</span><span class="badge">觀光＋購物</span><span class="badge">10/29 回程</span></div>
-</header>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pb-24 md:pb-12 selection:bg-rose-500 selection:text-white">
 
-<nav class="nav">
-<a href="#q1">① 旅行</a><a href="#q2">② 幾天</a><a href="#q3">③ 飯店</a><a href="#q4">④ 朋友</a><a href="#q5">⑤ 第一次</a><a href="#q6">⑥ 目的</a><a href="#q7">⑦ 回程</a><a href="#q8">⑧ 去哪</a><a href="#q9">⑨ 做什麼</a><a href="#words">📚 單字</a><a href="#must">⭐ 必背</a>
-</nav>
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="bg-rose-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wider">Lesson 1</span>
+                <div>
+                    <h1 class="text-lg font-bold text-slate-900 leading-tight">福岡機場入境 ✈️</h1>
+                    <p class="text-xs sm:text-sm text-slate-500">9 天 8 夜雙語口說指南</p>
+                </div>
+            </div>
+            
+            <!-- Global Voice Speed Controller -->
+            <div class="flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+                <i class="fa-solid fa-gauge-high text-slate-500 text-xs sm:text-sm pl-1"></i>
+                <span class="text-xs sm:text-sm font-medium text-slate-600">語速:</span>
+                <button onclick="setGlobalRate(0.75)" id="btn-rate-slow" class="px-2.5 py-1 text-xs sm:text-sm rounded-lg font-semibold transition-all bg-white text-slate-800 shadow-sm">0.75x 慢</button>
+                <button onclick="setGlobalRate(1.0)" id="btn-rate-normal" class="px-2.5 py-1 text-xs sm:text-sm rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900">1.0x 常</button>
+            </div>
+        </div>
 
-<h2 class="section-title">🛂 入境問答練習</h2>
+        <!-- Section Navigation Tabs -->
+        <div class="max-w-4xl mx-auto px-2 flex space-x-1.5 overflow-x-auto no-scrollbar text-xs sm:text-sm border-t border-slate-100 py-2">
+            <a href="#dialogue" class="flex-shrink-0 px-3.5 py-1.5 rounded-lg font-medium text-slate-600 hover:bg-slate-100 hover:text-rose-600 active:bg-rose-50"><i class="fa-solid fa-comments mr-1 text-rose-500"></i>情境對話</a>
+            <a href="#vocabulary" class="flex-shrink-0 px-3.5 py-1.5 rounded-lg font-medium text-slate-600 hover:bg-slate-100 hover:text-blue-600 active:bg-blue-50"><i class="fa-solid fa-book-bookmark mr-1 text-blue-500"></i>單字表</a>
+            <a href="#must-know" class="flex-shrink-0 px-3.5 py-1.5 rounded-lg font-medium text-slate-600 hover:bg-slate-100 hover:text-amber-600 active:bg-amber-50"><i class="fa-solid fa-star mr-1 text-amber-500"></i>必背 10 句</a>
+            <a href="#patterns" class="flex-shrink-0 px-3.5 py-1.5 rounded-lg font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600 active:bg-emerald-50"><i class="fa-solid fa-cubes mr-1 text-emerald-500"></i>5 大句型</a>
+            <a href="#practice" class="flex-shrink-0 px-3.5 py-1.5 rounded-lg font-medium text-rose-700 bg-rose-50 font-bold border border-rose-200"><i class="fa-solid fa-headset mr-1"></i>海關口說特訓</a>
+        </div>
+    </header>
 
-<details class="card" id="q1" open><summary>① 來日本做什麼？</summary><div class="content">
-<div class="q">👮‍♂️ 入境人員</div>
-<div class="lang jp"><div class="label">🇯🇵 日文</div><div class="phrase">旅行ですか？</div><div class="reading">りょこうですか？｜Ryokō desu ka?</div><button onclick="speak('旅行ですか？','ja-JP')">🔊 聽日文</button></div>
-<div class="lang en"><div class="label">🇺🇸 English</div><div class="phrase">Are you here for a trip?</div><button onclick="speak('Are you here for a trip?','en-US')">🔊 Listen</button></div>
-<div class="lang zh">🇹🇼 你是來旅行的嗎？</div>
-<div class="answer"><b>🙋 你的回答</b><div class="phrase">はい、旅行です。</div><div class="reading">Hai, ryokō desu.</div><div class="meaning">是的，我是來旅行的。</div><button onclick="speak('はい、旅行です。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">Yes, I'm here for a trip.</div><button onclick="speak(`Yes, I'm here for a trip.`,'en-US')">🔊 English</button></div>
-</div></details>
+    <main class="max-w-4xl mx-auto px-4 py-6 space-y-8">
 
-<details class="card" id="q2"><summary>② 在日本待幾天？</summary><div class="content">
-<div class="q">👮‍♂️ 何日間、日本にいますか？</div><div class="reading">なんにちかん、日本にいますか？｜Nan-nichi-kan, Nihon ni imasu ka?</div><button onclick="speak('何日間、日本にいますか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">How many days are you staying in Japan?</div><button onclick="speak('How many days are you staying in Japan?','en-US')">🔊 English</button></div>
-<div class="answer"><b>🙋 你的回答</b><div class="phrase">九日間です。</div><div class="reading">きゅうにちかんです。｜Kyū-nichi-kan desu.</div><div class="meaning">九天。</div><button onclick="speak('九日間です。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm staying for nine days.</div><button onclick="speak(`I'm staying for nine days.`,'en-US')">🔊 English</button><div class="note">⭐ 注意：❌ I am stay　✅ I'm staying for nine days.</div></div>
-</div></details>
+        <!-- Itinerary Summary Card -->
+        <section class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-5 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 opacity-10 text-9xl">✈️</div>
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3 mb-4">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🇯🇵</span>
+                    <span class="font-bold tracking-wide text-base text-amber-400">個人實戰行程資訊卡</span>
+                </div>
+                <span class="bg-indigo-500/30 text-indigo-300 text-xs sm:text-sm px-3 py-1 rounded-full border border-indigo-400/30 font-medium">10/21 (三) - 10/29 (四) ‧ 9 天 8 夜</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+                <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/50">
+                    <div class="text-slate-400 mb-1"><i class="fa-solid fa-hotel text-indigo-400 mr-1.5"></i>住宿飯店</div>
+                    <div class="font-semibold text-white text-base truncate">BASE LAYER HOTEL FUKUOKA</div>
+                    <div class="text-slate-400 text-xs mt-0.5">ベースレイヤーホテル福岡</div>
+                </div>
+                <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/50">
+                    <div class="text-slate-400 mb-1"><i class="fa-solid fa-bullseye text-rose-400 mr-1.5"></i>旅行目的</div>
+                    <div class="font-semibold text-white text-base">觀光 ＋ 購物</div>
+                    <div class="text-slate-400 text-xs mt-0.5">観光と買い物 (Sightseeing & Shopping)</div>
+                </div>
+                <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/50">
+                    <div class="text-slate-400 mb-1"><i class="fa-solid fa-users text-emerald-400 mr-1.5"></i>同行人數</div>
+                    <div class="font-semibold text-white text-base">與朋友同行 (With Friend)</div>
+                    <div class="text-slate-400 text-xs mt-0.5">友達と一緒に (Not alone)</div>
+                </div>
+            </div>
+        </section>
 
-<details class="card" id="q3"><summary>③ 你住在哪裡？</summary><div class="content">
-<div class="q">👮‍♂️ どこに泊まりますか？</div><div class="reading">どこに とまりますか？｜Doko ni tomarimasu ka?</div><button onclick="speak('どこに泊まりますか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">Where are you staying?</div><button onclick="speak('Where are you staying?','en-US')">🔊 English</button></div>
-<div class="answer"><b>🙋 你的回答</b><div class="phrase">ベースレイヤーホテル福岡に泊まります。</div><div class="reading">Bēsu reiyā hoteru Fukuoka ni tomarimasu.</div><button onclick="speak('ベースレイヤーホテル福岡に泊まります。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm staying at BASE LAYER HOTEL FUKUOKA.</div></div>
-<div class="note">⭐ 泊まります＝住宿。旅行住飯店常用「ホテルに泊まります」。</div>
-</div></details>
+        <!-- ① 機場入境情境對話 -->
+        <section id="dialogue" class="scroll-mt-24">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2.5 h-7 bg-rose-600 rounded-full"></div>
+                    <h2 class="text-xl font-bold text-slate-900">① ✈️ 機場入境 9 大實戰對話</h2>
+                </div>
+                <span class="text-xs sm:text-sm text-slate-500 bg-slate-100 px-3 py-1 rounded-lg">點擊 🔊 聽高音質雙語語音</span>
+            </div>
 
-<details class="card" id="q4"><summary>④ 是一個人來嗎？</summary><div class="content">
-<div class="q">👮‍♂️ 一人で来ましたか？</div><div class="reading">ひとりで きましたか？｜Hitori de kimashita ka?</div><button onclick="speak('一人で来ましたか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">Did you come alone?</div><button onclick="speak('Did you come alone?','en-US')">🔊 English</button></div>
-<div class="answer"><div class="phrase">いいえ、友達と一緒に来ました。</div><div class="reading">Iie, tomodachi to issho ni kimashita.</div><div class="meaning">不，我是和朋友一起來的。</div><button onclick="speak('いいえ、友達と一緒に来ました。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">No, I'm here with my friend.</div></div>
-<div class="note">⭐ A と一緒に＝和 A 一起</div>
-</div></details>
+            <div id="dialogues-container" class="space-y-6">
+                <!-- Dialogue items injected via JS -->
+            </div>
+        </section>
 
-<details class="card" id="q5"><summary>⑤ 第一次來日本嗎？</summary><div class="content">
-<div class="q">👮‍♂️ 日本は初めてですか？</div><div class="reading">にほんは はじめてですか？｜Nihon wa hajimete desu ka?</div><button onclick="speak('日本は初めてですか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">Is this your first time in Japan?</div></div>
-<div class="answer"><div class="phrase">はい、日本は初めてです。</div><div class="reading">Hai, Nihon wa hajimete desu.</div><div class="meaning">是的，這是我第一次來日本。</div><button onclick="speak('はい、日本は初めてです。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">Yes, it's my first time in Japan.</div></div>
-<div class="note">⭐ 初めて（はじめて）＝第一次</div>
-</div></details>
+        <!-- ② 完整單字表 -->
+        <section id="vocabulary" class="scroll-mt-24">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2.5 h-7 bg-blue-600 rounded-full"></div>
+                    <h2 class="text-xl font-bold text-slate-900">📚 ② 第 1 課完整單字表</h2>
+                </div>
+                <!-- Search Box -->
+                <div class="relative w-full sm:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="vocab-search" placeholder="搜尋中/日/英單字..." oninput="filterVocab()" class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm">
+                </div>
+            </div>
 
-<details class="card" id="q6"><summary>⑥ 旅行的目的是什麼？</summary><div class="content">
-<div class="q">👮‍♂️ 旅行の目的は何ですか？</div><div class="reading">りょこうの もくてきは なんですか？｜Ryokō no mokuteki wa nan desu ka?</div><button onclick="speak('旅行の目的は何ですか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">What is the purpose of your trip?</div></div>
-<div class="answer"><div class="phrase">観光に来ました。</div><div class="reading">かんこうに きました。｜Kankō ni kimashita.</div><div class="meaning">我是來觀光的。</div><button onclick="speak('観光に来ました。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm here for sightseeing.</div></div>
-</div></details>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100/80 text-slate-700 font-semibold border-b border-slate-200 text-xs sm:text-sm">
+                                <th class="py-3.5 px-4">日文漢字 / 假名</th>
+                                <th class="py-3.5 px-4">羅馬拼音</th>
+                                <th class="py-3.5 px-4">中文釋義</th>
+                                <th class="py-3.5 px-4">英文 / 簡易發音</th>
+                                <th class="py-3.5 px-4 text-center">🔊 發音播放</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vocab-tbody" class="divide-y divide-slate-100 text-slate-800">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-<details class="card" id="q7"><summary>⑦ 回程班機是什麼時候？</summary><div class="content">
-<div class="q">👮‍♂️ 帰りの飛行機はいつですか？</div><div class="reading">かえりの ひこうきは いつですか？｜Kaeri no hikōki wa itsu desu ka?</div><button onclick="speak('帰りの飛行機はいつですか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">When is your return flight?</div></div>
-<div class="answer"><div class="phrase">10月29日です。</div><div class="reading">じゅうがつ にじゅうくにちです。｜Jūgatsu nijūku-nichi desu.</div><button onclick="speak('10月29日です。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">My return flight is on October 29th.</div></div>
-</div></details>
+        <!-- ⭐ ③ 必背 10 句 -->
+        <section id="must-know" class="scroll-mt-24">
+            <div class="flex items-center space-x-2 mb-4">
+                <div class="w-2.5 h-7 bg-amber-500 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-900">⭐ ③ 出國前必背 10 句</h2>
+            </div>
+            
+            <div id="must-know-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Injected via JS -->
+            </div>
+        </section>
 
-<details class="card" id="q8"><summary>⑧ 在日本去哪裡？</summary><div class="content">
-<div class="q">👮‍♂️ 日本でどこに行きますか？</div><div class="reading">にほんで どこに いきますか？｜Nihon de doko ni ikimasu ka?</div><button onclick="speak('日本でどこに行きますか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">Where will you go in Japan?</div></div>
-<div class="answer"><div class="phrase">福岡に行きます。</div><div class="reading">ふくおかに いきます。｜Fukuoka ni ikimasu.</div><button onclick="speak('福岡に行きます。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm going to Fukuoka.</div></div>
-<div class="grid"><div class="mini"><b>行きます</b><br>いきます｜去</div><div class="mini"><b>来ます</b><br>きます｜來</div><div class="mini"><b>帰ります</b><br>かえります｜回去</div></div>
-</div></details>
+        <!-- 🎯 ④ 5 個核心句型 -->
+        <section id="patterns" class="scroll-mt-24">
+            <div class="flex items-center space-x-2 mb-4">
+                <div class="w-2.5 h-7 bg-emerald-600 rounded-full"></div>
+                <h2 class="text-xl font-bold text-slate-900">🎯 ④ 5 個核心句型與自組公式</h2>
+            </div>
 
-<details class="card" id="q9"><summary>⑨ 在福岡做什麼？</summary><div class="content">
-<div class="q">👮‍♂️ 福岡で何をしますか？</div><div class="reading">ふくおかで なにを しますか？｜Fukuoka de nani o shimasu ka?</div><button onclick="speak('福岡で何をしますか？','ja-JP')">🔊 日文</button>
-<div class="lang en"><div class="phrase">What are you going to do in Fukuoka?</div></div>
-<div class="answer"><div class="phrase">観光と買い物をします。</div><div class="reading">かんこうと かいものを します。｜Kankō to kaimono o shimasu.</div><button onclick="speak('観光と買い物をします。','ja-JP')">🔊 跟讀</button><div class="phrase" style="font-size:17px;margin-top:12px">I'm going sightseeing and shopping.</div></div>
-</div></details>
+            <div id="patterns-container" class="space-y-4">
+                <!-- Injected via JS -->
+            </div>
+        </section>
 
-<section id="words"><h2 class="section-title">📚 第 1 課必背單字</h2>
-<table><tr><th>日文</th><th>假名</th><th>羅馬拼音</th><th>中文</th></tr>
-<tr><td>日本</td><td>にほん</td><td>Nihon</td><td>日本</td></tr><tr><td>福岡</td><td>ふくおか</td><td>Fukuoka</td><td>福岡</td></tr><tr><td>旅行</td><td>りょこう</td><td>Ryokō</td><td>旅行</td></tr><tr><td>観光</td><td>かんこう</td><td>Kankō</td><td>觀光</td></tr><tr><td>買い物</td><td>かいもの</td><td>Kaimono</td><td>購物</td></tr><tr><td>友達</td><td>ともだち</td><td>Tomodachi</td><td>朋友</td></tr><tr><td>一人</td><td>ひとり</td><td>Hitori</td><td>一個人</td></tr><tr><td>初めて</td><td>はじめて</td><td>Hajimete</td><td>第一次</td></tr><tr><td>泊まります</td><td>とまります</td><td>Tomarimasu</td><td>住宿</td></tr><tr><td>行きます</td><td>いきます</td><td>Ikimasu</td><td>去</td></tr><tr><td>来ます</td><td>きます</td><td>Kimasu</td><td>來</td></tr><tr><td>帰ります</td><td>かえります</td><td>Kaerimasu</td><td>回去</td></tr><tr><td>飛行機</td><td>ひこうき</td><td>Hikōki</td><td>飛機</td></tr><tr><td>帰り</td><td>かえり</td><td>Kaeri</td><td>回程</td></tr><tr><td>何日間</td><td>なんにちかん</td><td>Nan-nichi-kan</td><td>幾天</td></tr><tr><td>目的</td><td>もくてき</td><td>Mokuteki</td><td>目的</td></tr><tr><td>どこ</td><td>どこ</td><td>Doko</td><td>哪裡</td></tr><tr><td>いつ</td><td>いつ</td><td>Itsu</td><td>什麼時候</td></tr>
-</table></section>
+        <!-- 🗣️ ⑤ 自我口說特訓 (Practice Mode) -->
+        <section id="practice" class="scroll-mt-24">
+            <div class="bg-gradient-to-br from-rose-950 via-slate-900 to-indigo-950 rounded-3xl p-6 text-white shadow-2xl relative overflow-hidden border border-rose-800/40">
+                <div class="flex items-center justify-between mb-6 border-b border-slate-800/80 pb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-11 h-11 rounded-2xl bg-rose-600 flex items-center justify-center text-2xl font-bold shadow-lg shadow-rose-600/40">
+                            🗣️
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-white">海關對話模擬口說特訓</h2>
+                            <p class="text-xs sm:text-sm text-slate-400">審查官提問 ➔ 倒數練習回答 ➔ 對照標準解答</p>
+                        </div>
+                    </div>
+                    <span id="practice-step-indicator" class="text-xs sm:text-sm font-mono bg-rose-500/20 text-rose-300 border border-rose-500/30 px-3 py-1 rounded-full">1 / 9</span>
+                </div>
 
-<section id="must"><h2 class="section-title">⭐ 一定要會的 10 句</h2><ol class="ten">
-<li>はい、旅行です。<br><small>是的，我是來旅行的。</small></li>
-<li>九日間です。<br><small>九天。</small></li>
-<li>ベースレイヤーホテル福岡に泊まります。<br><small>我住在 BASE LAYER HOTEL FUKUOKA。</small></li>
-<li>友達と一緒に来ました。<br><small>我跟朋友一起來的。</small></li>
-<li>はい、日本は初めてです。<br><small>是的，第一次來日本。</small></li>
-<li>観光に来ました。<br><small>我是來觀光的。</small></li>
-<li>10月29日です。<br><small>10 月 29 日。</small></li>
-<li>福岡に行きます。<br><small>我要去福岡。</small></li>
-<li>観光と買い物をします。<br><small>我要觀光和購物。</small></li>
-<li>I'm staying for nine days.<br><small>我會待九天。</small></li>
-</ol></section>
+                <div class="space-y-6">
+                    <!-- Question area -->
+                    <div class="bg-slate-900/90 border border-slate-800 p-4.5 rounded-2xl space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs sm:text-sm font-semibold text-rose-400 flex items-center"><i class="fa-solid fa-user-shield mr-2"></i>入境審查官 提問 (Officer)</span>
+                            <button onclick="playPracticeOfficerAudio()" class="text-xs sm:text-sm bg-rose-600 hover:bg-rose-500 text-white px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 shadow">
+                                <i class="fa-solid fa-volume-high"></i>
+                                <span>朗讀問題</span>
+                            </button>
+                        </div>
+                        <div id="practice-officer-jp" class="text-xl sm:text-2xl font-bold text-white ruby-text">--</div>
+                        <div id="practice-officer-en" class="text-sm sm:text-base text-slate-200 font-medium">--</div>
+                        <div id="practice-officer-zh" class="text-xs sm:text-sm text-slate-400">--</div>
+                    </div>
 
-<h2 class="section-title">🎯 5 個核心句型</h2>
-<div class="grid"><div class="mini">① ～です。<br>→ 是～</div><div class="mini">② ～に泊まります。<br>→ 住在～</div><div class="mini">③ ～と一緒に来ました。<br>→ 和～一起來</div><div class="mini">④ ～に行きます。<br>→ 去～</div><div class="mini">⑤ ～をします。<br>→ 做～</div></div>
+                    <!-- Answer reveal area -->
+                    <div class="bg-slate-900/60 border border-slate-800 p-4.5 rounded-2xl space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs sm:text-sm font-semibold text-emerald-400 flex items-center"><i class="fa-solid fa-circle-check mr-2"></i>你的標準回答 (Your Answer)</span>
+                            <button id="btn-reveal-answer" onclick="toggleAnswerReveal()" class="text-xs sm:text-sm bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3.5 py-1.5 rounded-xl transition">
+                                👁️ 顯示參考回答
+                            </button>
+                        </div>
+                        <div id="practice-answer-box" class="hidden space-y-3 pt-3 border-t border-slate-800">
+                            <div id="practice-user-jp" class="text-lg sm:text-xl font-bold text-emerald-300 ruby-text">--</div>
+                            <div id="practice-user-en" class="text-sm sm:text-base text-slate-200 font-medium">--</div>
+                            <div id="practice-user-zh" class="text-xs sm:text-sm text-slate-400">--</div>
+                            <div class="flex space-x-2.5 pt-2">
+                                <button onclick="playPracticeUserJp()" class="text-xs sm:text-sm bg-emerald-600/30 border border-emerald-500/40 text-emerald-200 px-3 py-1.5 rounded-xl hover:bg-emerald-600/50 transition">🔊 日文回答</button>
+                                <button onclick="playPracticeUserEn()" class="text-xs sm:text-sm bg-blue-600/30 border border-blue-500/40 text-blue-200 px-3 py-1.5 rounded-xl hover:bg-blue-600/50 transition">🔊 英文回答</button>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="footer">🇯🇵 日本福岡旅行口說練習｜第 1 課：機場入境 ✈️</div>
-</div>
-<script>
-function speak(text,lang){
- if(!('speechSynthesis' in window)){alert('此瀏覽器不支援語音朗讀');return}
- speechSynthesis.cancel();
- const u=new SpeechSynthesisUtterance(text);u.lang=lang;u.rate=.85;speechSynthesis.speak(u);
-}
-</script>
-</body></html>
+                    <!-- Navigation controls -->
+                    <div class="flex items-center justify-between pt-2">
+                        <button onclick="prevPracticeStep()" class="px-4 py-2 text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl transition border border-slate-700">
+                            <i class="fa-solid fa-arrow-left mr-1.5"></i>上一題
+                        </button>
+                        <button onclick="nextPracticeStep()" class="px-5 py-2 text-xs sm:text-sm font-bold bg-rose-600 hover:bg-rose-500 text-white rounded-xl transition shadow-lg shadow-rose-600/30">
+                            下一題 <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Global speech speed
+        let speechRate = 0.75; // Default slow rate for practice clarity
+
+        function setGlobalRate(rate) {
+            speechRate = rate;
+            document.getElementById('btn-rate-slow').className = rate === 0.75 
+                ? 'px-2.5 py-1 text-xs sm:text-sm rounded-lg font-semibold transition-all bg-white text-slate-800 shadow-sm' 
+                : 'px-2.5 py-1 text-xs sm:text-sm rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900';
+            document.getElementById('btn-rate-normal').className = rate === 1.0 
+                ? 'px-2.5 py-1 text-xs sm:text-sm rounded-lg font-semibold transition-all bg-white text-slate-800 shadow-sm' 
+                : 'px-2.5 py-1 text-xs sm:text-sm rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900';
+        }
+
+        // Web Speech API wrapper with fallback voice picker
+        function speak(text, lang) {
+            if (!('speechSynthesis' in window)) {
+                alert('您的瀏覽器不支援 Web Speech 語音合成功能！');
+                return;
+            }
+            window.speechSynthesis.cancel(); // cancel any active speech
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = lang;
+            utterance.rate = speechRate;
+
+            const voices = window.speechSynthesis.getVoices();
+            if (voices && voices.length > 0) {
+                if (lang === 'ja-JP') {
+                    const jaVoice = voices.find(v => v.lang.includes('ja') || v.lang.includes('JP'));
+                    if (jaVoice) utterance.voice = jaVoice;
+                } else if (lang === 'en-US') {
+                    const enVoice = voices.find(v => v.lang.includes('en-US') || v.lang.includes('en'));
+                    if (enVoice) utterance.voice = enVoice;
+                }
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        const dialogues = [
+            {
+                id: 1,
+                topic: "① 來日本做什麼？",
+                officer: {
+                    zh: "你是來旅行的嗎？",
+                    jpKanji: "旅行ですか？",
+                    jpKana: "りょこうですか？",
+                    jpRomaji: "Ryokō desu ka?",
+                    en: "Are you here for a trip?",
+                    enPhonetic: "ar yoo heer fer uh trip?"
+                },
+                user: {
+                    zh: "是的，我是來旅行的。",
+                    jpKanji: "はい、旅行です。",
+                    jpKana: "はい、りょこうです。",
+                    jpRomaji: "Hai, ryokō desu.",
+                    en: "Yes, I'm here for a trip.",
+                    enPhonetic: "yes, aym heer fer uh trip."
+                },
+                note: "入境官通常問法很簡短，直接回答「はい、旅行です」或「Yes, I'm here for a trip」即可。"
+            },
+            {
+                id: 2,
+                topic: "② 在日本待幾天？",
+                officer: {
+                    zh: "你會在日本待幾天？",
+                    jpKanji: "何日間、日本にいますか？",
+                    jpKana: "なんにちかん、にほんに いますか？",
+                    jpRomaji: "Nan-nichi-kan, Nihon ni imasu ka?",
+                    en: "How many days are you staying in Japan?",
+                    enPhonetic: "how men-ee dayz ar yoo stay-ing in juh-PAN?"
+                },
+                user: {
+                    zh: "九天。",
+                    jpKanji: "九日間です。",
+                    jpKana: "きゅうにちかんです。",
+                    jpRomaji: "Kyū-nichi-kan desu.",
+                    en: "I'm staying for nine days.",
+                    enPhonetic: "aym stay-ing fer nyne dayz."
+                },
+                note: "文法注意：英文要用「am staying」（進行式），避免用 stay 原形（❌ I am stay...）。日文「九日間」唸作「きゅうにちかん (Kyū-nichi-kan)」。"
+            },
+            {
+                id: 3,
+                topic: "③ 你住在哪裡？",
+                officer: {
+                    zh: "你住在哪裡？",
+                    jpKanji: "どこに泊まりますか？",
+                    jpKana: "どこに とまりますか？",
+                    jpRomaji: "Doko ni tomarimasu ka?",
+                    en: "Where are you staying?",
+                    enPhonetic: "wair ar yoo stay-ing?"
+                },
+                user: {
+                    zh: "我住在 BASE LAYER HOTEL FUKUOKA。",
+                    jpKanji: "ベースレイヤーホテル福岡に泊まります。",
+                    jpKana: "ベースレイヤーホテルふくおかに とまります。",
+                    jpRomaji: "Bēsu reiyā hoteru Fukuoka ni tomarimasu.",
+                    en: "I'm staying at BASE LAYER HOTEL FUKUOKA.",
+                    enPhonetic: "aym stay-ing at beys LAY-er ho-TEL foo-koo-OH-kah."
+                },
+                note: "⚠️ 重要單字：住飯店請用「泊まります (tomarimasu)」，不要用「住みます (sumimasu)」或英文「live in」（那是長期定居的意思）。"
+            },
+            {
+                id: 4,
+                topic: "④ 是一個人來嗎？",
+                officer: {
+                    zh: "你是一個人來的嗎？",
+                    jpKanji: "一人で来ましたか？",
+                    jpKana: "ひとりで きましたか？",
+                    jpRomaji: "Hitori de kimashita ka?",
+                    en: "Did you come alone?",
+                    enPhonetic: "did yoo kum uh-LOHN?"
+                },
+                user: {
+                    zh: "不，我是和朋友一起來的。",
+                    jpKanji: "いいえ、友達と一緒に来ました。",
+                    jpKana: "いいえ、ともだちと いっしょに きました。",
+                    jpRomaji: "Iie, tomodachi to issho ni kimashita.",
+                    en: "No, I'm here with my friend.",
+                    enPhonetic: "noh, aym heer with my frend."
+                },
+                note: "核心句型：日文「A と一緒に（與 A 一起）」；英文「with my friend」。"
+            },
+            {
+                id: 5,
+                topic: "⑤ 第一次來日本嗎？",
+                officer: {
+                    zh: "這是你第一次來日本嗎？",
+                    jpKanji: "日本は初めてですか？",
+                    jpKana: "にほんは はじめてですか？",
+                    jpRomaji: "Nihon wa hajimete desu ka?",
+                    en: "Is this your first time in Japan?",
+                    enPhonetic: "iz this yoor ferst time in juh-PAN?"
+                },
+                user: {
+                    zh: "是的，這是我第一次來日本。",
+                    jpKanji: "はい、日本は初めてです。",
+                    jpKana: "はい、にほんは はじめてです。",
+                    jpRomaji: "Hai, Nihon wa hajimete desu.",
+                    en: "Yes, it's my first time in Japan.",
+                    enPhonetic: "yes, its my ferst time in juh-PAN."
+                },
+                note: "第一次的日文是副詞/名詞「初めて (はじめて / hajimete)」，注意最後有「て」。"
+            },
+            {
+                id: 6,
+                topic: "⑥ 旅行的目的是什麼？",
+                officer: {
+                    zh: "你這次旅行的目的是什麼？",
+                    jpKanji: "旅行の目的は何ですか？",
+                    jpKana: "りょこうの もくてきは なんですか？",
+                    jpRomaji: "Ryokō no mokuteki wa nan desu ka?",
+                    en: "What is the purpose of your trip?",
+                    enPhonetic: "wuht iz thuh PUR-pus uv yoor trip?"
+                },
+                user: {
+                    zh: "我是來觀光的。",
+                    jpKanji: "観光に来ました。",
+                    jpKana: "かんこうに きました。",
+                    jpRomaji: "Kankō ni kimashita.",
+                    en: "I'm here for sightseeing.",
+                    enPhonetic: "aym heer fer SYTE-see-ing."
+                },
+                note: "目的句型：「[目的]＋に来ました」（為了～而來）。"
+            },
+            {
+                id: 7,
+                topic: "⑦ 回程班機是什麼時候？",
+                officer: {
+                    zh: "你的回程班機是什麼時候？",
+                    jpKanji: "帰りの飛行機はいつですか？",
+                    jpKana: "かえりの ひこうきは いつですか？",
+                    jpRomaji: "Kaeri no hikōki wa itsu desu ka?",
+                    en: "When is your return flight?",
+                    enPhonetic: "wen iz yoor ree-TURN flight?"
+                },
+                user: {
+                    zh: "10 月 29 日。",
+                    jpKanji: "10月29日です。",
+                    jpKana: "じゅうがつ にじゅうくにちです。",
+                    jpRomaji: "Jūgatsu nijūku-nichi desu.",
+                    en: "My return flight is on October 29th.",
+                    enPhonetic: "my ree-TURN flight iz on ok-TOH-ber twen-tee-NYNTH."
+                },
+                note: "日文 29 日讀作「にじゅうくにち (nijūku-nichi)」，英文 October 29th 序數詞結尾帶 th。"
+            },
+            {
+                id: 8,
+                topic: "⑧ 在日本去哪裡？",
+                officer: {
+                    zh: "你在日本會去哪裡？",
+                    jpKanji: "日本でどこに行きますか？",
+                    jpKana: "にほんで どこに いきますか？",
+                    jpRomaji: "Nihon de doko ni ikimasu ka?",
+                    en: "Where will you go in Japan?",
+                    enPhonetic: "wair wil yoo goh in juh-PAN?"
+                },
+                user: {
+                    zh: "我要去福岡。",
+                    jpKanji: "福岡に行きます。",
+                    jpKana: "ふくおかに いきます。",
+                    jpRomaji: "Fukuoka ni ikimasu.",
+                    en: "I'm going to Fukuoka.",
+                    enPhonetic: "aym goh-ing too foo-koo-OH-kah."
+                },
+                note: "動詞區分：行きます (ikimasu = 去) / 来ます (kimasu = 來) / 帰ります (kaerimasu = 回去)。"
+            },
+            {
+                id: 9,
+                topic: "⑨ 在福岡做什麼？",
+                officer: {
+                    zh: "你在福岡要做什麼？",
+                    jpKanji: "福岡で何をしますか？",
+                    jpKana: "ふくおかで なにを しますか？",
+                    jpRomaji: "Fukuoka de nani o shimasu ka?",
+                    en: "What are you going to do in Fukuoka?",
+                    enPhonetic: "wuht ar yoo goh-ing too doo in foo-koo-OH-kah?"
+                },
+                user: {
+                    zh: "我要觀光和購物。",
+                    jpKanji: "観光と買い物をします。",
+                    jpKana: "かんこうと かいものを します。",
+                    jpRomaji: "Kankō to kaimono o shimasu.",
+                    en: "I'm going sightseeing and shopping.",
+                    enPhonetic: "aym goh-ing SYTE-see-ing and SHOP-ing."
+                },
+                note: "日文「～と～をします」表示「做 A 和 B」；英文用「go + V-ing」。"
+            }
+        ];
+
+        const vocabularyData = [
+            { jp: "旅行", kana: "りょこう", romaji: "Ryokō", zh: "旅行", en: "trip", enPhonetic: "trip" },
+            { jp: "観光", kana: "かんこう", romaji: "Kankō", zh: "觀光", en: "sightseeing", enPhonetic: "SYTE-see-ing" },
+            { jp: "買い物", kana: "かいもの", romaji: "Kaimono", zh: "購物", en: "shopping", enPhonetic: "SHOP-ing" },
+            { jp: "友達", kana: "ともだち", romaji: "Tomodachi", zh: "朋友", en: "friend", enPhonetic: "frend" },
+            { jp: "初めて", kana: "はじめて", romaji: "Hajimete", zh: "第一次", en: "first time", enPhonetic: "ferst time" },
+            { jp: "飛行機", kana: "ひこうき", romaji: "Hikōki", zh: "飛機", en: "airplane / flight", enPhonetic: "AIR-plane / flight" },
+            { jp: "帰り", kana: "かえり", romaji: "Kaeri", zh: "回程", en: "return", enPhonetic: "ree-TURN" },
+            { jp: "目的", kana: "もくてき", romaji: "Mokuteki", zh: "目的", en: "purpose", enPhonetic: "PUR-pus" },
+            { jp: "日本", kana: "にほん", romaji: "Nihon", zh: "日本", en: "Japan", enPhonetic: "juh-PAN" },
+            { jp: "福岡", kana: "ふくおか", romaji: "Fukuoka", zh: "福岡", en: "Fukuoka", enPhonetic: "foo-koo-OH-kah" },
+            { jp: "行きます", kana: "いきます", romaji: "Ikimasu", zh: "去", en: "go", enPhonetic: "goh" },
+            { jp: "来ます", kana: "きます", romaji: "Kimasu", zh: "來", en: "come", enPhonetic: "kum" },
+            { jp: "帰ります", kana: "かえります", romaji: "Kaerimasu", zh: "回去", en: "return / go back", enPhonetic: "ree-TURN / goh back" },
+            { jp: "泊まります", kana: "とまります", romaji: "Tomarimasu", zh: "住宿", en: "stay", enPhonetic: "stay" },
+            { jp: "何", kana: "なに／なん", romaji: "Nani / Nan", zh: "什麼", en: "what", enPhonetic: "wuht" },
+            { jp: "どこ", kana: "どこ", romaji: "Doko", zh: "哪裡", en: "where", enPhonetic: "wair" },
+            { jp: "いつ", kana: "いつ", romaji: "Itsu", zh: "什麼時候", en: "when", enPhonetic: "wen" },
+            { jp: "一人", kana: "ひとり", romaji: "Hitori", zh: "一個人", en: "alone", enPhonetic: "uh-LOHN" }
+        ];
+
+        const mustKnowSentences = [
+            { id: 1, zh: "是的，我是來旅行的。", jp: "はい、旅行です。", kana: "はい、りょこうです。", romaji: "Hai, ryokō desu.", en: "Yes, I'm here for a trip.", enPhonetic: "yes, aym heer fer uh trip." },
+            { id: 2, zh: "我會待九天。", jp: "九日間です。", kana: "きゅうにちかんです。", romaji: "Kyū-nichi-kan desu.", en: "I'm staying for nine days.", enPhonetic: "aym stay-ing fer nyne dayz." },
+            { id: 3, zh: "我住在 BASE LAYER HOTEL FUKUOKA。", jp: "ベースレイヤーホテル福岡に泊まります。", kana: "ベースレイヤーホテルふくおかに とまります。", romaji: "Bēsu reiyā hoteru Fukuoka ni tomarimasu.", en: "I'm staying at BASE LAYER HOTEL FUKUOKA.", enPhonetic: "aym stay-ing at beys LAY-er ho-TEL foo-koo-OH-kah." },
+            { id: 4, zh: "不，我是和朋友一起來的。", jp: "いいえ、友達と一緒に来ました。", kana: "いいえ、ともだちと いっしょに きました。", romaji: "Iie, tomodachi to issho ni kimashita.", en: "No, I'm here with my friend.", enPhonetic: "noh, aym heer with my frend." },
+            { id: 5, zh: "是的，這是我第一次來日本。", jp: "はい、日本は初めてです。", kana: "はい、にほんは はじめてです。", romaji: "Hai, Nihon wa hajimete desu.", en: "Yes, it's my first time in Japan.", enPhonetic: "yes, its my ferst time in juh-PAN." },
+            { id: 6, zh: "我是來觀光的。", jp: "観光に来ました。", kana: "かんこうに きました。", romaji: "Kankō ni kimashita.", en: "I'm here for sightseeing.", enPhonetic: "aym heer fer SYTE-see-ing." },
+            { id: 7, zh: "我的回程班機是 10 月 29 日。", jp: "10月29日です。", kana: "じゅうがつ にじゅうくにちです。", romaji: "Jūgatsu nijūku-nichi desu.", en: "My return flight is on October 29th.", enPhonetic: "my ree-TURN flight iz on ok-TOH-ber twen-tee-NYNTH." },
+            { id: 8, zh: "我要去福岡。", jp: "福岡に行きます。", kana: "ふくおかに いきます。", romaji: "Fukuoka ni ikimasu.", en: "I'm going to Fukuoka.", enPhonetic: "aym goh-ing too foo-koo-OH-kah." },
+            { id: 9, zh: "我要觀光和購物。", jp: "観光と買い物をします。", kana: "かんこうと かいものを します。", romaji: "Kankō to kaimono o shimasu.", en: "I'm going sightseeing and shopping.", enPhonetic: "aym goh-ing SYTE-see-ing and SHOP-ing." },
+            { id: 10, zh: "我可以這樣說嗎？（實用旅用詢問）", jp: "こう言ってもいいですか？", kana: "こう いっても いいですか？", romaji: "Kō ittemo ii desu ka?", en: "Can I say it like this?", enPhonetic: "kan ay say it lyke this?" }
+        ];
+
+        const corePatterns = [
+            {
+                num: "①",
+                formula: "～です。",
+                meaning: "是～",
+                jpEx: "旅行です。",
+                kanaEx: "りょこうです。",
+                romajiEx: "Ryokō desu.",
+                zhEx: "是旅行。",
+                enEx: "It is for a trip.",
+                enPhonetic: "it iz fer uh trip."
+            },
+            {
+                num: "②",
+                formula: "～に泊まります。",
+                meaning: "住在～",
+                jpEx: "ホテルに泊まります。",
+                kanaEx: "ホテルに とまります。",
+                romajiEx: "Hoteru ni tomarimasu.",
+                zhEx: "我住飯店。",
+                enEx: "I'm staying at the hotel.",
+                enPhonetic: "aym stay-ing at thuh ho-TEL."
+            },
+            {
+                num: "③",
+                formula: "～と一緒に来ました。",
+                meaning: "和～一起來",
+                jpEx: "友達と一緒に来ました。",
+                kanaEx: "ともだちと いっしょに きました。",
+                romajiEx: "Tomodachi to issho ni kimashita.",
+                zhEx: "我和朋友一起來。",
+                enEx: "I came with my friend.",
+                enPhonetic: "ay kaym with my frend."
+            },
+            {
+                num: "④",
+                formula: "～に行きます。",
+                meaning: "去～",
+                jpEx: "福岡に行きます。",
+                kanaEx: "ふくおかに いきます。",
+                romajiEx: "Fukuoka ni ikimasu.",
+                zhEx: "我要去福岡。",
+                enEx: "I'm going to Fukuoka.",
+                enPhonetic: "aym goh-ing too foo-koo-OH-kah."
+            },
+            {
+                num: "⑤",
+                formula: "～をします。",
+                meaning: "做～",
+                jpEx: "観光と買い物をします。",
+                kanaEx: "かんこうと かいものを します。",
+                romajiEx: "Kankō to kaimono o shimasu.",
+                zhEx: "我要觀光和購物。",
+                enEx: "I'm going sightseeing and shopping.",
+                enPhonetic: "aym goh-ing SYTE-see-ing and SHOP-ing."
+            }
+        ];
+
+        function playDialogueOfficerJp(idx) { speak(dialogues[idx].officer.jpKanji, 'ja-JP'); }
+        function playDialogueOfficerEn(idx) { speak(dialogues[idx].officer.en, 'en-US'); }
+        function playDialogueUserJp(idx) { speak(dialogues[idx].user.jpKanji, 'ja-JP'); }
+        function playDialogueUserEn(idx) { speak(dialogues[idx].user.en, 'en-US'); }
+
+        function playVocabJp(idx) { speak(vocabularyData[idx].jp, 'ja-JP'); }
+        function playVocabEn(idx) { speak(vocabularyData[idx].en, 'en-US'); }
+
+        function playMustKnowJp(idx) { speak(mustKnowSentences[idx].jp, 'ja-JP'); }
+        function playMustKnowEn(idx) { speak(mustKnowSentences[idx].en, 'en-US'); }
+
+        function playPatternJp(idx) { speak(corePatterns[idx].jpEx, 'ja-JP'); }
+        function playPatternEn(idx) { speak(corePatterns[idx].enEx, 'en-US'); }
+
+        function renderDialogues() {
+            const container = document.getElementById('dialogues-container');
+            container.innerHTML = dialogues.map((item, idx) => `
+                <div class="bg-white rounded-2xl border border-slate-200 p-4.5 shadow-sm space-y-4 hover:shadow-md transition">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                        <span class="text-base font-bold text-slate-800">${item.topic}</span>
+                        <span class="text-xs bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full font-semibold border border-rose-100">海關必考</span>
+                    </div>
+
+                    <!-- Officer Question Block -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs sm:text-sm font-bold text-slate-500 flex items-center">
+                                <span class="text-lg mr-1.5">👮‍♂️</span> 入境人員 (Officer)
+                            </span>
+                        </div>
+                        
+                        <!-- Japanese -->
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <div class="text-base sm:text-lg font-bold text-slate-900 ruby-text">
+                                    <ruby>${item.officer.jpKanji}<rt>${item.officer.jpKana}</rt></ruby>
+                                </div>
+                                <div class="text-xs sm:text-sm text-slate-500 font-mono mt-0.5">${item.officer.jpRomaji}</div>
+                            </div>
+                            <button onclick="playDialogueOfficerJp(${idx})" class="flex items-center space-x-1 bg-rose-50 text-rose-600 hover:bg-rose-100 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition shadow-sm">
+                                <i class="fa-solid fa-volume-high"></i>
+                                <span>日文</span>
+                            </button>
+                        </div>
+
+                        <!-- English -->
+                        <div class="flex items-start justify-between pt-2 border-t border-slate-200/60">
+                            <div>
+                                <div class="text-sm sm:text-base font-semibold text-slate-800">${item.officer.en}</div>
+                                <div class="text-xs sm:text-sm text-blue-600 font-mono">發音: [ ${item.officer.enPhonetic} ]</div>
+                            </div>
+                            <button onclick="playDialogueOfficerEn(${idx})" class="flex items-center space-x-1 bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition shadow-sm">
+                                <i class="fa-solid fa-volume-high"></i>
+                                <span>英文</span>
+                            </button>
+                        </div>
+
+                        <!-- Chinese -->
+                        <div class="text-xs sm:text-sm text-slate-600 pt-1">中文：${item.officer.zh}</div>
+                    </div>
+
+                    <!-- User Answer Block -->
+                    <div class="bg-emerald-50/50 p-4 rounded-xl border border-emerald-200/80 space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs sm:text-sm font-bold text-emerald-700 flex items-center">
+                                <span class="text-lg mr-1.5">🙋</span> 你的回答 (Your Answer)
+                            </span>
+                        </div>
+
+                        <!-- Japanese -->
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <div class="text-lg sm:text-xl font-bold text-emerald-950 ruby-text">
+                                    <ruby>${item.user.jpKanji}<rt>${item.user.jpKana}</rt></ruby>
+                                </div>
+                                <div class="text-xs sm:text-sm text-emerald-700 font-mono mt-0.5">${item.user.jpRomaji}</div>
+                            </div>
+                            <button onclick="playDialogueUserJp(${idx})" class="flex items-center space-x-1 bg-emerald-600 text-white hover:bg-emerald-700 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition shadow">
+                                <i class="fa-solid fa-volume-high"></i>
+                                <span>日文</span>
+                            </button>
+                        </div>
+
+                        <!-- English -->
+                        <div class="flex items-start justify-between pt-2 border-t border-emerald-200/60">
+                            <div>
+                                <div class="text-sm sm:text-base font-semibold text-slate-900">${item.user.en}</div>
+                                <div class="text-xs sm:text-sm text-emerald-800 font-mono">發音: [ ${item.user.enPhonetic} ]</div>
+                            </div>
+                            <button onclick="playDialogueUserEn(${idx})" class="flex items-center space-x-1 bg-blue-600 text-white hover:bg-blue-700 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition shadow">
+                                <i class="fa-solid fa-volume-high"></i>
+                                <span>英文</span>
+                            </button>
+                        </div>
+
+                        <!-- Chinese -->
+                        <div class="text-xs sm:text-sm text-emerald-900 pt-1">中文：${item.user.zh}</div>
+                    </div>
+
+                    <!-- Tip -->
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200/70 text-xs sm:text-sm text-amber-900 flex items-start space-x-2">
+                        <i class="fa-regular fa-lightbulb text-amber-600 mt-0.5 text-base"></i>
+                        <span><strong>💡 重要說明：</strong>${item.note}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderVocabTable(data = vocabularyData) {
+            const tbody = document.getElementById('vocab-tbody');
+            tbody.innerHTML = data.map((item, idx) => `
+                <tr class="hover:bg-slate-50 transition">
+                    <td class="py-3 px-4">
+                        <div class="font-bold text-slate-900 text-base">${item.jp}</div>
+                        <div class="text-xs text-slate-500">${item.kana}</div>
+                    </td>
+                    <td class="py-3 px-4 font-mono text-xs sm:text-sm text-slate-600">${item.romaji}</td>
+                    <td class="py-3 px-4 font-semibold text-slate-800 text-sm sm:text-base">${item.zh}</td>
+                    <td class="py-3 px-4">
+                        <div class="font-semibold text-slate-900 text-sm sm:text-base">${item.en}</div>
+                        <div class="text-xs text-blue-600 font-mono">${item.enPhonetic}</div>
+                    </td>
+                    <td class="py-3 px-4 text-center">
+                        <div class="flex items-center justify-center space-x-1.5">
+                            <button onclick="playVocabJp(${idx})" title="播放日文" class="px-2.5 py-1.5 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg text-xs sm:text-sm font-medium transition">
+                                🔊 日
+                            </button>
+                            <button onclick="playVocabEn(${idx})" title="播放英文" class="px-2.5 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg text-xs sm:text-sm font-medium transition">
+                                🔊 英
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterVocab() {
+            const query = document.getElementById('vocab-search').value.toLowerCase().trim();
+            if (!query) {
+                renderVocabTable(vocabularyData);
+                return;
+            }
+            const filtered = vocabularyData.filter(item => 
+                item.jp.toLowerCase().includes(query) ||
+                item.kana.toLowerCase().includes(query) ||
+                item.romaji.toLowerCase().includes(query) ||
+                item.zh.toLowerCase().includes(query) ||
+                item.en.toLowerCase().includes(query)
+            );
+            renderVocabTable(filtered);
+        }
+
+        function renderMustKnow() {
+            const container = document.getElementById('must-know-container');
+            container.innerHTML = mustKnowSentences.map((item, idx) => `
+                <div class="bg-white p-4.5 rounded-2xl border border-slate-200 shadow-sm space-y-3 relative hover:border-amber-400 transition">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                        <span class="w-7 h-7 rounded-full bg-amber-500 text-white text-xs sm:text-sm font-bold flex items-center justify-center">${item.id}</span>
+                        <span class="text-sm font-bold text-slate-800">${item.zh}</span>
+                    </div>
+
+                    <!-- Japanese -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-base sm:text-lg font-bold text-slate-900 ruby-text">
+                                <ruby>${item.jp}<rt>${item.kana}</rt></ruby>
+                            </div>
+                            <div class="text-xs text-slate-500 font-mono">${item.romaji}</div>
+                        </div>
+                        <button onclick="playMustKnowJp(${idx})" class="px-2.5 py-1.5 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg text-xs sm:text-sm font-medium">🔊 日文</button>
+                    </div>
+
+                    <!-- English -->
+                    <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                        <div>
+                            <div class="text-sm sm:text-base font-bold text-slate-800">${item.en}</div>
+                            <div class="text-xs text-blue-600 font-mono">[ ${item.enPhonetic} ]</div>
+                        </div>
+                        <button onclick="playMustKnowEn(${idx})" class="px-2.5 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg text-xs sm:text-sm font-medium">🔊 英文</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPatterns() {
+            const container = document.getElementById('patterns-container');
+            container.innerHTML = corePatterns.map((p, idx) => `
+                <div class="bg-white rounded-2xl border border-slate-200 p-4.5 shadow-sm space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-lg font-black text-emerald-600">${p.num}</span>
+                        <span class="text-base sm:text-lg font-bold text-slate-900 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200">${p.formula}</span>
+                        <span class="text-xs sm:text-sm text-slate-600 font-medium">（${p.meaning}）</span>
+                    </div>
+                    
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 space-y-2.5 text-xs sm:text-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="font-bold text-slate-900 text-base">${p.jpEx}</span>
+                                <span class="text-slate-600 text-xs sm:text-sm block font-mono">${p.romajiEx} ➔ ${p.zhEx}</span>
+                            </div>
+                            <button onclick="playPatternJp(${idx})" class="px-3 py-1.5 bg-rose-50 text-rose-600 rounded-lg font-medium hover:bg-rose-100">🔊 日文</button>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-slate-200/60 pt-2">
+                            <div>
+                                <span class="font-bold text-slate-800 text-sm sm:text-base">${p.enEx}</span>
+                                <span class="text-blue-600 text-xs block font-mono">[ ${p.enPhonetic} ]</span>
+                            </div>
+                            <button onclick="playPatternEn(${idx})" class="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-lg font-medium hover:bg-blue-100">🔊 英文</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        let currentPracticeIndex = 0;
+        let answerRevealed = false;
+
+        function updatePracticeUI() {
+            const item = dialogues[currentPracticeIndex];
+            document.getElementById('practice-step-indicator').innerText = `${currentPracticeIndex + 1} / ${dialogues.length}`;
+            
+            document.getElementById('practice-officer-jp').innerHTML = `<ruby>${item.officer.jpKanji}<rt>${item.officer.jpKana}</rt></ruby>`;
+            document.getElementById('practice-officer-en').innerText = `${item.officer.en}`;
+            document.getElementById('practice-officer-zh').innerText = `中文：${item.officer.zh}`;
+
+            document.getElementById('practice-user-jp').innerHTML = `<ruby>${item.user.jpKanji}<rt>${item.user.jpKana}</rt></ruby>`;
+            document.getElementById('practice-user-en').innerText = `${item.user.en} [${item.user.enPhonetic}]`;
+            document.getElementById('practice-user-zh').innerText = `中文：${item.user.zh}`;
+
+            answerRevealed = false;
+            document.getElementById('practice-answer-box').classList.add('hidden');
+            document.getElementById('btn-reveal-answer').innerText = '👁️ 顯示參考回答';
+        }
+
+        function toggleAnswerReveal() {
+            answerRevealed = !answerRevealed;
+            const box = document.getElementById('practice-answer-box');
+            const btn = document.getElementById('btn-reveal-answer');
+            if (answerRevealed) {
+                box.classList.remove('hidden');
+                btn.innerText = '🙈 隱藏參考回答';
+            } else {
+                box.classList.add('hidden');
+                btn.innerText = '👁️ 顯示參考回答';
+            }
+        }
+
+        function playPracticeOfficerAudio() {
+            const item = dialogues[currentPracticeIndex];
+            speak(item.officer.jpKanji, 'ja-JP');
+        }
+
+        function playPracticeUserJp() {
+            const item = dialogues[currentPracticeIndex];
+            speak(item.user.jpKanji, 'ja-JP');
+        }
+
+        function playPracticeUserEn() {
+            const item = dialogues[currentPracticeIndex];
+            speak(item.user.en, 'en-US');
+        }
+
+        function nextPracticeStep() {
+            if (currentPracticeIndex < dialogues.length - 1) {
+                currentPracticeIndex++;
+                updatePracticeUI();
+            } else {
+                currentPracticeIndex = 0;
+                updatePracticeUI();
+            }
+        }
+
+        function prevPracticeStep() {
+            if (currentPracticeIndex > 0) {
+                currentPracticeIndex--;
+                updatePracticeUI();
+            }
+        }
+
+        window.onload = function() {
+            renderDialogues();
+            renderVocabTable();
+            renderMustKnow();
+            renderPatterns();
+            updatePracticeUI();
+
+            // Pre-warm voices
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.getVoices();
+                window.speechSynthesis.onvoiceschanged = function() {
+                    window.speechSynthesis.getVoices();
+                };
+            }
+        };
+    </script>
+</body>
+</html>
