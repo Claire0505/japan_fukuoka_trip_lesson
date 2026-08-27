@@ -43,7 +43,6 @@
       transform: scale(0.97);
       transition: transform 0.1s ease;
     }
-    /* 卡片平滑過渡 */
     .smooth-transition {
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -51,103 +50,132 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen pb-28 select-none">
 
-  <!-- 頂部主要 Header & 課程切換頁籤 -->
+  <!-- 頂部主要 Header -->
   <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md border-b border-slate-800">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-      
-      <!-- 標題與語速調控 -->
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-md">
-            🗣️
-          </div>
-          <div>
-            <h1 class="text-base font-bold leading-snug tracking-wide">日英雙語旅遊實戰隨身機</h1>
-            <p class="text-xs text-slate-400">極簡聽力 • 即點即發音 • 無諧音極致體驗</p>
-          </div>
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-md">
+          🗣️
         </div>
-
-        <!-- 語速切換按鈕 (手機版放在右上角) -->
-        <button id="speed-toggle" onclick="toggleSpeed()" class="tap-effect flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-semibold text-teal-400 hover:bg-slate-700 md:hidden">
-          <i data-lucide="gauge" class="w-4 h-4"></i>
-          <span id="speed-text-mobile">1.0x 正常</span>
-        </button>
+        <div>
+          <h1 class="text-base font-bold leading-snug tracking-wide">日英雙語旅遊實戰隨身機</h1>
+          <p class="text-xs text-slate-400">極簡聽力 • 即點即發音 • 雙語對照</p>
+        </div>
       </div>
 
-      <!-- 課程大關卡選擇器 (Course Selector Tabs) -->
-      <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-1 bg-slate-950/60 p-1.5 rounded-2xl border border-slate-800">
-        <button onclick="switchLesson('lesson1')" id="lesson-btn-lesson1" class="lesson-tab-btn flex-1 min-w-[120px] md:min-w-0 py-2 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center space-x-1.5 bg-teal-500 text-slate-950 shadow-sm">
-          <span>✈️ 第 1 課：入境海關</span>
-        </button>
-        <button onclick="switchLesson('lesson2')" id="lesson-btn-lesson2" class="lesson-tab-btn flex-1 min-w-[120px] md:min-w-0 py-2 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center space-x-1.5 text-slate-400 hover:text-slate-200 hover:bg-slate-800">
-          <span>🚇 第 2 課：交通購票</span>
-        </button>
-        <button onclick="switchLesson('lesson3')" id="lesson-btn-lesson3" class="lesson-tab-btn flex-1 min-w-[120px] md:min-w-0 py-2 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center space-x-1.5 text-slate-400 hover:text-slate-200 hover:bg-slate-800">
-          <span>🏨 第 3 課：飯店住宿</span>
-        </button>
-      </div>
-
-      <!-- 電腦版語速控制區 -->
-      <div class="hidden md:flex items-center space-x-2">
-        <button id="speed-toggle-desktop" onclick="toggleSpeed()" class="tap-effect flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-semibold text-teal-400 hover:bg-slate-700">
-          <i data-lucide="gauge" class="w-4 h-4"></i>
-          <span id="speed-text-desktop">語速：1.0x 正常</span>
-        </button>
-      </div>
-
+      <!-- 語速切換按鈕 -->
+      <button id="speed-toggle" onclick="toggleSpeed()" class="tap-effect flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-semibold text-teal-400 hover:bg-slate-700">
+        <i data-lucide="gauge" class="w-4 h-4"></i>
+        <span id="speed-text-mobile">1.0x 正常</span>
+      </button>
     </div>
   </header>
 
-  <!-- 課內單元 Tab 導航列 -->
-  <nav class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-[105px] md:top-[65px] z-30 px-3 shadow-xs">
-    <div class="max-w-5xl mx-auto flex space-x-1 overflow-x-auto no-scrollbar py-2">
-      <button onclick="switchSubTab('dialogue')" id="subtab-dialogue" class="subtab-btn active-subtab flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1">
-        <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
-        <span>情境對話</span>
-      </button>
-      <button onclick="switchSubTab('vocab')" id="subtab-vocab" class="subtab-btn flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-        <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-        <span>核心單字</span>
-      </button>
-      <button onclick="switchSubTab('must-learn')" id="subtab-must-learn" class="subtab-btn flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-        <i data-lucide="star" class="w-3.5 h-3.5"></i>
-        <span>必背 10 句</span>
-      </button>
-      <button onclick="switchSubTab('patterns')" id="subtab-patterns" class="subtab-btn flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-        <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-        <span>5大句型</span>
-      </button>
-      <button onclick="switchSubTab('quiz')" id="subtab-quiz" class="subtab-btn flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-        <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
-        <span>自我抽考</span>
-      </button>
-    </div>
-  </nav>
-
   <!-- 主要內容區 -->
-  <main class="max-w-5xl mx-auto p-4 md:p-6 space-y-6">
+  <main class="max-w-4xl mx-auto p-4 md:p-6 space-y-5">
 
-    <!-- 課程簡介橫幅 -->
-    <div id="lesson-banner" class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-4 md:p-6 text-white shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
-      <div class="space-y-1">
-        <div class="inline-flex items-center space-x-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 px-3 py-1 rounded-full text-xs font-bold">
+    <!-- 獨立課程章節選擇區 (支援響應式與水平滑動) -->
+    <section class="space-y-2">
+      <div class="flex items-center justify-between px-1">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
+          <i data-lucide="book-marked" class="w-4 h-4 text-teal-600"></i> 選擇實戰章節 ( Lesson )
+        </span>
+        <span class="text-[11px] text-slate-400">點擊切換課程</span>
+      </div>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 py-1">
+        <button onclick="switchLesson('lesson1')" id="lesson-btn-lesson1" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-teal-500 text-slate-950 shadow-sm border border-teal-400">
+          <span class="text-base">✈️</span>
+          <span>第 1 課：入境海關</span>
+        </button>
+        <button onclick="switchLesson('lesson2')" id="lesson-btn-lesson2" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <span class="text-base">🚇</span>
+          <span>第 2 課：交通購票</span>
+        </button>
+        <button onclick="switchLesson('lesson3')" id="lesson-btn-lesson3" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <span class="text-base">🏨</span>
+          <span>第 3 課：飯店入住</span>
+        </button>
+        <button onclick="switchLesson('lesson4')" id="lesson-btn-lesson4" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white/60 text-slate-400 border border-slate-200/60 cursor-not-allowed">
+          <span class="text-base">🍜</span>
+          <span>第 4 課：餐飲點餐</span>
+        </button>
+        <button onclick="switchLesson('lesson5')" id="lesson-btn-lesson5" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white/60 text-slate-400 border border-slate-200/60 cursor-not-allowed">
+          <span class="text-base">🛍️</span>
+          <span>第 5 課：購物退稅</span>
+        </button>
+        <button onclick="switchLesson('lesson6')" id="lesson-btn-lesson6" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white/60 text-slate-400 border border-slate-200/60 cursor-not-allowed">
+          <span class="text-base">🚑</span>
+          <span>第 6 課：日常緊急</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 課程簡介橫幅與雙語通關秘訣 -->
+    <div id="lesson-banner" class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-4 md:p-6 text-white shadow-lg space-y-4">
+      <div class="space-y-1 border-b border-slate-700/60 pb-3">
+        <div class="inline-flex items-center space-x-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 px-3 py-0.5 rounded-full text-xs font-bold">
           <i data-lucide="compass" class="w-3.5 h-3.5"></i>
           <span id="banner-tag">當前章節</span>
         </div>
         <h2 id="banner-title" class="text-lg md:text-xl font-black tracking-wide text-white">第 1 課：機場入境與海關</h2>
-        <p id="banner-desc" class="text-xs md:text-sm text-slate-300">機場入境審查與稅關申報實戰對話練習</p>
+        <p id="banner-desc" class="text-xs md:text-sm text-slate-300">福岡機場抵達、入境審查、領行李情境實戰</p>
       </div>
 
-      <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-3 md:p-4 flex items-center justify-between gap-3 min-w-[280px]">
-        <div class="space-y-0.5">
-          <p class="text-[10px] text-teal-400 font-bold uppercase tracking-wider">💡 快速通關秘訣</p>
-          <p id="banner-tip" class="text-xs text-slate-200 font-medium">海關問申報，一秒聽懂秒回："No, nothing to declare."</p>
+      <!-- 快速通關秘訣卡片 -->
+      <div class="bg-slate-800/90 border border-slate-700/90 rounded-2xl p-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center space-x-2">
+            <span class="text-xs text-amber-400 font-bold flex items-center gap-1">
+              💡 快速通關秘訣
+            </span>
+            <span id="banner-tip-desc" class="text-xs text-slate-300">海關問申報，一秒聽懂秒回：</span>
+          </div>
+          <div class="space-y-0.5 pt-1">
+            <p id="banner-tip-ja" class="text-xs font-bold text-teal-300">🇯🇵 いいえ、ありません。(Iie, arimasen.)</p>
+            <p id="banner-tip-en" class="text-xs font-medium text-slate-200">🇺🇸 No, nothing to declare.</p>
+          </div>
         </div>
-        <button id="banner-audio-btn" class="tap-effect bg-teal-500 hover:bg-teal-400 text-slate-950 p-3 rounded-xl shadow font-bold flex items-center justify-center flex-shrink-0">
-          <i data-lucide="volume-2" class="w-5 h-5"></i>
-        </button>
+
+        <!-- 獨立日語 / 英語發音播放按鈕 -->
+        <div class="flex items-center space-x-2 flex-shrink-0 pt-2 md:pt-0 border-t border-slate-700/50 md:border-t-0">
+          <button id="banner-audio-ja" onclick="handleSpeechClick(this)" data-speech="" data-lang="ja-JP" class="tap-effect flex-1 md:flex-none bg-teal-500 hover:bg-teal-400 text-slate-950 px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 shadow">
+            <i data-lucide="volume-2" class="w-4 h-4"></i>
+            <span>日語發音</span>
+          </button>
+          <button id="banner-audio-en" onclick="handleSpeechClick(this)" data-speech="" data-lang="en-US" class="tap-effect flex-1 md:flex-none bg-blue-500 hover:bg-blue-400 text-white px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 shadow">
+            <i data-lucide="volume-2" class="w-4 h-4"></i>
+            <span>英語發音</span>
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- 課內單元 SubTab 導航列 -->
+    <nav class="bg-white border border-slate-200 rounded-2xl sticky top-16 z-30 px-2 py-1.5 shadow-sm">
+      <div class="flex space-x-1 overflow-x-auto no-scrollbar">
+        <button onclick="switchSubTab('dialogue')" id="subtab-dialogue" class="subtab-btn active-subtab flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>情境對話</span>
+        </button>
+        <button onclick="switchSubTab('vocab')" id="subtab-vocab" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>核心單字</span>
+        </button>
+        <button onclick="switchSubTab('must-learn')" id="subtab-must-learn" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
+          <i data-lucide="star" class="w-3.5 h-3.5"></i>
+          <span>必背10句</span>
+        </button>
+        <button onclick="switchSubTab('patterns')" id="subtab-patterns" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>5大句型</span>
+        </button>
+        <button onclick="switchSubTab('quiz')" id="subtab-quiz" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
+          <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+          <span>口說抽考</span>
+        </button>
+      </div>
+    </nav>
 
     <!-- 1. 情境對話區 (Dialogue Section) -->
     <section id="section-dialogue" class="subtab-content space-y-6">
@@ -159,7 +187,7 @@
     <!-- 2. 核心單字區 (Vocab Section) -->
     <section id="section-vocab" class="subtab-content hidden space-y-4">
       <div class="flex items-center justify-between px-1">
-        <span class="text-xs text-slate-500">點擊 🇯🇵 / 🇺🇸 喇叭圖示可隨時收聽發音</span>
+        <span class="text-xs text-slate-500">點擊 🇯🇵 / 🇺🇸 按鈕即可試聽聲音</span>
         <span id="vocab-count" class="text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-lg">共 10 個核心單字</span>
       </div>
       <div id="vocab-container" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
@@ -208,7 +236,7 @@
 
   </main>
 
-  <!-- 底部固定播放中提示 Toast -->
+  <!-- 底部固定播放提示 Toast -->
   <div id="playing-indicator" class="fixed bottom-4 inset-x-4 max-w-md mx-auto bg-slate-900/95 backdrop-blur-md text-white px-4 py-3 rounded-2xl shadow-xl flex items-center justify-between border border-slate-800 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none z-50">
     <div class="flex items-center space-x-3 overflow-hidden pr-2">
       <div class="flex space-x-1 items-center flex-shrink-0">
@@ -222,15 +250,22 @@
   </div>
 
   <script>
-    // 完整的課程資料庫
+    // 當前學習單元與語速狀態
+    let currentLessonId = 'lesson1';
+    let currentSubTab = 'dialogue';
+    let currentRate = 1.0;
+
+    // 完整 6 課資料庫 (包含標題、簡介與通關秘訣)
     const lessonData = {
       lesson1: {
         id: "lesson1",
         title: "第 1 課：機場入境與海關",
-        description: "機場入境審查與稅關申報情境實戰",
-        tipKey: "No, nothing to declare.",
-        tipLang: "en-US",
-        tipText: "海關問申報，一秒聽懂秒回：\"No, nothing to declare.\"",
+        description: "福岡機場抵達、入境審查、領行李情境實戰",
+        tipDesc: "海關問申報，一秒聽懂秒回：",
+        tipJaText: "いいえ、ありません。(Iie, arimasen.)",
+        tipJaKey: "いいえ、ありません。",
+        tipEnText: "No, nothing to declare.",
+        tipEnKey: "No, nothing to declare.",
         dialogues: [
           {
             scene: "場景 1：入境審查 (Immigration)",
@@ -421,10 +456,12 @@
       lesson2: {
         id: "lesson2",
         title: "第 2 課：交通移動與購票",
-        description: "機場巴士、地鐵購票與 IC 卡儲值實戰",
-        tipKey: "博多駅までいくらですか？",
-        tipLang: "ja-JP",
-        tipText: "買票問價錢，萬用一秒詢問：\"Hakata-eki made ikura desu ka?\"",
+        description: "福岡地鐵、西鐵巴士、IC卡儲值實戰",
+        tipDesc: "買票問價錢，萬用一秒詢問：",
+        tipJaText: "博多駅までいくらですか？",
+        tipJaKey: "博多駅までいくらですか？",
+        tipEnText: "How much is the fare to Hakata Station?",
+        tipEnKey: "How much is the fare to Hakata Station?",
         dialogues: [
           {
             scene: "場景 1：詢問接駁巴士 (Shuttle Bus)",
@@ -601,213 +638,340 @@
       },
       lesson3: {
         id: "lesson3",
-        title: "第 3 課：飯店入住與退房",
-        description: " Check-in、寄放行李與房間設施詢問實戰",
-        tipKey: "チェックインをお願いします。",
-        tipLang: "ja-JP",
-        tipText: "到達櫃檯辦理入住必備句：\"Check-in, please.\"",
+        title: "第 3 課：飯店入住與需求",
+        description: "BASE LAYER HOTEL 辦理入住、寄放行李情境實戰",
+        tipDesc: "提早到達飯店想先逛街，寄放行李必備句：",
+        tipJaText: "チェックイン前に荷物を預かっていただけますか？",
+        tipJaKey: "チェックイン前に荷物を預かっていただけますか？",
+        tipEnText: "Can we leave our bags before check-in?",
+        tipEnKey: "Can we leave our bags before check-in?",
         dialogues: [
           {
-            scene: "場景 1：辦理入住 (Check-in)",
+            scene: "場景 1：辦理入住與行李寄放 (Check-in & Luggage Storage)",
             turns: [
               {
                 role: "🛎️ 櫃檯人員",
                 roleBg: "bg-purple-50 text-purple-700",
-                zh: "歡迎光臨！請問您有預約嗎？",
-                ja: "いらっしゃいませ。ご予約はお持ちですか？",
-                kana: "いらっしゃいませ。ごよやくは おもちですか？",
-                romaji: "Irasshaimase. Go-yoyaku wa omochi desu ka?",
-                en: "Welcome! Do you have a reservation?"
+                zh: "歡迎光臨！您好，請問要辦理入住嗎？",
+                ja: "いらっしゃいませ。こんにちは！チェックインですか？",
+                kana: "いらっしゃいませ。こんにちは！ ちぇっくいんですか？",
+                romaji: "Irasshaimase. Konnichiwa! Chekku-in desu ka?",
+                en: "Welcome! Good afternoon. Are you checking in?"
               },
               {
                 role: "🙋‍♂️ 你的回答",
                 roleBg: "bg-teal-600 text-white",
-                zh: "是的，我有預約。這是我的護照。",
-                ja: "はい、予約しています。パスポートです。",
-                kana: "はい、よやく しています。ぱすぽーとです。",
-                romaji: "Hai, yoyaku shite imasu. Pasupōto desu.",
-                en: "Yes, I have a reservation. Here is my passport."
+                zh: "是的，我有預約。我們想先辦入住，並寄放 4 件行李。",
+                ja: "はい、予約しています。チェックイン前に荷物を4つ預かっていただけますか？",
+                kana: "はい、よやくしています。ちぇっくいんまえに にもつを よっつ あずかっていただけますか？",
+                romaji: "Hai, yoyaku shiteimasu. Chekku-in mae ni nimotsu o yottsu azukatte itadakemasu ka?",
+                en: "Yes, I have a reservation. Can we leave our four bags here before check-in?"
               }
             ]
           },
           {
-            scene: "場景 2：寄放行李 (Luggage Storage)",
+            scene: "場景 2：出示證件與索取備品 (Passports & Amenities)",
+            turns: [
+              {
+                role: "🛎️ 櫃檯人員",
+                roleBg: "bg-purple-50 text-purple-700",
+                zh: "感謝您的預約。請出示 4 位住宿貴賓的護照。",
+                ja: "ご予約ありがとうございます。ご宿泊者様全員のパスポートをお預かりできますか？",
+                kana: "ごよやく ありがとうございます。ごしゅくはくしゃさま ぜんいんの ぱすぽーとを おあずかり できますか？",
+                romaji: "Goyoyaku arigatō gozaimasu. Goshukuhakusha-sama zen'in no pasupōto o oazukari dekimasu ka?",
+                en: "May I have the passports for all four guests, please?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "好的，這是我們 4 個人的護照。另外可以多給我們 2 條毛巾嗎？",
+                ja: "はい、4人分のパスポートです。あと、タオルを2枚いただけますか？",
+                kana: "はい、よにんぶんの ぱすぽーとです。あと、たおるを にまい いただけますか？",
+                romaji: "Hai, yo-nin-bun no pasupōto desu. Ato, taoru o ni-mai itadakemasu ka?",
+                en: "Here are our four passports. Also, could we have two extra towels?"
+              }
+            ]
+          },
+          {
+            scene: "場景 3：確認退房時間 (Check-out Time)",
             turns: [
               {
                 role: "🙋‍♂️ 你的詢問",
                 roleBg: "bg-teal-600 text-white",
-                zh: "請問 Check-in 前可以寄放行李嗎？",
-                ja: "チェックイン前に荷物を預けられますか？",
-                kana: "ちぇっくいんまえに にもつを あずけられますか？",
-                romaji: "Chekkuin mae ni nimotsu o azukeraremasu ka?",
-                en: "Can I leave my luggage before check-in?"
+                zh: "請問退房時間是幾點？",
+                ja: "チェックアウトは何時ですか？",
+                kana: "ちぇっくあうとは なんじですか？",
+                romaji: "Chekku-auto wa nan-ji desu ka?",
+                en: "What time is check-out?"
               },
               {
                 role: "🛎️ 櫃檯人員",
                 roleBg: "bg-purple-50 text-purple-700",
-                zh: "沒問題，好的。請在這裡簽名。",
-                ja: "かしこまりました。こちらにお名前をご記入ください。",
-                kana: "かしこまりました。こちらに おなまえを ごきにゅう ください。",
-                romaji: "Kashikomarimashita. Kochira ni o-namae o gokinyū kudasai.",
-                en: "Sure. Please write your name here."
+                zh: "退房時間是上午 11 點。祝您住宿愉快！",
+                ja: "チェックアウトは午前11時です。ごゆっくりお過ごしください！",
+                kana: "ちぇっくあうとは ごぜん じゅういちじです。ごゆっくり おすごしください！",
+                romaji: "Chekku-auto wa gozen jūichi-ji desu. Goyukkuri osugoshi kudasai!",
+                en: "Check-out is at 11:00 AM. Please enjoy your stay!"
               }
             ]
           }
         ],
         vocab: [
-          { zh: "預約", ja: "予約", kana: "よやく", romaji: "Yoyaku", en: "Reservation" },
-          { zh: "入住", ja: "チェックイン", kana: "ちぇっくいん", romaji: "Chekkuin", en: "Check-in" },
-          { zh: "退房", ja: "チェックアウト", kana: "ちぇっくあうと", romaji: "Chekkuauto", en: "Check-out" },
-          { zh: "房間", ja: "部屋", kana: "へや", romaji: "Heya", en: "Room" },
-          { zh: "鑰匙 / 房卡", ja: "鍵 / カードキー", kana: "かぎ / かーどきー", romaji: "Kagi / Kādokī", en: "Key / Room card" },
-          { zh: "Wi-Fi 密碼", ja: "Wi-Fi パスワード", kana: "わいふぁい ぱすわーど", romaji: "Waifai pasuwādo", en: "Wi-Fi Password" },
+          { zh: "入住 / 退房", ja: "チェックイン / チェックアウト", kana: "ちぇっくいん / ちぇっくあうと", romaji: "Chekku-in / Chekku-auto", en: "Check-in / Check-out" },
+          { zh: "預約", ja: "予約", kana: "よやく", romaji: "Yoyaku", en: "Reservation / Booking" },
+          { zh: "寄放行李", ja: "荷物を預ける", kana: "にもつを あずける", romaji: "Nimotsu o azukeru", en: "Store luggage" },
+          { zh: "房卡 / 鑰匙", ja: "ルームキー / 鍵", kana: "るーむきー / かぎ", romaji: "Rūmu kī / Kagi", en: "Room key / Key card" },
+          { zh: "毛巾", ja: "タオル", kana: "たおる", romaji: "Taoru", en: "Towel" },
+          { zh: "枕頭", ja: "枕", kana: "まくら", romaji: "Makura", en: "Pillow" },
+          { zh: "吹風機", ja: "ドライヤー", kana: "どらいやー", romaji: "Doraiyā", en: "Hairdryer" },
           { zh: "早餐", ja: "朝食", kana: "ちょうしょく", romaji: "Chōshoku", en: "Breakfast" },
-          { zh: "寄放", ja: "預ける", kana: "あずける", romaji: "Azukeru", en: "Leave / Keep" }
+          { zh: "密碼", ja: "パスワード", kana: "ぱすわーど", romaji: "Pasuwādo", en: "Password" },
+          { zh: "禁菸房", ja: "禁煙ルーム", kana: "きんえん るーむ", romaji: "Kin'en rūmu", en: "Non-smoking room" }
         ],
         mustLearn: [
-          { id: 1, zh: "我要辦理入住。", ja: "チェックインをお願いします。", romaji: "Chekkuin o onegaishimasu.", en: "Check-in, please." },
-          { id: 2, zh: "請問有 Wi-Fi 嗎？密碼是什麼？", ja: "Wi-Fiはありますか？パスワードは何ですか？", romaji: "Waifai wa arimasu ka? Pasuwādo wa nan desu ka?", en: "Is there Wi-Fi? What is the password?" },
-          { id: 3, zh: "退房時間是幾點？", ja: "チェックアウトは何時ですか？", romaji: "Chekkuauto wa nan-ji desu ka?", en: "What time is check-out?" },
-          { id: 4, zh: "可以幫我叫計程車嗎？", ja: "タクシーを呼んでもらえますか？", romaji: "Takushī o yonde moraemasu ka?", en: "Could you call a taxi for me?" }
+          { id: 1, zh: "我有訂房，名字是〇〇。", ja: "予約している〇〇です。", romaji: "Yoyaku shiteiru [Name] desu.", en: "I have a reservation under the name [Name]." },
+          { id: 2, zh: "請問可以先寄放行李嗎？", ja: "荷物を預かってもらえますか？", romaji: "Nimotsu o azukatte moraemasu ka?", en: "Could you hold our luggage for us?" },
+          { id: 3, zh: "退房時間是幾點？", ja: "チェックアウトは何時ですか？", romaji: "Chekku-auto wa nan-ji desu ka?", en: "What time is check-out?" },
+          { id: 4, zh: "請給我 2 條新毛巾。", ja: "新しいタオルを2枚ください。", romaji: "Atarashii taoru o ni-mai kudasai.", en: "Could we get two extra towels, please?" },
+          { id: 5, zh: "請問 Wi-Fi 密碼是什麼？", ja: "Wi-Fiのパスワードは何ですか？", romaji: "Waifai no pasuwādo wa nan desu ka?", en: "What is the Wi-Fi password?" },
+          { id: 6, zh: "請問早餐是在哪裡吃？幾點開始？", ja: "朝食はどこで何時からですか？", romaji: "Chōshoku wa doko de nan-ji kara desu ka?", en: "Where and what time is breakfast served?" },
+          { id: 7, zh: "這是一間禁菸房嗎？", ja: "この部屋は禁煙ですか？", romaji: "Kono heya wa kin'en desu ka?", en: "Is this a non-smoking room?" },
+          { id: 8, zh: "房間的冷氣/熱水好像壞了。", ja: "エアコン／お湯の調子がおかしいです。", romaji: "Eakon / Oyu no chōshi ga okashii desu.", en: "The AC / hot water is not working properly." },
+          { id: 9, zh: "可以幫我們叫一輛計程車嗎？", ja: "タクシーを1台呼んでもらえますか？", romaji: "Takushī o ichi-dai yonde moraemasu ka?", en: "Could you please call a taxi for us?" },
+          { id: 10, zh: "我們要退房了，謝謝。", ja: "チェックアウトをお願いします。ありがとうございます。", romaji: "Chekku-auto o onegaishimasu. Arigatō gozaimasu.", en: "We are ready to check out. Thank you!" }
         ],
         patterns: [
           {
             id: 1,
-            title: "句型 1：禮貌請求協助",
-            formulaJa: "[服務/項目] + をお願いします。",
-            formulaEn: "[Service], please.",
-            desc: "在飯店櫃檯最實用的萬用句型。",
-            sampleJa: "チェックインをお願いします。",
-            sampleJaRomaji: "Chekkuin o onegaishimasu.",
-            sampleEn: "Check-in, please."
+            title: "句型 1：表明自己有訂房",
+            formulaJa: "予約している [名字] です。",
+            formulaEn: "I have a booking under [Name].",
+            desc: "抵達櫃檯第一時間告知訂房姓名。",
+            sampleJa: "予約しているLinです。",
+            sampleJaRomaji: "Yoyaku shiteiru Lin desu.",
+            sampleEn: "I have a reservation under Lin."
+          },
+          {
+            id: 2,
+            title: "句型 2：請求寄放物品",
+            formulaJa: "[物品] + を預かっていただけますか？",
+            formulaEn: "Can you keep my [Items]?",
+            desc: "提早抵達或退房後需寄放行李時使用。",
+            sampleJa: "荷物を4つ預かっていただけますか？",
+            sampleJaRomaji: "Nimotsu o yottsu azukatte itadakemasu ka?",
+            sampleEn: "Can you store our four bags?"
+          },
+          {
+            id: 3,
+            title: "句型 3：索取額外備品",
+            formulaJa: "[備品] + を [數量] + ください。",
+            formulaEn: "Could I have [Quantity] [Item]?",
+            desc: "向櫃檯要毛巾、水、枕頭等用品。",
+            sampleJa: "枕をもう1つください。",
+            sampleJaRomaji: "Makura o mō hitotsu kudasai.",
+            sampleEn: "Could I have one more pillow?"
+          },
+          {
+            id: 4,
+            title: "句型 4：詢問某項服務的時間",
+            formulaJa: "[服務/設施] + は何時からですか？",
+            formulaEn: "What time does [Service] start?",
+            desc: "詢問早餐、大浴場或酒吧開放時間。",
+            sampleJa: "朝食は何時からですか？",
+            sampleJaRomaji: "Chōshoku wa nan-ji kara desu ka?",
+            sampleEn: "What time does breakfast start?"
+          },
+          {
+            id: 5,
+            title: "句型 5：反映設施故障",
+            formulaJa: "[設備] + が動きません / 使えません。",
+            formulaEn: "The [Item] isn't working.",
+            desc: "房間內遙控器、吹風機或設備出問題時向櫃檯反映。",
+            sampleJa: "ドライヤーが使えません。",
+            sampleJaRomaji: "Doraiyā ga tsukaemasen.",
+            sampleEn: "The hairdryer is not working."
           }
         ],
         quiz: [
           {
             id: 1,
-            q: "你想在櫃檯辦理入住Check-in",
-            target: "我要辦理入住。",
-            ja: "チェックインをお願いします。",
-            jaRomaji: "Chekkuin o onegaishimasu.",
-            en: "Check-in, please."
+            q: "你有預約，名字是林 (Lin)",
+            target: "我有預約，名字是林（Lin）。",
+            ja: "予約しているLinです。",
+            jaRomaji: "Yoyaku shiteiru Lin desu.",
+            en: "I have a reservation under the name Lin."
+          },
+          {
+            id: 2,
+            q: "想請飯店寄放行李",
+            target: "請問可以幫我們寄放行李嗎？",
+            ja: "荷物を預かってもらえますか？",
+            jaRomaji: "Nimotsu o azukatte moraemasu ka?",
+            en: "Could you hold our luggage for us?"
+          },
+          {
+            id: 3,
+            q: "想確認最晚幾點要退房",
+            target: "退房時間是幾點？",
+            ja: "チェックアウトは何時ですか？",
+            jaRomaji: "Chekku-auto wa nan-ji desu ka?",
+            en: "What time is check-out?"
           }
         ]
       }
     };
 
-    // 全域變數
-    let currentLessonId = 'lesson1';
-    let currentSubTab = 'dialogue';
-    let currentRate = 1.0;
-    const rates = [1.0, 0.75];
-    let rateIndex = 0;
-
     // 語速切換
     function toggleSpeed() {
-      rateIndex = (rateIndex + 1) % rates.length;
-      currentRate = rates[rateIndex];
-      const text = currentRate === 1.0 ? '1.0x 正常' : '0.75x 慢速';
-      document.getElementById('speed-text-mobile').innerText = text;
-      document.getElementById('speed-text-desktop').innerText = `語速：${text}`;
+      currentRate = currentRate === 1.0 ? 0.75 : 1.0;
+      const speedBtnText = document.getElementById('speed-text-mobile');
+      if (speedBtnText) {
+        speedBtnText.innerText = currentRate === 1.0 ? '1.0x 正常' : '0.75x 慢速';
+      }
     }
 
-    // 語音播放引擎 (Web Speech API)
-    function speak(text, lang) {
+    // 點擊按鈕調用發音 (安全無語法錯誤)
+    function handleSpeechClick(btn) {
+      const text = btn.getAttribute('data-speech');
+      const lang = btn.getAttribute('data-lang');
+      if (text && lang) {
+        playAudio(text, lang);
+      }
+    }
+
+    // 核心 Web Speech 播放邏輯
+    function playAudio(text, lang) {
       if (!('speechSynthesis' in window)) {
-        showPlayingToast("您的瀏覽器暫不支援語音播放");
+        showPlayingToast("⚠️ 您的瀏覽器不支援語音合成朗讀");
         return;
       }
 
-      window.speechSynthesis.cancel(); // 停止目前播放
+      try {
+        // 喚醒 iOS / Android Chrome 語音引擎
+        if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+        }
+        
+        window.speechSynthesis.cancel(); // 停止目前播放
 
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang;
-      utterance.rate = currentRate;
-      utterance.pitch = 1;
+        const cleanText = text.trim();
+        if (!cleanText) return;
 
-      // 選擇最優發音人聲
-      const voices = window.speechSynthesis.getVoices();
-      if (voices.length > 0) {
-        const matchingVoice = voices.find(v => v.lang.replace('_', '-').startsWith(lang) || v.lang.startsWith(lang.split('-')[0]));
-        if (matchingVoice) utterance.voice = matchingVoice;
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.lang = lang; // 'ja-JP' 或 'en-US'
+        utterance.rate = currentRate;
+        utterance.pitch = 1.0;
+
+        // 優先選擇高品質相符語音包
+        const voices = window.speechSynthesis.getVoices();
+        if (voices && voices.length > 0) {
+          const targetLang = lang.toLowerCase();
+          const voice = voices.find(v => v.lang.toLowerCase().startsWith(targetLang.split('-')[0]));
+          if (voice) {
+            utterance.voice = voice;
+          }
+        }
+
+        showPlayingToast(`🔊 正在播放: ${cleanText}`);
+
+        utterance.onend = function() {
+          hidePlayingToast();
+        };
+
+        utterance.onerror = function(err) {
+          console.warn('SpeechSynthesis error:', err);
+          hidePlayingToast();
+        };
+
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.error('Audio playback exception:', err);
+        showPlayingToast("⚠️ 語音播放時發生錯誤");
       }
-
-      showPlayingToast(`播放中 (${lang === 'ja-JP' ? '🇯🇵日' : '🇺🇸英'}): ${text}`);
-
-      utterance.onend = () => hidePlayingToast();
-      utterance.onerror = () => hidePlayingToast();
-
-      window.speechSynthesis.speak(utterance);
     }
 
-    // 提示 Toast
-    let toastTimeout;
+    // 提示列顯示 / 隱藏
+    let toastTimer = null;
     function showPlayingToast(msg) {
       const toast = document.getElementById('playing-indicator');
       const text = document.getElementById('playing-text');
-      text.innerText = msg;
-      toast.classList.remove('translate-y-24', 'opacity-0');
-      toast.classList.add('translate-y-0', 'opacity-100');
+      if (text) text.innerText = msg;
+      if (toast) {
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+      }
 
-      clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => hidePlayingToast(), 4000);
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        hidePlayingToast();
+      }, 4000);
     }
 
     function hidePlayingToast() {
       const toast = document.getElementById('playing-indicator');
-      toast.classList.remove('translate-y-0', 'opacity-100');
-      toast.classList.add('translate-y-24', 'opacity-0');
+      if (toast) {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }
     }
 
-    // 切換課程章節 (Lesson Selector)
+    // 切換課程章節 (Lesson Switcher)
     function switchLesson(lessonId) {
-      if (!lessonData[lessonId]) return;
+      if (!lessonData[lessonId]) {
+        showPlayingToast("該課程正在建置中，敬請期待！");
+        return;
+      }
       currentLessonId = lessonId;
 
-      // 更新大分頁樣式
+      // 更新課程選單按鈕樣式
       document.querySelectorAll('.lesson-tab-btn').forEach(btn => {
-        btn.className = 'lesson-tab-btn flex-1 min-w-[120px] md:min-w-0 py-2 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center space-x-1.5 text-slate-400 hover:text-slate-200 hover:bg-slate-800';
+        btn.className = 'lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300';
       });
 
       const activeBtn = document.getElementById(`lesson-btn-${lessonId}`);
       if (activeBtn) {
-        activeBtn.className = 'lesson-tab-btn flex-1 min-w-[120px] md:min-w-0 py-2 px-3 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center space-x-1.5 bg-teal-500 text-slate-950 shadow-sm';
+        activeBtn.className = 'lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-teal-500 text-slate-950 shadow-sm border border-teal-400';
       }
 
-      // 更新頂部 Banner 資訊
+      // 更新頂部 Banner 資訊與秘訣
       const data = lessonData[lessonId];
       document.getElementById('banner-title').innerText = data.title;
       document.getElementById('banner-desc').innerText = data.description;
-      document.getElementById('banner-tip').innerText = data.tipText;
       
-      const audioBtn = document.getElementById('banner-audio-btn');
-      audioBtn.onclick = () => speak(data.tipKey, data.tipLang);
+      document.getElementById('banner-tip-desc').innerText = data.tipDesc;
+      document.getElementById('banner-tip-ja').innerText = `🇯🇵 ${data.tipJaText}`;
+      document.getElementById('banner-tip-en').innerText = `🇺🇸 ${data.tipEnText}`;
+
+      // 綁定 Banner 發音資料
+      const btnJa = document.getElementById('banner-audio-ja');
+      const btnEn = document.getElementById('banner-audio-en');
+      btnJa.setAttribute('data-speech', data.tipJaKey);
+      btnEn.setAttribute('data-speech', data.tipEnKey);
 
       // 重新渲染章節內容
       renderCurrentLesson();
 
-      // 平滑捲動至頂部
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 切換課內單元 (SubTab Selector)
+    // 切換課內單元 (SubTab Switcher)
     function switchSubTab(tabId) {
       currentSubTab = tabId;
       document.querySelectorAll('.subtab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.subtab-btn').forEach(btn => {
-        btn.className = 'subtab-btn flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1';
+        btn.className = 'subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1';
       });
 
       document.getElementById(`section-${tabId}`).classList.remove('hidden');
       const activeBtn = document.getElementById(`subtab-${tabId}`);
       if (activeBtn) {
-        activeBtn.className = 'subtab-btn active-subtab flex-1 min-w-[90px] py-2 px-3 rounded-xl text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1';
+        activeBtn.className = 'subtab-btn active-subtab flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1';
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 渲染當前課程內容
+    // 渲染當前課程全套內容
     function renderCurrentLesson() {
       const data = lessonData[currentLessonId];
       if (!data) return;
@@ -821,7 +985,7 @@
       lucide.createIcons();
     }
 
-    // 渲染對話 (Dialogues)
+    // 渲染對話
     function renderDialogues(dialogues) {
       const container = document.getElementById('dialogue-container');
       container.innerHTML = dialogues.map(group => `
@@ -845,7 +1009,7 @@
                     <p class="text-xs text-slate-500">${turn.kana}</p>
                     <p class="text-[11px] text-teal-600 italic font-mono">${turn.romaji}</p>
                   </div>
-                  <button onclick="speak('${turn.ja.replace(/'/g, "\\'")}', 'ja-JP')" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-2.5 rounded-xl shadow-2xs">
+                  <button onclick="handleSpeechClick(this)" data-speech="${turn.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-2.5 rounded-xl shadow-2xs">
                     <i data-lucide="volume-2" class="w-4 h-4"></i>
                   </button>
                 </div>
@@ -855,7 +1019,7 @@
                   <div class="pr-2">
                     <p class="font-semibold text-slate-800 text-xs md:text-sm">${turn.en}</p>
                   </div>
-                  <button onclick="speak('${turn.en.replace(/'/g, "\\'")}', 'en-US')" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-2.5 rounded-xl shadow-2xs">
+                  <button onclick="handleSpeechClick(this)" data-speech="${turn.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-2.5 rounded-xl shadow-2xs">
                     <i data-lucide="volume-2" class="w-4 h-4"></i>
                   </button>
                 </div>
@@ -866,7 +1030,7 @@
       `).join('');
     }
 
-    // 渲染核心單字 (Vocab)
+    // 渲染核心單字
     function renderVocab(vocab) {
       document.getElementById('vocab-count').innerText = `共 ${vocab.length} 個核心單字`;
       const container = document.getElementById('vocab-container');
@@ -885,11 +1049,11 @@
             </div>
           </div>
           <div class="flex flex-col space-y-1.5 flex-shrink-0 ml-2">
-            <button onclick="speak('${item.ja.replace(/'/g, "\\'")}', 'ja-JP')" class="tap-effect flex items-center space-x-1 bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 text-xs px-2.5 py-1.5 rounded-xl font-bold">
+            <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex items-center space-x-1 bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 text-xs px-2.5 py-1.5 rounded-xl font-bold">
               <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
               <span class="text-[10px]">日句</span>
             </button>
-            <button onclick="speak('${item.en.replace(/'/g, "\\'")}', 'en-US')" class="tap-effect flex items-center space-x-1 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-xs px-2.5 py-1.5 rounded-xl font-bold">
+            <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex items-center space-x-1 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-xs px-2.5 py-1.5 rounded-xl font-bold">
               <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
               <span class="text-[10px]">英句</span>
             </button>
@@ -898,7 +1062,7 @@
       `).join('');
     }
 
-    // 渲染必背 10 句 (Must Learn)
+    // 渲染必背 10 句
     function renderMustLearn(mustLearn) {
       const container = document.getElementById('must-learn-container');
       container.innerHTML = mustLearn.map(item => `
@@ -917,7 +1081,7 @@
               </div>
               <p class="text-[11px] text-teal-600 font-mono italic pl-5">${item.romaji}</p>
             </div>
-            <button onclick="speak('${item.ja.replace(/'/g, "\\'")}', 'ja-JP')" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-2 rounded-xl">
+            <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-2 rounded-xl">
               <i data-lucide="volume-2" class="w-4 h-4"></i>
             </button>
           </div>
@@ -928,7 +1092,7 @@
               <span class="text-xs">🇺🇸</span>
               <p class="font-semibold text-slate-800 text-xs md:text-sm">${item.en}</p>
             </div>
-            <button onclick="speak('${item.en.replace(/'/g, "\\'")}', 'en-US')" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-2 rounded-xl">
+            <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-2 rounded-xl">
               <i data-lucide="volume-2" class="w-4 h-4"></i>
             </button>
           </div>
@@ -936,7 +1100,7 @@
       `).join('');
     }
 
-    // 渲染 5 大句型 (Patterns)
+    // 渲染 5 大句型
     function renderPatterns(patterns) {
       const container = document.getElementById('patterns-container');
       container.innerHTML = patterns.map(item => `
@@ -958,14 +1122,14 @@
                 <p class="font-bold text-teal-950 text-xs md:text-sm">${item.sampleJa}</p>
                 <p class="text-[10px] text-teal-600 font-mono italic">${item.sampleJaRomaji}</p>
               </div>
-              <button onclick="speak('${item.sampleJa.replace(/'/g, "\\'")}', 'ja-JP')" class="tap-effect bg-teal-600 text-white p-2 rounded-xl shadow-xs">
+              <button onclick="handleSpeechClick(this)" data-speech="${item.sampleJa.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect bg-teal-600 text-white p-2 rounded-xl shadow-xs">
                 <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
               </button>
             </div>
 
             <div class="flex items-center justify-between bg-blue-50/60 p-2.5 rounded-xl border border-blue-100">
               <p class="font-bold text-blue-950 text-xs md:text-sm">${item.sampleEn}</p>
-              <button onclick="speak('${item.sampleEn.replace(/'/g, "\\'")}', 'en-US')" class="tap-effect bg-blue-600 text-white p-2 rounded-xl shadow-xs">
+              <button onclick="handleSpeechClick(this)" data-speech="${item.sampleEn.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect bg-blue-600 text-white p-2 rounded-xl shadow-xs">
                 <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
               </button>
             </div>
@@ -974,7 +1138,7 @@
       `).join('');
     }
 
-    // 渲染自我抽考 (Quiz)
+    // 渲染自我抽考
     function renderQuiz(quiz) {
       const container = document.getElementById('quiz-container');
       container.innerHTML = quiz.map((item, idx) => `
@@ -997,7 +1161,7 @@
                   <p class="font-bold text-teal-950 text-xs md:text-sm">${item.ja}</p>
                   <p class="text-[10px] text-teal-600 font-mono italic">${item.jaRomaji}</p>
                 </div>
-                <button onclick="speak('${item.ja.replace(/'/g, "\\'")}', 'ja-JP')" class="tap-effect bg-teal-600 text-white p-2 rounded-xl shadow-xs">
+                <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect bg-teal-600 text-white p-2 rounded-xl shadow-xs">
                   <i data-lucide="volume-2" class="w-4 h-4"></i>
                 </button>
               </div>
@@ -1007,7 +1171,7 @@
                   <span class="text-[9px] font-bold text-blue-800 uppercase tracking-wider">🇺🇸 標準英文</span>
                   <p class="font-bold text-blue-950 text-xs md:text-sm">${item.en}</p>
                 </div>
-                <button onclick="speak('${item.en.replace(/'/g, "\\'")}', 'en-US')" class="tap-effect bg-blue-600 text-white p-2 rounded-xl shadow-xs">
+                <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect bg-blue-600 text-white p-2 rounded-xl shadow-xs">
                   <i data-lucide="volume-2" class="w-4 h-4"></i>
                 </button>
               </div>
@@ -1022,7 +1186,7 @@
       `).join('');
     }
 
-    // 顯示/隱藏抽考答案
+    // 切換顯示/隱藏抽考答案
     function toggleAnswer(idx) {
       const ansDiv = document.getElementById(`quiz-ans-${idx}`);
       const btn = document.getElementById(`quiz-btn-${idx}`);
@@ -1041,12 +1205,15 @@
       lucide.createIcons();
     }
 
-    // 頁面初次載入
+    // 頁面初次載入 initialization
     window.onload = function() {
       switchLesson('lesson1');
       
-      // 預載語音引擎
+      // 預加載系統語音包
       if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = function() {
+          window.speechSynthesis.getVoices();
+        };
         window.speechSynthesis.getVoices();
       }
     };
