@@ -54,18 +54,18 @@
   <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md border-b border-slate-800">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-md">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-slate-950 flex items-center justify-center font-black text-2xl shadow-md">
           🗣️
         </div>
         <div>
-          <h1 class="text-base font-bold leading-snug tracking-wide">日英雙語旅遊實戰隨身機</h1>
-          <p class="text-xs text-slate-400">極簡聽力 • 即點即發音 • 雙語對照</p>
+          <h1 class="text-base sm:text-lg font-bold leading-snug tracking-wide">日英雙語旅遊實戰隨身機</h1>
+          <p class="text-xs sm:text-sm text-slate-400">極簡聽力 • 即點即發音 • 雙語對照</p>
         </div>
       </div>
 
       <!-- 語速切換按鈕 -->
-      <button id="speed-toggle" onclick="toggleSpeed()" class="tap-effect flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-semibold text-teal-400 hover:bg-slate-700">
-        <i data-lucide="gauge" class="w-4 h-4"></i>
+      <button id="speed-toggle" onclick="toggleSpeed()" class="tap-effect flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs sm:text-sm font-semibold text-teal-400 hover:bg-slate-700">
+        <i data-lucide="gauge" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
         <span id="speed-text-mobile">1.0x 正常</span>
       </button>
     </div>
@@ -79,12 +79,12 @@
       <div class="flex items-center justify-between px-1">
         <div class="flex items-center space-x-2">
           <span class="flex h-6 w-6 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
-            <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            <i data-lucide="compass" class="w-4 h-4"></i>
           </span>
-          <span class="text-xs font-bold text-slate-700 tracking-wide uppercase">實戰章節選擇 ( Chapters )</span>
+          <span class="text-xs sm:text-sm font-bold text-slate-700 tracking-wide uppercase">實戰章節選擇 ( Chapters )</span>
         </div>
         <div class="flex items-center space-x-1.5">
-          <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">共 9 課全開</span>
+          <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">共 9 課全開</span>
         </div>
       </div>
 
@@ -92,139 +92,139 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2.5">
         <!-- 第 1 課 -->
         <button onclick="switchLesson('lesson1')" id="lesson-btn-lesson1" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-teal-500 text-slate-950 border border-teal-400 shadow-sm">
-          <div class="w-9 h-9 rounded-xl bg-slate-900/10 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-900/10 flex items-center justify-center text-xl flex-shrink-0">
             ✈️
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase opacity-80 leading-none">Lesson 01</div>
-            <div class="text-xs font-bold truncate mt-0.5">入境海關與審查</div>
+            <div class="text-[11px] font-extrabold uppercase opacity-80 leading-none">Lesson 01</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">入境海關與審查</div>
           </div>
         </button>
 
         <!-- 第 2 課 -->
         <button onclick="switchLesson('lesson2')" id="lesson-btn-lesson2" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             🚇
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 02</div>
-            <div class="text-xs font-bold truncate mt-0.5">交通移動與購票</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 02</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">交通移動與購票</div>
           </div>
         </button>
 
         <!-- 第 3 課 -->
         <button onclick="switchLesson('lesson3')" id="lesson-btn-lesson3" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             🏨
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 03</div>
-            <div class="text-xs font-bold truncate mt-0.5">飯店入住與需求</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 03</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">飯店入住與需求</div>
           </div>
         </button>
 
         <!-- 第 4 課 -->
         <button onclick="switchLesson('lesson4')" id="lesson-btn-lesson4" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             🍜
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 04</div>
-            <div class="text-xs font-bold truncate mt-0.5">餐廳點餐與屋台</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 04</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">餐廳點餐與屋台</div>
           </div>
         </button>
 
         <!-- 第 5 課 -->
         <button onclick="switchLesson('lesson5')" id="lesson-btn-lesson5" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             🛍️
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 05</div>
-            <div class="text-xs font-bold truncate mt-0.5">購物退稅與付款</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 05</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">購物退稅與付款</div>
           </div>
         </button>
 
         <!-- 第 6 課 -->
         <button onclick="switchLesson('lesson6')" id="lesson-btn-lesson6" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             🚑
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 06</div>
-            <div class="text-xs font-bold truncate mt-0.5">日常問路與緊急</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 06</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">日常問路與緊急</div>
           </div>
         </button>
 
         <!-- 第 7 課 -->
         <button onclick="switchLesson('lesson7')" id="lesson-btn-lesson7" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             🏍️
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 07</div>
-            <div class="text-xs font-bold truncate mt-0.5">SHOEI 安全帽專賣</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 07</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">SHOEI 安全帽專賣</div>
           </div>
         </button>
 
         <!-- 第 8 課 -->
         <button onclick="switchLesson('lesson8')" id="lesson-btn-lesson8" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             💊
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 08</div>
-            <div class="text-xs font-bold truncate mt-0.5">藥局買藥與醫療</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 08</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">藥局買藥與醫療</div>
           </div>
         </button>
 
         <!-- 第 9 課 -->
         <button onclick="switchLesson('lesson9')" id="lesson-btn-lesson9" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
             ⛩️
           </div>
           <div class="overflow-hidden">
-            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 09</div>
-            <div class="text-xs font-bold truncate mt-0.5">景點導覽與購票</div>
+            <div class="text-[11px] font-extrabold uppercase text-slate-400 leading-none">Lesson 09</div>
+            <div class="text-xs sm:text-sm font-bold truncate mt-1">景點導覽與購票</div>
           </div>
         </button>
       </div>
     </section>
 
     <!-- 課程簡介橫幅與通關秘訣 (Lesson Banner & Quick Pass Tip) -->
-    <div id="lesson-banner" class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-4 md:p-6 text-white shadow-lg space-y-4">
-      <div class="space-y-1 border-b border-slate-700/60 pb-3">
-        <div class="inline-flex items-center space-x-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 px-3 py-0.5 rounded-full text-xs font-bold">
-          <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+    <div id="lesson-banner" class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-5 md:p-6 text-white shadow-lg space-y-4">
+      <div class="space-y-1.5 border-b border-slate-700/60 pb-3.5">
+        <div class="inline-flex items-center space-x-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 px-3 py-1 rounded-full text-xs sm:text-sm font-bold">
+          <i data-lucide="compass" class="w-4 h-4"></i>
           <span id="banner-tag">當前章節</span>
         </div>
-        <h2 id="banner-title" class="text-lg md:text-xl font-black tracking-wide text-white">第 1 課：機場入境與海關</h2>
-        <p id="banner-desc" class="text-xs md:text-sm text-slate-300">福岡機場抵達、入境審查、領行李情境實戰</p>
+        <h2 id="banner-title" class="text-xl md:text-2xl font-black tracking-wide text-white">第 1 課：機場入境與海關</h2>
+        <p id="banner-desc" class="text-sm md:text-base text-slate-300">福岡機場抵達、入境審查、領行李情境實戰</p>
       </div>
 
       <!-- 快速通關秘訣卡片 -->
-      <div class="bg-slate-800/90 border border-slate-700/90 rounded-2xl p-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3">
-        <div class="space-y-1">
+      <div class="bg-slate-800/90 border border-slate-700/90 rounded-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-3.5">
+        <div class="space-y-1.5">
           <div class="flex items-center space-x-2">
-            <span class="text-xs text-amber-400 font-bold flex items-center gap-1">
+            <span class="text-xs sm:text-sm text-amber-400 font-bold flex items-center gap-1">
               💡 快速通關秘訣
             </span>
-            <span id="banner-tip-desc" class="text-xs text-slate-300">海關問申報，一秒聽懂秒回：</span>
+            <span id="banner-tip-desc" class="text-xs sm:text-sm text-slate-300">海關問申報，一秒聽懂秒回：</span>
           </div>
-          <div class="space-y-0.5 pt-1">
-            <p id="banner-tip-ja" class="text-xs font-bold text-teal-300">🇯🇵 いいえ、ありません。(Iie, arimasen.)</p>
-            <p id="banner-tip-en" class="text-xs font-medium text-slate-200">🇺🇸 No, nothing to declare.</p>
+          <div class="space-y-1 pt-1">
+            <p id="banner-tip-ja" class="text-sm md:text-base font-bold text-teal-300">🇯🇵 いいえ、ありません。(Iie, arimasen.)</p>
+            <p id="banner-tip-en" class="text-sm md:text-base font-medium text-slate-200">🇺🇸 No, nothing to declare.</p>
           </div>
         </div>
 
         <!-- 音聲播放按鈕 (日語 / 英語) -->
-        <div class="flex items-center space-x-2 flex-shrink-0 pt-2 md:pt-0 border-t border-slate-700/50 md:border-t-0">
-          <button id="banner-audio-ja" onclick="handleSpeechClick(this)" data-speech="" data-lang="ja-JP" class="tap-effect flex-1 md:flex-none bg-teal-500 hover:bg-teal-400 text-slate-950 px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 shadow">
-            <i data-lucide="volume-2" class="w-4 h-4"></i>
+        <div class="flex items-center space-x-2.5 flex-shrink-0 pt-2 md:pt-0 border-t border-slate-700/50 md:border-t-0">
+          <button id="banner-audio-ja" onclick="handleSpeechClick(this)" data-speech="" data-lang="ja-JP" class="tap-effect flex-1 md:flex-none bg-teal-500 hover:bg-teal-400 text-slate-950 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center space-x-1.5 shadow">
+            <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
             <span>日語發音</span>
           </button>
-          <button id="banner-audio-en" onclick="handleSpeechClick(this)" data-speech="" data-lang="en-US" class="tap-effect flex-1 md:flex-none bg-blue-500 hover:bg-blue-400 text-white px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 shadow">
-            <i data-lucide="volume-2" class="w-4 h-4"></i>
+          <button id="banner-audio-en" onclick="handleSpeechClick(this)" data-speech="" data-lang="en-US" class="tap-effect flex-1 md:flex-none bg-blue-500 hover:bg-blue-400 text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center space-x-1.5 shadow">
+            <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
             <span>英語發音</span>
           </button>
         </div>
@@ -234,24 +234,24 @@
     <!-- 課內單元 SubTab 導航列 (SubTab Nav) -->
     <nav class="bg-white border border-slate-200 rounded-2xl sticky top-16 z-30 px-2 py-1.5 shadow-sm">
       <div class="flex space-x-1 overflow-x-auto no-scrollbar">
-        <button onclick="switchSubTab('dialogue')" id="subtab-dialogue" class="subtab-btn active-subtab flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1">
-          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+        <button onclick="switchSubTab('dialogue')" id="subtab-dialogue" class="subtab-btn active-subtab flex-1 min-w-[95px] py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1.5">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
           <span>情境對話</span>
         </button>
-        <button onclick="switchSubTab('vocab')" id="subtab-vocab" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+        <button onclick="switchSubTab('vocab')" id="subtab-vocab" class="subtab-btn flex-1 min-w-[95px] py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1.5">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
           <span>核心單字</span>
         </button>
-        <button onclick="switchSubTab('must-learn')" id="subtab-must-learn" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-          <i data-lucide="star" class="w-3.5 h-3.5"></i>
+        <button onclick="switchSubTab('must-learn')" id="subtab-must-learn" class="subtab-btn flex-1 min-w-[95px] py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1.5">
+          <i data-lucide="star" class="w-4 h-4"></i>
           <span>必背10句</span>
         </button>
-        <button onclick="switchSubTab('patterns')" id="subtab-patterns" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+        <button onclick="switchSubTab('patterns')" id="subtab-patterns" class="subtab-btn flex-1 min-w-[95px] py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1.5">
+          <i data-lucide="layers" class="w-4 h-4"></i>
           <span>5大句型</span>
         </button>
-        <button onclick="switchSubTab('quiz')" id="subtab-quiz" class="subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1">
-          <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+        <button onclick="switchSubTab('quiz')" id="subtab-quiz" class="subtab-btn flex-1 min-w-[95px] py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1.5">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
           <span>口說抽考</span>
         </button>
       </div>
@@ -2032,19 +2032,19 @@
 
       document.querySelectorAll('.lesson-tab-btn').forEach(btn => {
         btn.className = 'lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300';
-        const iconDiv = btn.querySelector('.w-9');
-        if (iconDiv) iconDiv.className = 'w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0';
-        const badge = btn.querySelector('.text-\\[10px\\]');
-        if (badge) badge.className = 'text-[10px] font-extrabold uppercase text-slate-400 leading-none';
+        const iconDiv = btn.querySelector('.w-10, .w-9');
+        if (iconDiv) iconDiv.className = 'w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0';
+        const badge = btn.querySelector('.text-\\[11px\\], .text-\\[10px\\]');
+        if (badge) badge.className = 'text-[11px] font-extrabold uppercase text-slate-400 leading-none';
       });
 
       const activeBtn = document.getElementById(`lesson-btn-${lessonId}`);
       if (activeBtn) {
         activeBtn.className = 'lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-teal-500 text-slate-950 border border-teal-400 shadow-sm';
-        const iconDiv = activeBtn.querySelector('.w-9');
-        if (iconDiv) iconDiv.className = 'w-9 h-9 rounded-xl bg-slate-900/10 flex items-center justify-center text-lg flex-shrink-0';
-        const badge = activeBtn.querySelector('.text-\\[10px\\]');
-        if (badge) badge.className = 'text-[10px] font-extrabold uppercase opacity-80 leading-none';
+        const iconDiv = activeBtn.querySelector('.w-10, .w-9');
+        if (iconDiv) iconDiv.className = 'w-10 h-10 rounded-xl bg-slate-900/10 flex items-center justify-center text-xl flex-shrink-0';
+        const badge = activeBtn.querySelector('.text-\\[11px\\], .text-\\[10px\\]');
+        if (badge) badge.className = 'text-[11px] font-extrabold uppercase opacity-80 leading-none';
       }
 
       const data = lessonData[lessonId];
@@ -2070,13 +2070,13 @@
       currentSubTab = tabId;
       document.querySelectorAll('.subtab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.subtab-btn').forEach(btn => {
-        btn.className = 'subtab-btn flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1';
+        btn.className = 'subtab-btn flex-1 min-w-[95px] py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center space-x-1.5';
       });
 
       document.getElementById(`section-${tabId}`).classList.remove('hidden');
       const activeBtn = document.getElementById(`subtab-${tabId}`);
       if (activeBtn) {
-        activeBtn.className = 'subtab-btn active-subtab flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1';
+        activeBtn.className = 'subtab-btn active-subtab flex-1 min-w-[95px] py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1.5';
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2100,38 +2100,38 @@
     function renderDialogues(dialogues) {
       const container = document.getElementById('dialogue-container');
       container.innerHTML = dialogues.map(group => `
-        <div class="space-y-3">
-          <div class="flex items-center space-x-2 border-l-4 border-teal-500 pl-3 py-0.5">
-            <h3 class="font-bold text-slate-900 text-sm md:text-base">${group.scene}</h3>
+        <div class="space-y-3.5">
+          <div class="flex items-center space-x-2.5 border-l-4 border-teal-500 pl-3 py-1">
+            <h3 class="font-bold text-slate-900 text-base md:text-lg">${group.scene}</h3>
           </div>
 
-          <div class="space-y-3">
+          <div class="space-y-3.5">
             ${group.turns.map(turn => `
-              <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200/80 space-y-3 hover:shadow-md transition-shadow">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <span class="text-xs font-bold px-2.5 py-1 rounded-lg ${turn.roleBg}">${turn.role}</span>
-                  <span class="text-xs font-medium text-slate-600">${turn.zh}</span>
+              <div class="bg-white rounded-2xl p-4 md:p-5 shadow-xs border border-slate-200/80 space-y-3.5 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                  <span class="text-xs sm:text-sm font-bold px-3 py-1 rounded-xl ${turn.roleBg}">${turn.role}</span>
+                  <span class="text-xs sm:text-sm font-semibold text-slate-600">${turn.zh}</span>
                 </div>
 
                 <!-- 日文句 -->
-                <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
-                  <div class="pr-2 space-y-0.5">
-                    <p class="font-bold text-slate-900 text-sm md:text-base">${turn.ja}</p>
-                    <p class="text-xs text-slate-500">${turn.kana}</p>
-                    <p class="text-[11px] text-teal-600 italic font-mono">${turn.romaji}</p>
+                <div class="flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                  <div class="pr-2 space-y-1">
+                    <p class="font-bold text-slate-900 text-base md:text-lg leading-relaxed">${turn.ja}</p>
+                    <p class="text-xs sm:text-sm text-slate-500">${turn.kana}</p>
+                    <p class="text-xs text-teal-600 italic font-mono">${turn.romaji}</p>
                   </div>
-                  <button onclick="handleSpeechClick(this)" data-speech="${turn.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-2.5 rounded-xl shadow-2xs">
-                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  <button onclick="handleSpeechClick(this)" data-speech="${turn.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-3 rounded-2xl shadow-xs">
+                    <i data-lucide="volume-2" class="w-5 h-5"></i>
                   </button>
                 </div>
 
                 <!-- 英文句 -->
-                <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <div class="flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
                   <div class="pr-2">
-                    <p class="font-semibold text-slate-800 text-xs md:text-sm">${turn.en}</p>
+                    <p class="font-semibold text-slate-800 text-sm md:text-base leading-relaxed">${turn.en}</p>
                   </div>
-                  <button onclick="handleSpeechClick(this)" data-speech="${turn.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-2.5 rounded-xl shadow-2xs">
-                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  <button onclick="handleSpeechClick(this)" data-speech="${turn.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-3 rounded-2xl shadow-xs">
+                    <i data-lucide="volume-2" class="w-5 h-5"></i>
                   </button>
                 </div>
               </div>
@@ -2147,26 +2147,26 @@
       const container = document.getElementById('vocab-container');
       container.innerHTML = vocab.map(item => `
         <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between hover:shadow-md transition-shadow">
-          <div class="space-y-1">
-            <div class="flex items-center space-x-2">
-              <span class="text-sm md:text-base font-bold text-slate-900">${item.zh}</span>
-              <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200/50">${item.ja}</span>
+          <div class="space-y-1.5">
+            <div class="flex items-center space-x-2.5">
+              <span class="text-base md:text-lg font-bold text-slate-900">${item.zh}</span>
+              <span class="text-xs sm:text-sm font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg border border-teal-200/50">${item.ja}</span>
             </div>
-            <div class="text-[11px] text-slate-500 font-mono">
+            <div class="text-xs sm:text-sm text-slate-500 font-mono">
               <span>${item.kana}</span> • <span class="italic text-teal-600">${item.romaji}</span>
             </div>
-            <div class="text-xs text-slate-700 font-medium pt-0.5">
+            <div class="text-xs sm:text-sm text-slate-700 font-medium pt-0.5">
               🇺🇸 ${item.en}
             </div>
           </div>
-          <div class="flex flex-col space-y-1.5 flex-shrink-0 ml-2">
-            <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex items-center space-x-1 bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 text-xs px-2.5 py-1.5 rounded-xl font-bold">
-              <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-              <span class="text-[10px]">日句</span>
+          <div class="flex flex-col space-y-2 flex-shrink-0 ml-2">
+            <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex items-center space-x-1.5 bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 text-xs sm:text-sm px-3 py-2 rounded-xl font-bold">
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
+              <span>日句</span>
             </button>
-            <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex items-center space-x-1 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-xs px-2.5 py-1.5 rounded-xl font-bold">
-              <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-              <span class="text-[10px]">英句</span>
+            <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex items-center space-x-1.5 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-xs sm:text-sm px-3 py-2 rounded-xl font-bold">
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
+              <span>英句</span>
             </button>
           </div>
         </div>
@@ -2177,34 +2177,34 @@
     function renderMustLearn(mustLearn) {
       const container = document.getElementById('must-learn-container');
       container.innerHTML = mustLearn.map(item => `
-        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 hover:shadow-md transition-shadow">
-          <div class="flex items-center space-x-2">
-            <span class="w-5 h-5 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 shadow-xs">${item.id}</span>
-            <span class="font-bold text-slate-900 text-sm md:text-base">${item.zh}</span>
+        <div class="bg-white p-4 md:p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3.5 hover:shadow-md transition-shadow">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 shadow-xs">${item.id}</span>
+            <span class="font-bold text-slate-900 text-base md:text-lg">${item.zh}</span>
           </div>
 
           <!-- 日文 -->
-          <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            <div class="pr-2 space-y-0.5">
-              <div class="flex items-center space-x-1.5">
-                <span class="text-xs">🇯🇵</span>
-                <p class="font-bold text-slate-900 text-xs md:text-sm">${item.ja}</p>
+          <div class="flex items-center justify-between bg-slate-50 p-3 rounded-2xl border border-slate-100">
+            <div class="pr-2 space-y-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-sm">🇯🇵</span>
+                <p class="font-bold text-slate-900 text-sm md:text-base leading-relaxed">${item.ja}</p>
               </div>
-              <p class="text-[11px] text-teal-600 font-mono italic pl-5">${item.romaji}</p>
+              <p class="text-xs sm:text-sm text-teal-600 font-mono italic pl-6">${item.romaji}</p>
             </div>
-            <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-2 rounded-xl">
-              <i data-lucide="volume-2" class="w-4 h-4"></i>
+            <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect flex-shrink-0 bg-teal-100 text-teal-800 hover:bg-teal-200 p-2.5 rounded-xl">
+              <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
             </button>
           </div>
 
           <!-- 英文 -->
-          <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            <div class="pr-2 flex items-center space-x-1.5">
-              <span class="text-xs">🇺🇸</span>
-              <p class="font-semibold text-slate-800 text-xs md:text-sm">${item.en}</p>
+          <div class="flex items-center justify-between bg-slate-50 p-3 rounded-2xl border border-slate-100">
+            <div class="pr-2 flex items-center space-x-2">
+              <span class="text-sm">🇺🇸</span>
+              <p class="font-semibold text-slate-800 text-sm md:text-base leading-relaxed">${item.en}</p>
             </div>
-            <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-2 rounded-xl">
-              <i data-lucide="volume-2" class="w-4 h-4"></i>
+            <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect flex-shrink-0 bg-blue-100 text-blue-800 hover:bg-blue-200 p-2.5 rounded-xl">
+              <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
             </button>
           </div>
         </div>
@@ -2215,33 +2215,33 @@
     function renderPatterns(patterns) {
       const container = document.getElementById('patterns-container');
       container.innerHTML = patterns.map(item => `
-        <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs space-y-3.5 hover:shadow-md transition-shadow">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <span class="font-bold text-slate-900 text-sm md:text-base">${item.title}</span>
-            <span class="text-[10px] bg-slate-100 text-slate-600 font-mono px-2 py-0.5 rounded font-bold">FORMULA</span>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-xs space-y-3.5 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <span class="font-bold text-slate-900 text-base md:text-lg">${item.title}</span>
+            <span class="text-xs bg-slate-100 text-slate-600 font-mono px-2.5 py-1 rounded-md font-bold">FORMULA</span>
           </div>
 
-          <div class="bg-slate-50 border border-slate-200/80 p-3 rounded-xl space-y-1">
-            <div class="text-xs text-teal-900 font-bold font-mono">🇯🇵 ${item.formulaJa}</div>
-            <div class="text-xs text-blue-900 font-bold font-mono">🇺🇸 ${item.formulaEn}</div>
-            <div class="text-[11px] text-slate-500 pt-1.5 border-t border-slate-200/60">${item.desc}</div>
+          <div class="bg-slate-50 border border-slate-200/80 p-3.5 rounded-2xl space-y-1.5">
+            <div class="text-sm sm:text-base text-teal-900 font-bold font-mono">🇯🇵 ${item.formulaJa}</div>
+            <div class="text-sm sm:text-base text-blue-900 font-bold font-mono">🇺🇸 ${item.formulaEn}</div>
+            <div class="text-xs sm:text-sm text-slate-500 pt-2 border-t border-slate-200/60">${item.desc}</div>
           </div>
 
-          <div class="space-y-2">
-            <div class="flex items-center justify-between bg-teal-50/60 p-2.5 rounded-xl border border-teal-100">
-              <div>
-                <p class="font-bold text-teal-950 text-xs md:text-sm">${item.sampleJa}</p>
-                <p class="text-[10px] text-teal-600 font-mono italic">${item.sampleJaRomaji}</p>
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between bg-teal-50/60 p-3 rounded-2xl border border-teal-100">
+              <div class="space-y-0.5 pr-2">
+                <p class="font-bold text-teal-950 text-sm md:text-base">${item.sampleJa}</p>
+                <p class="text-xs text-teal-600 font-mono italic">${item.sampleJaRomaji}</p>
               </div>
-              <button onclick="handleSpeechClick(this)" data-speech="${item.sampleJa.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect bg-teal-600 text-white p-2 rounded-xl shadow-xs">
-                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+              <button onclick="handleSpeechClick(this)" data-speech="${item.sampleJa.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect bg-teal-600 text-white p-2.5 rounded-xl shadow-xs">
+                <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
               </button>
             </div>
 
-            <div class="flex items-center justify-between bg-blue-50/60 p-2.5 rounded-xl border border-blue-100">
-              <p class="font-bold text-blue-950 text-xs md:text-sm">${item.sampleEn}</p>
-              <button onclick="handleSpeechClick(this)" data-speech="${item.sampleEn.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect bg-blue-600 text-white p-2 rounded-xl shadow-xs">
-                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+            <div class="flex items-center justify-between bg-blue-50/60 p-3 rounded-2xl border border-blue-100">
+              <p class="font-bold text-blue-950 text-sm md:text-base pr-2">${item.sampleEn}</p>
+              <button onclick="handleSpeechClick(this)" data-speech="${item.sampleEn.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect bg-blue-600 text-white p-2.5 rounded-xl shadow-xs">
+                <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
               </button>
             </div>
           </div>
@@ -2253,44 +2253,44 @@
     function renderQuiz(quiz) {
       const container = document.getElementById('quiz-container');
       container.innerHTML = quiz.map((item, idx) => `
-        <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs space-y-3 flex flex-col justify-between hover:shadow-md transition-shadow">
-          <div class="space-y-3">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-xs space-y-3.5 flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div class="space-y-3.5">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-slate-100 text-slate-700">題目 ${item.id}</span>
-              <span class="text-xs font-medium text-teal-600">${item.q}</span>
+              <span class="text-xs sm:text-sm font-bold px-3 py-1 rounded-xl bg-slate-100 text-slate-700">題目 ${item.id}</span>
+              <span class="text-xs sm:text-sm font-medium text-teal-600">${item.q}</span>
             </div>
 
-            <div class="p-3 bg-slate-50 rounded-xl text-center border border-slate-100">
-              <p class="text-[11px] text-slate-400 mb-0.5">目標回答中文：</p>
-              <p class="text-sm font-bold text-slate-800">「${item.target}」</p>
+            <div class="p-3.5 bg-slate-50 rounded-2xl text-center border border-slate-100">
+              <p class="text-xs text-slate-400 mb-1">目標回答中文：</p>
+              <p class="text-base md:text-lg font-bold text-slate-800">「${item.target}」</p>
             </div>
 
-            <div id="quiz-ans-${idx}" class="hidden space-y-2 pt-2 border-t border-slate-100">
-              <div class="flex items-center justify-between bg-teal-50 p-2.5 rounded-xl border border-teal-100">
-                <div>
-                  <span class="text-[9px] font-bold text-teal-800 uppercase tracking-wider">🇯🇵 標準日文</span>
-                  <p class="font-bold text-teal-950 text-xs md:text-sm">${item.ja}</p>
-                  <p class="text-[10px] text-teal-600 font-mono italic">${item.jaRomaji}</p>
+            <div id="quiz-ans-${idx}" class="hidden space-y-2.5 pt-2.5 border-t border-slate-100">
+              <div class="flex items-center justify-between bg-teal-50 p-3 rounded-2xl border border-teal-100">
+                <div class="space-y-0.5 pr-2">
+                  <span class="text-[10px] sm:text-xs font-bold text-teal-800 uppercase tracking-wider">🇯🇵 標準日文</span>
+                  <p class="font-bold text-teal-950 text-sm md:text-base">${item.ja}</p>
+                  <p class="text-xs text-teal-600 font-mono italic">${item.jaRomaji}</p>
                 </div>
-                <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect bg-teal-600 text-white p-2 rounded-xl shadow-xs">
-                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                <button onclick="handleSpeechClick(this)" data-speech="${item.ja.replace(/"/g, '&quot;')}" data-lang="ja-JP" class="tap-effect bg-teal-600 text-white p-2.5 rounded-xl shadow-xs">
+                  <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
                 </button>
               </div>
 
-              <div class="flex items-center justify-between bg-blue-50 p-2.5 rounded-xl border border-blue-100">
-                <div>
-                  <span class="text-[9px] font-bold text-blue-800 uppercase tracking-wider">🇺🇸 標準英文</span>
-                  <p class="font-bold text-blue-950 text-xs md:text-sm">${item.en}</p>
+              <div class="flex items-center justify-between bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                <div class="pr-2">
+                  <span class="text-[10px] sm:text-xs font-bold text-blue-800 uppercase tracking-wider">🇺🇸 標準英文</span>
+                  <p class="font-bold text-blue-950 text-sm md:text-base">${item.en}</p>
                 </div>
-                <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect bg-blue-600 text-white p-2 rounded-xl shadow-xs">
-                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                <button onclick="handleSpeechClick(this)" data-speech="${item.en.replace(/"/g, '&quot;')}" data-lang="en-US" class="tap-effect bg-blue-600 text-white p-2.5 rounded-xl shadow-xs">
+                  <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <button onclick="toggleAnswer(${idx})" id="quiz-btn-${idx}" class="tap-effect w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center justify-center space-x-1.5 shadow-sm mt-2">
-            <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+          <button onclick="toggleAnswer(${idx})" id="quiz-btn-${idx}" class="tap-effect w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold flex items-center justify-center space-x-2 shadow-sm mt-2">
+            <i data-lucide="eye" class="w-4 h-4"></i>
             <span>對照標準答案與發音</span>
           </button>
         </div>
