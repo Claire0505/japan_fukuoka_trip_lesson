@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -30,7 +30,7 @@
   </script>
 
   <style>
-    /* 隱藏原生滾動條但維持滾動功能 */
+    /* 隱藏滾動條但保持滾動 */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -38,7 +38,7 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
-    /* 行動裝置觸控反饋 */
+    /* 點擊反饋效果 */
     .tap-effect:active {
       transform: scale(0.97);
       transition: transform 0.1s ease;
@@ -50,7 +50,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen pb-28 select-none">
 
-  <!-- 頂部主要 Header -->
+  <!-- 頂部導航欄 (Header) -->
   <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md border-b border-slate-800">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-3">
@@ -71,47 +71,127 @@
     </div>
   </header>
 
-  <!-- 主要內容區 -->
+  <!-- 主要內容區 (Main Content) -->
   <main class="max-w-4xl mx-auto p-4 md:p-6 space-y-5">
 
-    <!-- 獨立課程章節選擇區 (支援響應式與水平滑動) -->
-    <section class="space-y-2">
+    <!-- 精緻章節選擇區 (支援響應式雙排網格) -->
+    <section class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm space-y-3">
       <div class="flex items-center justify-between px-1">
-        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
-          <i data-lucide="book-marked" class="w-4 h-4 text-teal-600"></i> 選擇實戰章節 ( Lesson )
-        </span>
-        <span class="text-[11px] text-slate-400">點擊切換課程</span>
+        <div class="flex items-center space-x-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+            <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+          </span>
+          <span class="text-xs font-bold text-slate-700 tracking-wide uppercase">實戰章節選擇 ( Chapters )</span>
+        </div>
+        <div class="flex items-center space-x-1.5">
+          <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">共 9 課全開</span>
+        </div>
       </div>
-      
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 py-1">
-        <button onclick="switchLesson('lesson1')" id="lesson-btn-lesson1" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-teal-500 text-slate-950 shadow-sm border border-teal-400">
-          <span class="text-base">✈️</span>
-          <span>第 1 課：入境海關</span>
+
+      <!-- 響應式雙排/三欄大觸控區塊 -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2.5">
+        <!-- 第 1 課 -->
+        <button onclick="switchLesson('lesson1')" id="lesson-btn-lesson1" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-teal-500 text-slate-950 border border-teal-400 shadow-sm">
+          <div class="w-9 h-9 rounded-xl bg-slate-900/10 flex items-center justify-center text-lg flex-shrink-0">
+            ✈️
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase opacity-80 leading-none">Lesson 01</div>
+            <div class="text-xs font-bold truncate mt-0.5">入境海關與審查</div>
+          </div>
         </button>
-        <button onclick="switchLesson('lesson2')" id="lesson-btn-lesson2" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <span class="text-base">🚇</span>
-          <span>第 2 課：交通購票</span>
+
+        <!-- 第 2 課 -->
+        <button onclick="switchLesson('lesson2')" id="lesson-btn-lesson2" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            🚇
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 02</div>
+            <div class="text-xs font-bold truncate mt-0.5">交通移動與購票</div>
+          </div>
         </button>
-        <button onclick="switchLesson('lesson3')" id="lesson-btn-lesson3" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
-          <span class="text-base">🏨</span>
-          <span>第 3 課：飯店入住</span>
+
+        <!-- 第 3 課 -->
+        <button onclick="switchLesson('lesson3')" id="lesson-btn-lesson3" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            🏨
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 03</div>
+            <div class="text-xs font-bold truncate mt-0.5">飯店入住與需求</div>
+          </div>
         </button>
-        <button onclick="switchLesson('lesson4')" id="lesson-btn-lesson4" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white/60 text-slate-400 border border-slate-200/60 cursor-not-allowed">
-          <span class="text-base">🍜</span>
-          <span>第 4 課：餐飲點餐</span>
+
+        <!-- 第 4 課 -->
+        <button onclick="switchLesson('lesson4')" id="lesson-btn-lesson4" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            🍜
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 04</div>
+            <div class="text-xs font-bold truncate mt-0.5">餐廳點餐與屋台</div>
+          </div>
         </button>
-        <button onclick="switchLesson('lesson5')" id="lesson-btn-lesson5" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white/60 text-slate-400 border border-slate-200/60 cursor-not-allowed">
-          <span class="text-base">🛍️</span>
-          <span>第 5 課：購物退稅</span>
+
+        <!-- 第 5 課 -->
+        <button onclick="switchLesson('lesson5')" id="lesson-btn-lesson5" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            🛍️
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 05</div>
+            <div class="text-xs font-bold truncate mt-0.5">購物退稅與付款</div>
+          </div>
         </button>
-        <button onclick="switchLesson('lesson6')" id="lesson-btn-lesson6" class="lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white/60 text-slate-400 border border-slate-200/60 cursor-not-allowed">
-          <span class="text-base">🚑</span>
-          <span>第 6 課：日常緊急</span>
+
+        <!-- 第 6 課 -->
+        <button onclick="switchLesson('lesson6')" id="lesson-btn-lesson6" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            🚑
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 06</div>
+            <div class="text-xs font-bold truncate mt-0.5">日常問路與緊急</div>
+          </div>
+        </button>
+
+        <!-- 第 7 課 -->
+        <button onclick="switchLesson('lesson7')" id="lesson-btn-lesson7" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            🏍️
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 07</div>
+            <div class="text-xs font-bold truncate mt-0.5">SHOEI 安全帽專賣</div>
+          </div>
+        </button>
+
+        <!-- 第 8 課 -->
+        <button onclick="switchLesson('lesson8')" id="lesson-btn-lesson8" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            💊
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 08</div>
+            <div class="text-xs font-bold truncate mt-0.5">藥局買藥與醫療</div>
+          </div>
+        </button>
+
+        <!-- 第 9 課 -->
+        <button onclick="switchLesson('lesson9')" id="lesson-btn-lesson9" class="lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0">
+            ⛩️
+          </div>
+          <div class="overflow-hidden">
+            <div class="text-[10px] font-extrabold uppercase text-slate-400 leading-none">Lesson 09</div>
+            <div class="text-xs font-bold truncate mt-0.5">景點導覽與購票</div>
+          </div>
         </button>
       </div>
     </section>
 
-    <!-- 課程簡介橫幅與雙語通關秘訣 -->
+    <!-- 課程簡介橫幅與通關秘訣 (Lesson Banner & Quick Pass Tip) -->
     <div id="lesson-banner" class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-4 md:p-6 text-white shadow-lg space-y-4">
       <div class="space-y-1 border-b border-slate-700/60 pb-3">
         <div class="inline-flex items-center space-x-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 px-3 py-0.5 rounded-full text-xs font-bold">
@@ -137,7 +217,7 @@
           </div>
         </div>
 
-        <!-- 獨立日語 / 英語發音播放按鈕 -->
+        <!-- 音聲播放按鈕 (日語 / 英語) -->
         <div class="flex items-center space-x-2 flex-shrink-0 pt-2 md:pt-0 border-t border-slate-700/50 md:border-t-0">
           <button id="banner-audio-ja" onclick="handleSpeechClick(this)" data-speech="" data-lang="ja-JP" class="tap-effect flex-1 md:flex-none bg-teal-500 hover:bg-teal-400 text-slate-950 px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 shadow">
             <i data-lucide="volume-2" class="w-4 h-4"></i>
@@ -151,7 +231,7 @@
       </div>
     </div>
 
-    <!-- 課內單元 SubTab 導航列 -->
+    <!-- 課內單元 SubTab 導航列 (SubTab Nav) -->
     <nav class="bg-white border border-slate-200 rounded-2xl sticky top-16 z-30 px-2 py-1.5 shadow-sm">
       <div class="flex space-x-1 overflow-x-auto no-scrollbar">
         <button onclick="switchSubTab('dialogue')" id="subtab-dialogue" class="subtab-btn active-subtab flex-1 min-w-[85px] py-2 px-3 rounded-xl text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 transition-all flex items-center justify-center space-x-1">
@@ -180,7 +260,7 @@
     <!-- 1. 情境對話區 (Dialogue Section) -->
     <section id="section-dialogue" class="subtab-content space-y-6">
       <div id="dialogue-container" class="space-y-6">
-        <!-- JS 動態生成情境對話內容 -->
+        <!-- JS 動態生成 -->
       </div>
     </section>
 
@@ -191,7 +271,7 @@
         <span id="vocab-count" class="text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-lg">共 10 個核心單字</span>
       </div>
       <div id="vocab-container" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-        <!-- JS 動態生成核心單字 -->
+        <!-- JS 動態生成 -->
       </div>
     </section>
 
@@ -201,7 +281,7 @@
         精選高頻句子，點擊右側聲音按鈕反覆朗讀練習。
       </div>
       <div id="must-learn-container" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-        <!-- JS 動態生成必背10句 -->
+        <!-- JS 動態生成 -->
       </div>
     </section>
 
@@ -211,7 +291,7 @@
         掌握萬用表達公式，替換關鍵字靈活運用！
       </div>
       <div id="patterns-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- JS 動態生成5大核心句型 -->
+        <!-- JS 動態生成 -->
       </div>
     </section>
 
@@ -223,13 +303,13 @@
       </div>
 
       <div id="quiz-container" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <!-- JS 動態生成抽考題目 -->
+        <!-- JS 動態生成 -->
       </div>
 
       <div class="pt-4 text-center">
         <div class="inline-block p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800 space-y-1 max-w-sm shadow-xs">
-          <p class="font-bold text-sm text-emerald-900">🎉 學習進度掌握中！</p>
-          <p>持之以恆反覆練習，出國溝通自信無阻！</p>
+          <p class="font-bold text-sm text-emerald-900">🎉 全 9 課完整學習實戰！</p>
+          <p>出國旅遊無論入境、交通、住宿、點餐、購物、問路、買安全帽、醫療或景點購票都能輕鬆應對！</p>
         </div>
       </div>
     </section>
@@ -255,7 +335,7 @@
     let currentSubTab = 'dialogue';
     let currentRate = 1.0;
 
-    // 完整 6 課資料庫 (包含標題、簡介與通關秘訣)
+    // 完整 9 課資料庫
     const lessonData = {
       lesson1: {
         id: "lesson1",
@@ -818,6 +898,1035 @@
             en: "What time is check-out?"
           }
         ]
+      },
+      lesson4: {
+        id: "lesson4",
+        title: "第 4 課：餐廳點餐與屋台",
+        description: "博多拉麵、牛腸鍋、中洲屋台點餐情境實戰",
+        tipDesc: "指著菜單一秒直接點餐：",
+        tipJaText: "これをください。(Kore o kudasai.)",
+        tipJaKey: "これをください。",
+        tipEnText: "I'll have this one, please.",
+        tipEnKey: "I'll have this one, please.",
+        dialogues: [
+          {
+            scene: "場景 1：確認人數與入座 (Seating)",
+            turns: [
+              {
+                role: "👨‍🍳 店員",
+                roleBg: "bg-orange-50 text-orange-700",
+                zh: "歡迎光臨！請問幾位？",
+                ja: "いらっしゃいませ！何名様ですか？",
+                kana: "いらっしゃいませ！ なんめいさまですか？",
+                romaji: "Irasshaimase! Nan-mei-sama desu ka?",
+                en: "Welcome! How many people in your party?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "4 位，請問有位子嗎？",
+                ja: "4人です。席は空いていますか？",
+                kana: "よにんです。せきは あいていますか？",
+                romaji: "Yo-nin desu. Seki wa aiteimasu ka?",
+                en: "Party of four. Do you have a table for four?"
+              }
+            ]
+          },
+          {
+            scene: "場景 2：詢問菜單與推薦 (Menu & Recommendation)",
+            turns: [
+              {
+                role: "👨‍🍳 店員",
+                roleBg: "bg-orange-50 text-orange-700",
+                zh: "好的！決定好要點什麼了嗎？",
+                ja: "はい！ご注文はお決まりですか？",
+                kana: "はい！ ごちゅうもんは おきまりですか？",
+                romaji: "Hai! Gochūmon wa okimari desu ka?",
+                en: "Yes! Are you ready to order?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "請問有英文菜單嗎？你們推薦什麼？",
+                ja: "英語のメニューはありますか？おすすめは何ですか？",
+                kana: "えいごの めにゅーは ありますか？ おすすめは なんですか？",
+                romaji: "Eigo no menyū wa arimasu ka? Osusume wa nan desu ka?",
+                en: "Do you have an English menu? What do you recommend?"
+              }
+            ]
+          },
+          {
+            scene: "場景 3：買單結帳 (Check & Payment)",
+            turns: [
+              {
+                role: "🙋‍♂️ 你的詢問",
+                roleBg: "bg-teal-600 text-white",
+                zh: "買單，請問可以刷卡嗎？",
+                ja: "お会計をお願いします。クレジットカードは使えますか？",
+                kana: "おかいけいを おねがいします。くれじっとかーどは つかえますか？",
+                romaji: "Okaikei o onegaishimasu. Kurejitto kādo wa tsukaemasu ka?",
+                en: "Check, please. Can we pay by credit card?"
+              },
+              {
+                role: "👨‍🍳 店員",
+                roleBg: "bg-orange-50 text-orange-700",
+                zh: "可以刷卡！多謝款待，歡迎下次再來！",
+                ja: "はい、カード使えますよ！ごちそうさまでした、またお越しください！",
+                kana: "はい、かーど つかえますよ！ ごちそうさまでした、また おこしください！",
+                romaji: "Hai, kādo tsukaemasu yo! Gochisōsama deshita, mata okoshi kudasai!",
+                en: "Yes, credit card is accepted! Thank you, please come again!"
+              }
+            ]
+          }
+        ],
+        vocab: [
+          { zh: "點餐", ja: "注文", kana: "ちゅうもん", romaji: "Chūmon", en: "Order" },
+          { zh: "買單 / 結帳", ja: "会計", kana: "かいけい", romaji: "Kaikei", en: "Check / Bill" },
+          { zh: "推薦", ja: "おすすめ", kana: "おすすめ", romaji: "Osusume", en: "Recommendation" },
+          { zh: "豚骨拉麵", ja: "とんこつラーメン", kana: "とんこつらーめん", romaji: "Tonkotsu rāmen", en: "Tonkotsu pork ramen" },
+          { zh: "一口餃子", ja: "一口餃子", kana: "ひとくちぎょうざ", romaji: "Hitokuchi gyōza", en: "Bite-sized dumplings" },
+          { zh: "牛腸鍋", ja: "もつ鍋", kana: "もつなべ", romaji: "Motsunabe", en: "Beef tripe hot pot" },
+          { zh: "替玉 (加麵)", ja: "替え玉", kana: "かえだま", romaji: "Kaedama", en: "Extra noodle refill" },
+          { zh: "硬麵", ja: "硬め", kana: "かため", romaji: "Katame", en: "Firm noodles" },
+          { zh: "冰水", ja: "お冷", kana: "おひや", romaji: "Ohiya", en: "Cold water" },
+          { zh: "分開結帳", ja: "別々", kana: "べつべつ", romaji: "Betsubetsu", en: "Split the bill / Separately" }
+        ],
+        mustLearn: [
+          { id: 1, zh: "不好意思！（點餐或叫店員）", ja: "すみません！", romaji: "Sumimasen!", en: "Excuse me!" },
+          { id: 2, zh: "請問有 4 個人的位子嗎？", ja: "4人ですが、席はありますか？", romaji: "Yo-nin desu ga, seki wa arimasu ka?", en: "Do you have a table for four?" },
+          { id: 3, zh: "請問有英文菜單嗎？", ja: "英語のメニューはありますか？", romaji: "Eigo no menyū wa arimasu ka?", en: "Do you have an English menu?" },
+          { id: 4, zh: "請問店裡的招牌是什麼？", ja: "一番人気は何ですか？", romaji: "Ichiban ninki wa nan desu ka?", en: "What is your most popular dish?" },
+          { id: 5, zh: "請給我這個。（手指菜單）", ja: "これをください。", romaji: "Kore o kudasai.", en: "I'll have this one, please." },
+          { id: 6, zh: "博多拉麵麵條要偏硬。", ja: "麺は硬めでお願いします。", romaji: "Men wa katame de onegaishimasu.", en: "Firm noodles, please." },
+          { id: 7, zh: "請給我來份替玉（加麵）。", ja: "替え玉をお願いします。", romaji: "Kaedama o onegaishimasu.", en: "Another refill of noodles, please." },
+          { id: 8, zh: "請給我冰水。", ja: "お冷をください。", romaji: "Ohiya o kudasai.", en: "Water, please." },
+          { id: 9, zh: "買單，謝謝。", ja: "お会計をお願いします。", romaji: "Okaikei o onegaishimasu.", en: "Check, please." },
+          { id: 10, zh: "可以分開付嗎？", ja: "別々に払えますか？", romaji: "Betsubetsu ni haraemasu ka?", en: "Can we pay separately?" }
+        ],
+        patterns: [
+          {
+            id: 1,
+            title: "句型 1：向店員索取物品",
+            formulaJa: "[物品] + をください。",
+            formulaEn: "Can I have [Item], please?",
+            desc: "索取水、紙巾、餐具或指著菜單點餐最通用的句型。",
+            sampleJa: "これをください。",
+            sampleJaRomaji: "Kore o kudasai.",
+            sampleEn: "Can I have this, please?"
+          },
+          {
+            id: 2,
+            title: "句型 2：詢問有無某項物品或服務",
+            formulaJa: "[物品/服務] + はありますか？",
+            formulaEn: "Do you have [Item/Service]?",
+            desc: "詢問是否有中文菜單、素食選項或兒童餐具。",
+            sampleJa: "中国語のメニューはありますか？",
+            sampleJaRomaji: "Chūgokugo no menyū wa arimasu ka?",
+            sampleEn: "Do you have a Chinese menu?"
+          },
+          {
+            id: 3,
+            title: "句型 3：詢問店家推薦",
+            formulaJa: "おすすめは [名詞] ですか？",
+            formulaEn: "What do you recommend for [Category]?",
+            desc: "不知道點什麼時，直接讓店家推薦招牌。",
+            sampleJa: "おすすめは何ですか？",
+            sampleJaRomaji: "Osusume wa nan desu ka?",
+            sampleEn: "What do you recommend?"
+          },
+          {
+            id: 4,
+            title: "句型 4：自訂餐點要求（拉麵硬度、辣度等）",
+            formulaJa: "[選項] + でお願いします。",
+            formulaEn: "With [Option], please.",
+            desc: "博多拉麵選硬度（硬め katame / 普通 futsū）時的常用格式。",
+            sampleJa: "麺は硬めでお願いします。",
+            sampleJaRomaji: "Men wa katame de onegaishimasu.",
+            sampleEn: "Firm noodles, please."
+          },
+          {
+            id: 5,
+            title: "句型 5：結帳付款方式確認",
+            formulaJa: "[支付方式] + で払えますか？",
+            formulaEn: "Can I pay with [Payment method]?",
+            desc: "詢問是否能用信用卡、IC卡或行動支付。",
+            sampleJa: "クレジットカードで払えますか？",
+            sampleJaRomaji: "Kurejitto kādo de haraemasu ka?",
+            sampleEn: "Can I pay with a credit card?"
+          }
+        ],
+        quiz: [
+          {
+            id: 1,
+            q: "4 個人，詢問店家是否有位子",
+            target: "4 個人，請問有位子嗎？",
+            ja: "4人です。席は空いていますか？",
+            jaRomaji: "Yo-nin desu. Seki wa aiteimasu ka?",
+            en: "Table for four, please."
+          },
+          {
+            id: 2,
+            q: "指著菜單上的料理點餐",
+            target: "請給我這個（手指菜單）。",
+            ja: "これをください。",
+            jaRomaji: "Kore o kudasai.",
+            en: "I'll have this one, please."
+          },
+          {
+            id: 3,
+            q: "要結帳並詢問能否刷卡",
+            target: "買單，請問可以刷卡嗎？",
+            ja: "お会計をお願いします。カードは使えますか？",
+            jaRomaji: "Okaikei o onegaishimasu. Kādo wa tsukaemasu ka?",
+            en: "Check, please. Can I pay by card?"
+          }
+        ]
+      },
+      lesson5: {
+        id: "lesson5",
+        title: "第 5 課：購物退稅與付款",
+        description: "天神/博多運河城購物、免稅手續情境實戰",
+        tipDesc: "購物結帳時確認免稅，最實用直球問法：",
+        tipJaText: "免税はできますか？(Menzei wa dekimasu ka?)",
+        tipJaKey: "免税はできますか？",
+        tipEnText: "Do you offer tax-free shopping?",
+        tipEnKey: "Do you offer tax-free shopping?",
+        dialogues: [
+          {
+            scene: "場景 1：詢問購物袋與退稅 (Shopping Bag & Tax-Free)",
+            turns: [
+              {
+                role: "🛍️ 店員",
+                roleBg: "bg-pink-50 text-pink-700",
+                zh: "歡迎光臨！總共是 12,800 日圓。需要購物袋嗎？",
+                ja: "いらっしゃいませ！お会計は全部で12,800円になります。レジ袋はご利用になりますか？",
+                kana: "いらっしゃいませ！ おかいけいは ぜんぶで いちまんにせんはっぴゃくえんに なります。れじぶくろは ごりように なりますか？",
+                romaji: "Irasshaimase! Okaikei wa zenbu de ichiman-nassen-happyaku-en ni narimasu. Rejibukuro wa goriyō ni narimasu ka?",
+                en: "Welcome! Your total is 12,800 yen. Would you like a shopping bag?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "需要袋子。請問這裡可以辦理退稅嗎？",
+                ja: "袋をお願いします。免税はできますか？",
+                kana: "ふくろを おねがいします。めんぜいは できますか？",
+                romaji: "Fukuro o onegaishimasu. Menzei wa dekimasu ka?",
+                en: "Yes, a bag please. Do you offer tax-free shopping?"
+              }
+            ]
+          },
+          {
+            scene: "場景 2：出示護照或 QR Code (Passport & Tax Exemption)",
+            turns: [
+              {
+                role: "🛍️ 店員",
+                roleBg: "bg-pink-50 text-pink-700",
+                zh: "滿 5,000 日圓可享免稅。請出示您的護照或 Visit Japan Web 條碼。",
+                ja: "5,000円以上ですので免税可能です。パスポートをご提示いただけますか？",
+                kana: "ごせんえん いじょうですので めんぜいかのうです。ぱすぽーとを ごていじ いただけますか？",
+                romaji: "Gosen-en ijō desu node menzei kanō desu. Pasupōto o goteiji itadakemasu ka?",
+                en: "Your purchase is over 5,000 yen, so it is tax-free. Could you please show me your passport?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "好的，這是我的護照。",
+                ja: "はい、これが私のパスポートです。どうぞ。",
+                kana: "はい、これが わたしの ぱすぽーとです。どうぞ。",
+                romaji: "Hai, kore ga watashi no pasupōto desu. Dōzo.",
+                en: "Sure, here is my passport."
+              }
+            ]
+          },
+          {
+            scene: "場景 3：確認付款方式 (Payment Method)",
+            turns: [
+              {
+                role: "🛍️ 店員",
+                roleBg: "bg-pink-50 text-pink-700",
+                zh: "免稅後的總金額是 11,636 日圓。請問您想如何付款？",
+                ja: "免税後の合計金額は11,636円です。お支払い方法はいかがなさいますか？",
+                kana: "めんぜいごの ごうけいきんがくは いちまんいっせんろっぴゃくさんじゅうろくえんです。おしはらいほうほうは いかがなさいますか？",
+                romaji: "Menzei go no gōkei kingaku wa ichiman-issen-roppyaku-san jū-roku-en desu. Oshiharai hōhō wa ikaga nasaimasu ka?",
+                en: "The total after tax exemption is 11,636 yen. How would you like to pay?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "我要用信用卡付款。",
+                ja: "クレジットカードでお願いします。",
+                kana: "くれじっとかーどで おねがいします。",
+                romaji: "Kurejitto kādo de onegaishimasu.",
+                en: "I will pay by credit card, please."
+              }
+            ]
+          }
+        ],
+        vocab: [
+          { zh: "免稅", ja: "免税", kana: "めんぜい", romaji: "Menzei", en: "Tax-free / Duty-free" },
+          { zh: "護照", ja: "パスポート", kana: "ぱすぽーと", romaji: "Pasupōto", en: "Passport" },
+          { zh: "塑膠袋 / 紙袋", ja: "レジ袋 / 紙袋", kana: "れじぶくろ / かみぶくろ", romaji: "Rejibukuro / Kamibukuro", en: "Shopping bag / Paper bag" },
+          { zh: "結帳櫃檯", ja: "レジ", kana: "れじ", romaji: "Reji", en: "Cashier / Register" },
+          { zh: "試穿", ja: "試着", kana: "しちゃく", romaji: "Shichaku", en: "Try on" },
+          { zh: "顏色", ja: "色", kana: "いろ", romaji: "Iro", en: "Color" },
+          { zh: "尺寸 (大/中/小)", ja: "サイズ（大/中/小）", kana: "さいず（だい/ちゅう/しょう）", romaji: "Saizu (Dai / Chū / Shō)", en: "Size (Large / Medium / Small)" },
+          { zh: "收據 / 發票", ja: "レシート / 領収書", kana: "れしーと / りょうしゅうしょ", romaji: "Reshīto / Ryōshūsho", en: "Receipt" },
+          { zh: "現金", ja: "現金", kana: "げんきん", romaji: "Genkin", en: "Cash" },
+          { zh: "信用卡", ja: "クレジットカード", kana: "くれじっとかーど", romaji: "Kurejitto kādo", en: "Credit card" }
+        ],
+        mustLearn: [
+          { id: 1, zh: "請問可以退稅嗎？", ja: "免税できますか？", romaji: "Menzei dekimasu ka?", en: "Is this tax-free?" },
+          { id: 2, zh: "請問免稅櫃檯在哪裡？", ja: "免税カウンターはどこですか？", romaji: "Menzei kauntā wa doko desu ka?", en: "Where is the tax-free counter?" },
+          { id: 3, zh: "我可以試穿這個嗎？", ja: "これを試着してもいいですか？", romaji: "Kore o shichaku shitemo ii desu ka?", en: "Can I try this on?" },
+          { id: 4, zh: "請問有其他顏色嗎？", ja: "他の色はありますか？", romaji: "Hoka no iro wa arimasu ka?", en: "Do you have this in other colors?" },
+          { id: 5, zh: "請問有大一點（小一點）的尺寸嗎？", ja: "もう少し大きい（小さい）サイズはありますか？", romaji: "Mō sukoshi ōkii [chiisai] saizu wa arimasu ka?", en: "Do you have a larger (smaller) size?" },
+          { id: 6, zh: "請給我一個袋子。", ja: "袋を1枚ください。", romaji: "Fukuro o ichimai kudasai.", en: "Could I have a bag, please?" },
+          { id: 7, zh: "不用了，我不需要袋子。", ja: "袋はいりません。", romaji: "Fukuro wa irimasen.", en: "No bag needed, thank you." },
+          { id: 8, zh: "這是我的護照。", ja: "パスポートをどうぞ。", romaji: "Pasupōto o dōzo.", en: "Here is my passport." },
+          { id: 9, zh: "我可以用信用卡感應付款嗎？", ja: "タッチ決済は使えますか？", romaji: "Tacchi kessai wa tsukaemasu ka?", en: "Can I tap to pay with my credit card?" },
+          { id: 10, zh: "我可以分開裝袋嗎？（送禮用）", ja: "小分けの袋をもらえますか？", romaji: "Kowake no fukuro o moraemasu ka?", en: "Can I have extra small gift bags?" }
+        ],
+        patterns: [
+          {
+            id: 1,
+            title: "句型 1：詢問是否支援某項優惠/功能（退稅、折扣等）",
+            formulaJa: "[名詞] + はできますか？",
+            formulaEn: "Do you offer [Service]?",
+            desc: "買東西時最常用的免稅確認句型。",
+            sampleJa: "免税の手続きはできますか？",
+            sampleJaRomaji: "Menzei no tetsuzuki wa dekimasu ka?",
+            sampleEn: "Can I do tax-free shopping here?"
+          },
+          {
+            id: 2,
+            title: "句型 2：請求試穿 / 試用物品",
+            formulaJa: "これを [動詞te形] もいいですか？",
+            formulaEn: "Can I [Action] this?",
+            desc: "試穿衣服鞋子、試用樣品或拍照前徵詢店員許可。",
+            sampleJa: "これを着てみてもいいですか？",
+            sampleJaRomaji: "Kore o kite mitemo ii desu ka?",
+            sampleEn: "May I try this on?"
+          },
+          {
+            id: 3,
+            title: "句型 3：詢問在庫庫存或不同規格",
+            formulaJa: "別の [規格/尺寸/顏色] はありますか？",
+            formulaEn: "Do you have another [Specification]?",
+            desc: "找不同尺寸、新庫存（新品）或新顏色時使用。",
+            sampleJa: "新しい在庫はありますか？",
+            sampleJaRomaji: "Atarashii zaiko wa arimasu ka?",
+            sampleEn: "Do you have a new one in stock?"
+          },
+          {
+            id: 4,
+            title: "句型 4：指定付款方式",
+            formulaJa: "[支付工具] + でお願いします。",
+            formulaEn: "By [Payment method], please.",
+            desc: "結帳時告知使用信用卡、現金或交通卡。",
+            sampleJa: "クレジットカードでお願いします。",
+            sampleJaRomaji: "Kurejitto kādo de onegaishimasu.",
+            sampleEn: "By credit card, please."
+          },
+          {
+            id: 5,
+            title: "句型 5：婉拒不需要的服務（如塑膠袋、收據等）",
+            formulaJa: "[物品] + は結構です／いりません。",
+            formulaEn: "No [Item], thanks.",
+            desc: "自備購物袋或不拿收據時禮貌拒絕。",
+            sampleJa: "袋は結構です。",
+            sampleJaRomaji: "Fukuro wa kekkō desu.",
+            sampleEn: "No bag is needed, thanks."
+          }
+        ],
+        quiz: [
+          {
+            id: 1,
+            q: "詢問店家是否能辦理免稅手續",
+            target: "請問這裡可以辦免稅嗎？",
+            ja: "免税はできますか？",
+            jaRomaji: "Menzei dekimasu ka?",
+            en: "Do you offer tax-free shopping?"
+          },
+          {
+            id: 2,
+            q: "看中衣服想向店員提出試穿請求",
+            target: "我可以試穿這個嗎？",
+            ja: "これを試着してもいいですか？",
+            jaRomaji: "Kore o shichaku shitemo ii desu ka?",
+            en: "Can I try this on?"
+          },
+          {
+            id: 3,
+            q: "結帳時索取袋子並指定信用卡付款",
+            target: "請給我一個袋子，我要刷卡。",
+            ja: "袋をください。カードで払います。",
+            jaRomaji: "Fukuro o kudasai. Kādo de haraemasu.",
+            en: "A bag, please. I will pay by card."
+          }
+        ]
+      },
+      lesson6: {
+        id: "lesson6",
+        title: "第 6 課：日常詢問與緊急狀況",
+        description: "問路、景點諮詢、遺失物處理情境實戰",
+        tipDesc: "外出問洗手間在哪裡，最常用禮貌金句：",
+        tipJaText: "すみません、お手洗いはどこですか？",
+        tipJaKey: "すみません、お手洗いはどこですか？",
+        tipEnText: "Excuse me, where is the restroom?",
+        tipEnKey: "Excuse me, where is the restroom?",
+        dialogues: [
+          {
+            scene: "場景 1：路上問路 (Asking for Directions)",
+            turns: [
+              {
+                role: "🚶 路人",
+                roleBg: "bg-emerald-50 text-emerald-700",
+                zh: "您好！在找什麼地方嗎？",
+                ja: "こんにちは！なにかお探しですか？",
+                kana: "こんにちは！ なにか おさがしですか？",
+                romaji: "Konnichiwa! Nanika osagashi desu ka?",
+                en: "Hello! Are you looking for something?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "不好意思，可以告訴我福岡城怎麼走嗎？",
+                ja: "すみません、福岡城にはどうやって行けばいいですか？",
+                kana: "すみません、ふくおかじょうには どうやって いけばいいですか？",
+                romaji: "Sumimasen, Fukuoka-jō ni wa dō yatte ikeba ii desu ka?",
+                en: "Excuse me, could you tell me how to get to Fukuoka Castle?"
+              },
+              {
+                role: "🚶 路人",
+                roleBg: "bg-emerald-50 text-emerald-700",
+                zh: "直走，第二個紅綠燈右轉就會看到大濠公園，步行大約 5 分鐘。",
+                ja: "ここをまっすぐ行って、2つ目の信号を右に曲がると大濠公園が見えます。そこから歩いて5分くらいですよ。",
+                kana: "ここを まっすぐ いって、ふたつめの しんごうを みぎに まがると おおほりこうえんが みえます。そこから あるいて ごふんくらいですよ。",
+                romaji: "Koko o massugu itte, futatsume no shingō o migi ni magaru to Ōhori Kōen ga miemasu. Soko kara aruite go-fun kurai desu yo.",
+                en: "Go straight here, turn right at the second traffic light, and you'll see Ohori Park. It's about a 5-minute walk."
+              }
+            ]
+          },
+          {
+            scene: "場景 2：遺失物品尋求協助 (Lost & Found)",
+            turns: [
+              {
+                role: "👮 站務員",
+                roleBg: "bg-indigo-50 text-indigo-700",
+                zh: "怎麼了嗎？有遺失東西嗎？",
+                ja: "どうされましたか？何か落とし物ですか？",
+                kana: "どうされましたか？ なにか おとしものですか？",
+                romaji: "Dō saremashita ka? Nanika otoshimono desu ka?",
+                en: "What happened? Did you lose something?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "我朋友把黑色背包忘在電車上了，裡面有皮夾和護照。",
+                ja: "友達が電車の中に黒いリュックを忘れました。中に財布とパスポートが入っています。",
+                kana: "ともだちが でんしゃの なかに くろい りゅっくを わすれました。なかに さいふと ぱすぽーとが はいっています。",
+                romaji: "Tomodachi ga densha no naka ni kuroi ryukku o wasuremashita. Naka ni saifu to pasupōto ga haitte imasu.",
+                en: "My friend left a black backpack on the train. It has a wallet and passport inside."
+              }
+            ]
+          }
+        ],
+        vocab: [
+          { zh: "遺失物 / 失物招領", ja: "落とし物 / 忘れ物", kana: "おとしもの / わすれもの", romaji: "Otoshimono / Wasuremono", en: "Lost and found / Lost property" },
+          { zh: "皮夾", ja: "財布", kana: "さいふ", romaji: "Saifu", en: "Wallet" },
+          { zh: "背包", ja: "リュックサック", kana: "りゅっくさっく", romaji: "Ryukkusakku", en: "Backpack" },
+          { zh: "警察局 / 派出所", ja: "交番", kana: "こうばん", romaji: "Kōban", en: "Police box" },
+          { zh: "洗手間 / 廁所", ja: "お手洗い / トイレ", kana: "おてあらい / といれ", romaji: "Otearai / Toire", en: "Restroom / Toilet" },
+          { zh: "直走", ja: "まっすぐ", kana: "まっすぐ", romaji: "Massugu", en: "Go straight" },
+          { zh: "右轉 / 左轉", ja: "右に曲がる / 左に曲がる", kana: "みぎに まがる / ひだりに まがる", romaji: "Migi ni magaru / Hidari ni magaru", en: "Turn right / Turn left" },
+          { zh: "紅綠燈", ja: "信号", kana: "しんごう", romaji: "Shingō", en: "Traffic light" },
+          { zh: "藥局", ja: "薬局", kana: "やっきょく", romaji: "Yakkyoku", en: "Pharmacy / Drugstore" },
+          { zh: "幫忙 / 救命", ja: "助けて", kana: "たすけて", romaji: "Tasukete", en: "Help" }
+        ],
+        mustLearn: [
+          { id: 1, zh: "不好意思，請問洗手間在哪裡？", ja: "すみません、お手洗いはどこですか？", romaji: "Sumimasen, otearai wa doko desu ka?", en: "Excuse me, where is the restroom?" },
+          { id: 2, zh: "請問到博多站要走多久？", ja: "博多駅まで歩いてどのくらいかかりますか？", romaji: "Hakata-eki made aruite dono kurai kakarimasu ka?", en: "How long does it take to walk to Hakata Station?" },
+          { id: 3, zh: "我迷路了，可以在地圖上指給我看嗎？", ja: "道に迷いました。地図で教えてもらえますか？", romaji: "Michi ni mayoimashita. Chizu de oshiete moraemasu ka?", en: "I'm lost. Could you show me on the map?" },
+          { id: 4, zh: "我把手機落在計程車上了。", ja: "タクシーにスマホを忘れました。", romaji: "Takushī ni sumaho o wasuremashita.", en: "I left my phone in a taxi." },
+          { id: 5, zh: "我身體有點不舒服。", ja: "少し体調が悪いです。", romaji: "Sukoshi taichō ga warui desu.", en: "I'm not feeling well." },
+          { id: 6, zh: "這附近有藥局嗎？", ja: "この近くに薬局はありますか？", romaji: "Kono chikaku ni yakkyoku wa arimasu ka?", en: "Is there a pharmacy nearby?" },
+          { id: 7, zh: "可以幫我們拍張照片嗎？", ja: "写真を撮っていただけますか？", romaji: "Shashin o totte itadakemasu ka?", en: "Could you take a picture for us?" },
+          { id: 8, zh: "請按這裡拍照（相機快門）。", ja: "ここを押すだけでいいです。", romaji: "Koko o osu dake de ii desu.", en: "Just press this button, please." },
+          { id: 9, zh: "請借我一下筆。", ja: "ペンを貸してもらえますか？", romaji: "Pen o kashite moraemasu ka?", en: "Could I borrow a pen, please?" },
+          { id: 10, zh: "真的非常感謝您的幫忙！", ja: "助かりました。本当にありがとうございます！", romaji: "Tasukarimashita. Hontō ni arigatō gozaimasu!", en: "Thank you so much for your help!" }
+        ],
+        patterns: [
+          {
+            id: 1,
+            title: "句型 1：詢問如何到達特定地點",
+            formulaJa: "[地點] + にはどうやって行けばいいですか？",
+            formulaEn: "How do I get to [Destination]?",
+            desc: "向路人問路最自然客氣的問法。",
+            sampleJa: "太宰府天満宮にはどうやって行けばいいですか？",
+            sampleJaRomaji: "Dazaifu Tenmangū ni wa dō yatte ikeba ii desu ka?",
+            sampleEn: "How can I get to Dazaifu Tenmangu?"
+          },
+          {
+            id: 2,
+            title: "句型 2：陳述遺失物品",
+            formulaJa: "[地點/交通工具] + に [物品] + を忘れました。",
+            formulaEn: "I left my [Item] on/at [Place].",
+            desc: "掉東西時向站務員或櫃檯求助的核心句型。",
+            sampleJa: "レストランに傘を忘れました。",
+            sampleJaRomaji: "Resutoran ni kasa o wasuremashita.",
+            sampleEn: "I left my umbrella at the restaurant."
+          },
+          {
+            id: 3,
+            title: "句型 3：詢問附近是否有特定生活設施",
+            formulaJa: "この近くに [設施] + はありますか？",
+            formulaEn: "Is there a [Facility] around here?",
+            desc: "找便利商店、ATM、藥局或公車站時必用。",
+            sampleJa: "この近くにコンビニはありますか？",
+            sampleJaRomaji: "Kono chikaku ni konbini wa arimasu ka?",
+            sampleEn: "Is there a convenience store nearby?"
+          },
+          {
+            id: 4,
+            title: "句型 4：請求他人協助拍照",
+            formulaJa: "写真を撮ってもらえますか？",
+            formulaEn: "Could you take a picture of us?",
+            desc: "4 位同行好友合照時向路人尋求協助。",
+            sampleJa: "一緒に写真を撮っていただけますか？",
+            sampleJaRomaji: "Issho ni shashin o totte itadakemasu ka?",
+            sampleEn: "Could you please take a picture for the four of us?"
+          },
+          {
+            id: 5,
+            title: "句型 5：表達身體不適與求助",
+            formulaJa: "[身體部位] + が痛いです / 調子が悪いです。",
+            formulaEn: "My [Body part] hurts.",
+            desc: "旅遊途中頭痛、肚子痛或胃不舒服時告知藥師或導遊。",
+            sampleJa: "お腹が痛いです。",
+            sampleJaRomaji: "Onaka ga itai desu.",
+            sampleEn: "My stomach hurts."
+          }
+        ],
+        quiz: [
+          {
+            id: 1,
+            q: "在路上詢問洗手間在哪裡",
+            target: "不好意思，請問洗手間在哪裡？",
+            ja: "すみません、お手洗いはどこですか？",
+            jaRomaji: "Sumimasen, otearai wa doko desu ka?",
+            en: "Excuse me, where is the restroom?"
+          },
+          {
+            id: 2,
+            q: "請路人幫同行 4 位朋友拍合照",
+            target: "可以幫我們 4 個人拍張照片嗎？",
+            ja: "4人で写真を撮ってもらえますか？",
+            jaRomaji: "Yo-nin de shashin o totte moraemasu ka?",
+            en: "Could you take a picture of the four of us?"
+          },
+          {
+            id: 3,
+            q: "向站務員反映手機忘在電車上",
+            target: "我把手機忘在電車上了。",
+            ja: "電車にスマホを忘れました。",
+            jaRomaji: "Densha ni sumaho o wasuremashita.",
+            en: "I left my smartphone on the train."
+          }
+        ]
+      },
+      lesson7: {
+        id: "lesson7",
+        title: "第 7 課：SHOEI Gallery FUKUOKA 買安全帽",
+        description: "SHOEI Gallery 安全帽試戴、尺寸量測、加購配件與登機打包實戰",
+        tipDesc: "想試戴不同尺寸安全帽，最簡潔禮貌問法：",
+        tipJaText: "MサイズとLサイズを試着してもいいですか？",
+        tipJaKey: "MサイズとLサイズを試着してもいいですか？",
+        tipEnText: "Can I try on size M and L?",
+        tipEnKey: "Can I try on size M and L?",
+        dialogues: [
+          {
+            scene: "場景 1：詢問型號與試戴 (Model & Size Testing)",
+            turns: [
+              {
+                role: "🏍️ 店員",
+                roleBg: "bg-orange-50 text-orange-700",
+                zh: "歡迎光臨！請問有想看特定型號或尺寸嗎？",
+                ja: "いらっしゃいませ！気になるモデルやサイズはございますか？",
+                kana: "いらっしゃいませ！ きになる もでるや さいずは ございますか？",
+                romaji: "Irasshaimase! Kininaru moderu ya saizu wa gozaimasu ka?",
+                en: "Welcome! Is there a specific model or size you are looking for?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "我想看 Z-8 系列。請問可以試戴 M 號和 L 號嗎？",
+                ja: "Z-8を探しています。MサイズとLサイズを試着してもいいですか？",
+                kana: "ぜっとえいとを さがしています。えむさいずと えるさいずを しちゃくしても いいですか？",
+                romaji: "Zetto-eito o sagashiteimasu. Emu-saizu to Eru-saizu o shichaku shitemo ii desu ka?",
+                en: "I'm looking for the Z-8 model. Can I try on a size medium and large?"
+              }
+            ]
+          },
+          {
+            scene: "場景 2：加購配件與確認打包登機 (Accessories & Packaging)",
+            turns: [
+              {
+                role: "🙋‍♂️ 你的詢問",
+                roleBg: "bg-teal-600 text-white",
+                zh: "我要這頂 L 號。另外我想買一片墨色鏡片。原廠紙箱可以讓我直接帶上飛機嗎？",
+                ja: "Lサイズにします。あとスモークシールドも1枚ください。元の箱のまま飛行機で持ち帰ることはできますか？",
+                kana: "えるさいずに します。あと すもーくしーるども いちまい ください。もとの はこのまま ひこうきで もちかえることは できますか？",
+                romaji: "Eru-saizu ni shimasu. Ato sumōku shīrudo mo ichi-mai kudasai. Moto no hako no mama hikōki de mochikaeru koto wa dekimasu ka?",
+                en: "I'll take this size L. I'd also like a dark smoke shield. Can I keep the original box for my flight?"
+              },
+              {
+                role: "🏍️ 店員",
+                roleBg: "bg-orange-50 text-orange-700",
+                zh: "當然可以保留箱子！我們會幫您加固膠帶，方便手提或託運，免稅也會同時為您辦理。",
+                ja: "はい、もちろん箱のままお渡しできます！テープで補強しますね。免税の手続きも行います。",
+                kana: "はい、もちろん はこのまま おわたしできます！ てーぷで ほきょうしますね。めんぜいの てつづきも おこないます。",
+                romaji: "Hai, mochiron hako no mama owatashi dekimasu! Tēpu de hokyō shimasu ne. Menzei no tetsuzuki mo okonaimasu.",
+                en: "Yes, of course! You can keep the original box. We'll tape it securely and handle the tax-free process as well."
+              }
+            ]
+          }
+        ],
+        vocab: [
+          { zh: "安全帽 / 頭盔", ja: "ヘルメット", kana: "へるめっと", romaji: "Herumetto", en: "Helmet" },
+          { zh: "鏡片 / 遮陽鏡", ja: "シールド", kana: "しーるど", romaji: "Shīrudo", en: "Shield / Visor" },
+          { zh: "墨色鏡片", ja: "スモークシールド", kana: "すもーくしーるど", romaji: "Sumōku shīrudo", en: "Dark smoke shield" },
+          { zh: "電鍍鏡片", ja: "ミラーシールド", kana: "みらーしーるど", romaji: "Mirā shīrudo", en: "Mirrored shield" },
+          { zh: "防霧片", ja: "ピンロックシート", kana: "ぴんろっくしーと", romaji: "Pinrokku shīto", en: "Pinlock lens" },
+          { zh: "尺寸量測 / 內襯調整", ja: "フィッティング", kana: "ふぃってぃんぐ", romaji: "Fittingu", en: "Fitting service" },
+          { zh: "頰襯 / 內襯", ja: "チークパッド / 内装", kana: "ちーくぱっど / ないそう", romaji: "Chīkupaddo / Naisō", en: "Cheek pads / Lining" },
+          { zh: "試戴帽套", ja: "フェイスカバー", kana: "ふぇいすかばー", romaji: "Feisukabā", en: "Disposable face cover" },
+          { zh: "原廠紙箱", ja: "元の箱", kana: "もとのはこ", romaji: "Moto no hako", en: "Original box" },
+          { zh: "飛機隨身手提行李", ja: "機内持ち込み", kana: "きないもちこみ", romaji: "Kinai mochikomi", en: "Carry-on baggage" }
+        ],
+        mustLearn: [
+          { id: 1, zh: "請問可以試戴這頂安全帽嗎？", ja: "このヘルメットを試着してもいいですか？", romaji: "Kono herumetto o shichaku shitemo ii desu ka?", en: "Can I try this helmet on?" },
+          { id: 2, zh: "請問有黑色（或消光黑）的嗎？", ja: "黒（マットブラック）はありますか？", romaji: "Kuro (Matto burakku) wa arimasu ka?", en: "Do you have this in black (matte black)?" },
+          { id: 3, zh: "戴起來有點太緊（太鬆）。", ja: "少しきついです（緩いです）。", romaji: "Sukoshi kitsui desu (yurui desu).", en: "It feels a bit too tight (too loose)." },
+          { id: 4, zh: "可以幫我量頭圍尺寸嗎？", ja: "頭のサイズを測ってもらえますか？", romaji: "Atama no saizu o hakatte moraemasu ka?", en: "Could you measure my head size?" },
+          { id: 5, zh: "請問這頂有附防霧片（Pinlock）嗎？", ja: "ピンロックシートは付属していますか？", romaji: "Pinrokku shīto wa fuzoku shiteimasu ka?", en: "Does it come with a Pinlock insert?" },
+          { id: 6, zh: "我想加買電鍍銀鏡片。", ja: "シルバーミラーシールドを追加したいです。", romaji: "Shirubā mirā shīrudo o tsuika shitai desu.", en: "I'd like to add a silver mirrored shield." },
+          { id: 7, zh: "這可以帶上飛機當手提行李嗎？", ja: "これは機内持ち込みできますか？", romaji: "Kore wa kinai mochikomi dekimasu ka?", en: "Can I take this as carry-on luggage?" },
+          { id: 8, zh: "請連同外盒完整包裝給我。", ja: "箱のまま持ち帰りたいです。", romaji: "Hako no mama mochikaeritai desu.", en: "I would like to take it with the original box." },
+          { id: 9, zh: "可以在箱子外面幫我加一個提把或膠帶固定嗎？", ja: "箱に取っ手をつけてもらえますか？", romaji: "Hako ni totte o tsukete moraemasu ka?", en: "Could you attach a handle or tape to the box?" },
+          { id: 10, zh: "請問可以使用免稅優惠嗎？", ja: "免税適用になりますか？", romaji: "Menzei tekiyō ni narimasu ka?", en: "Is this eligible for tax exemption?" }
+        ],
+        patterns: [
+          {
+            id: 1,
+            title: "句型 1：詢問產品試戴/試用",
+            formulaJa: "[商品] + を試着してもいいですか？",
+            formulaEn: "Can I try on [Item]?",
+            desc: "試戴安全帽、手套或防摔衣必備。",
+            sampleJa: "このヘルメットを試着してもいいですか？",
+            sampleJaRomaji: "Kono herumetto o shichaku shitemo ii desu ka?",
+            sampleEn: "May I try on this helmet?"
+          },
+          {
+            id: 2,
+            title: "句型 2：描述穿戴感受（鬆緊度）",
+            formulaJa: "少し [形容詞] です。",
+            formulaEn: "It feels a little [Adjective].",
+            desc: "表達「きつい (緊)」或「緩い (鬆)」。",
+            sampleJa: "頬のところが少しきついです。",
+            sampleJaRomaji: "Hō no tokoro ga sukoshi kitsui desu.",
+            sampleEn: "It's slightly too tight around the cheeks."
+          },
+          {
+            id: 3,
+            title: "句型 3：請求追加配件或商品",
+            formulaJa: "[配件] + も追加したいです / ください。",
+            formulaEn: "I'd also like to add [Item].",
+            desc: "加購深色鏡片、除霧片或專用內襯墊。",
+            sampleJa: "ミラーシールドも1つ追加したいです。",
+            sampleJaRomaji: "Mirā shīrudo mo hitotsu tsuika shitai desu.",
+            sampleEn: "I would also like to purchase a mirror shield."
+          },
+          {
+            id: 4,
+            title: "句型 4：詢問攜帶上飛機的規定",
+            formulaJa: "飛行機に [持ち込めますか / 預けられますか]？",
+            formulaEn: "Can I [bring/check] this on the plane?",
+            desc: "確認能否手提登機（Carry-on）或託運。",
+            sampleJa: "飛行機に持ち込めますか？",
+            sampleJaRomaji: "Hikōki ni mochikomemasu ka?",
+            sampleEn: "Can I bring this as a carry-on on the plane?"
+          },
+          {
+            id: 5,
+            title: "句型 5：要求保留完整原廠包裝",
+            formulaJa: "[物品] + のまま包装してください。",
+            formulaEn: "Please pack it with the [Box/Wrapping].",
+            desc: "提醒店員保留彩盒紙箱，方便完整帶回國。",
+            sampleJa: "箱のまま持ち帰ります。",
+            sampleJaRomaji: "Hako no mama mochikaerimasu.",
+            sampleEn: "I'd like to keep the box as is, please."
+          }
+        ],
+        quiz: [
+          {
+            id: 1,
+            q: "請問有 L 號嗎？我想試戴看看。",
+            target: "請問有 L 號嗎？我想試戴看看。",
+            ja: "Lサイズはありますか？試着してみたいです。",
+            jaRomaji: "Eru-saizu wa arimasu ka? Shichaku shite mitai desu.",
+            en: "Do you have a size L? I'd like to try it on."
+          },
+          {
+            id: 2,
+            q: "我想要另外加購一片墨色鏡片。",
+            target: "我想要另外加購一片墨色鏡片。",
+            ja: "スモークシールドも1枚追加したいです。",
+            jaRomaji: "Sumōku shīrudo mo ichi-mai tsuika shitai desu.",
+            en: "I'd like to add a dark smoke shield as well."
+          },
+          {
+            id: 3,
+            q: "這個箱子可以讓我直接帶上飛機嗎？",
+            target: "這個箱子可以讓我直接帶上飛機嗎？",
+            ja: "この箱のまま機内に持ち込めますか？",
+            jaRomaji: "Kono hako no mama kinai ni mochikomemasu ka?",
+            en: "Can I bring this box directly onto the airplane?"
+          }
+        ]
+      },
+      lesson8: {
+        id: "lesson8",
+        title: "第 8 課：藥局買藥與醫療求診",
+        description: "藥局買藥、描述感冒腹瀉症狀、用法用量與就診情境實戰",
+        tipDesc: "感冒發燒時，向藥師迅速說明症狀：",
+        tipJaText: "風邪で熱と喉の痛みがあります。",
+        tipJaKey: "風邪で熱と喉の痛みがあります。",
+        tipEnText: "I have a cold with a fever and a sore throat.",
+        tipEnKey: "I have a cold with a fever and a sore throat.",
+        dialogues: [
+          {
+            scene: "場景 1：在藥局描述感冒症狀 (Cold Symptoms)",
+            turns: [
+              {
+                role: "💊 藥師",
+                roleBg: "bg-emerald-50 text-emerald-800",
+                zh: "歡迎光臨！請問有找什麼藥品嗎？",
+                ja: "いらっしゃいませ。何かお探しの薬はございますか？",
+                kana: "いらっしゃいませ。なにか おさがしの くすりは ございますか？",
+                romaji: "Irasshaimase. Nanika osagashi no kusuri wa gozaimasu ka?",
+                en: "Welcome! Are you looking for a specific medicine?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "不好意思，我朋友感冒了，流鼻水又發燒，請問有推薦的藥嗎？",
+                ja: "すみません、友達が風邪で熱と鼻水が出ます。効く薬はありますか？",
+                kana: "すみません、ともだちが かぜで ねつと はなみずが でます。きく くすりは ありますか？",
+                romaji: "Sumimasen, tomodachi ga kaze de netsu to hanamizu ga demasu. Kiku kusuri wa arimasu ka?",
+                en: "Excuse me, my friend has a cold with a runny nose and fever. Do you have any medicine for this?"
+              }
+            ]
+          },
+          {
+            scene: "場景 2：描述腸胃症狀與用法用量 (Stomach & Dosage)",
+            turns: [
+              {
+                role: "🙋‍♂️ 你的詢問",
+                roleBg: "bg-teal-600 text-white",
+                zh: "肚子也很痛，而且一直拉肚子。可以順便給我止瀉藥嗎？一天要吃幾次？",
+                ja: "はい、お腹も痛くて下痢をしています。下痢止めもいただけますか？1日に何回飲みますか？",
+                kana: "はい、おなかも いたくて げりを しています。げりどめも いただけますか？ いちにちに なんかい のみますか？",
+                romaji: "Hai, onaka mo itakute geri o shiteimasu. Geridome mo itadakemasu ka? Ichinichi ni nan-kai nomimasu ka?",
+                en: "Yes, they also have bad stomachache and diarrhea. Could you also give us anti-diarrhea medicine? How many times a day should we take this?"
+              },
+              {
+                role: "💊 藥師",
+                roleBg: "bg-emerald-50 text-emerald-800",
+                zh: "請在三餐飯後服用，一天 3 次。如果發燒超過 38 度請去醫院就診。",
+                ja: "1日3回、毎食後に水でお飲みください。熱が38度を超えたら病院に行ってください。",
+                kana: "いちにち さんかい、まいしょくごに みずで おのみください。ねつが さんじゅうはちどを こえたら びょういんに いってください。",
+                romaji: "Ichinichi san-kai, maishokugo ni mizu de onomi kudasai. Netsu ga sanjū-hachi-do o koetara byōin ni itte kudasai.",
+                en: "Take it three times a day after meals with water. If the fever exceeds 38°C, please visit a hospital."
+              }
+            ]
+          }
+        ],
+        vocab: [
+          { zh: "感冒", ja: "風邪", kana: "かぜ", romaji: "Kaze", en: "Cold / Flu" },
+          { zh: "發燒", ja: "熱", kana: "ねつ", romaji: "Netsu", en: "Fever" },
+          { zh: "頭痛", ja: "頭痛", kana: "ずつう", romaji: "Zutsū", en: "Headache" },
+          { zh: "流鼻水", ja: "鼻水", kana: "はなみず", romaji: "Hanamizu", en: "Runny nose" },
+          { zh: "咳嗽", ja: "咳", kana: "せき", romaji: "Seki", en: "Cough" },
+          { zh: "肚子痛 / 胃痛", ja: "腹痛 / 胃痛", kana: "ふくつう / いつう", romaji: "Fukutsū / Itsū", en: "Stomachache" },
+          { zh: "拉肚子 / 腹瀉", ja: "下痢", kana: "げり", romaji: "Geri", en: "Diarrhea" },
+          { zh: "止痛藥", ja: "鎮痛剤 / 痛み止め", kana: "ちんつうざい / いたみどめ", romaji: "Chintsūzai / Itamidome", en: "Painkiller" },
+          { zh: "止瀉藥", ja: "下痢止め", kana: "げりどめ", romaji: "Geridome", en: "Anti-diarrheal" },
+          { zh: "醫院 / 診所", ja: "病院 / クリニック", kana: "びょういん / くりにっく", romaji: "Byōin / Kurinikku", en: "Hospital / Clinic" }
+        ],
+        mustLearn: [
+          { id: 1, zh: "我感冒了，喉嚨很痛。", ja: "風邪を引いて、喉が痛いです。", romaji: "Kaze o hiite, nodo ga itai desu.", en: "I have a cold, and my throat hurts." },
+          { id: 2, zh: "請問有退燒止痛藥嗎？", ja: "解熱鎮痛薬はありますか？", romaji: "Genetsu chintsūyaku wa arimasu ka?", en: "Do you have medicine for fever and pain relief?" },
+          { id: 3, zh: "我拉肚子很嚴重。", ja: "ひどい下痢をしています。", romaji: "Hidoi geri o shiteimasu.", en: "I have severe diarrhea." },
+          { id: 4, zh: "這個藥一天要吃幾次？", ja: "この薬は1日に何回飲みますか？", romaji: "Kono kusuri wa ichinichi ni nan-kai nomimasu ka?", en: "How many times a day should I take this medicine?" },
+          { id: 5, zh: "飯前吃還是飯後吃？", ja: "食前ですか、食後ですか？", romaji: "Shokuzen desu ka, shokugo desu ka?", en: "Before meals or after meals?" },
+          { id: 6, zh: "這個藥會引起想睡覺嗎？", ja: "この薬を飲むと眠くなりますか？", romaji: "Kono kusuri o nomu to nemuku narimasu ka?", en: "Will this medicine make me drowsy?" },
+          { id: 7, zh: "這附近有會講英文（中文）的診所嗎？", ja: "英語（中国語）が通じるクリニックは近くにありますか？", romaji: "Eigo [Chūgokugo] ga tsūjiru kurinikku wa chikaku ni arimasu ka?", en: "Is there an English-speaking clinic nearby?" },
+          { id: 8, zh: "我有保海外旅遊平安險。", ja: "海外旅行保険に加入しています。", romaji: "Kaigai ryokō hoken ni kanyū shiteimasu.", en: "I have overseas travel insurance." },
+          { id: 9, zh: "請開立醫療收據和診斷證明書。", ja: "領収書と診断書を書いていただけますか？", romaji: "Ryōshūsho to shindansho o kaite itadakemasu ka?", en: "Could you provide a medical certificate and receipt?" },
+          { id: 10, zh: "請幫我叫救護車！", ja: "救急車を呼んでください！", romaji: "Kyūkyūsha o yonde kudasai!", en: "Please call an ambulance!" }
+        ],
+        patterns: [
+          {
+            id: 1,
+            title: "句型 1：描述身體疼痛",
+            formulaJa: "[身體部位] + が痛いです。",
+            formulaEn: "My [Body part] hurts.",
+            desc: "說明頭痛（頭）、胃痛（胃）、喉嚨痛（喉）等。",
+            sampleJa: "頭とお腹が痛いです。",
+            sampleJaRomaji: "Atama to onaka ga itai desu.",
+            sampleEn: "My head and stomach hurt."
+          },
+          {
+            id: 2,
+            title: "句型 2：詢問針對某症狀的藥物",
+            formulaJa: "[症狀] + に効く薬はありますか？",
+            formulaEn: "Do you have medicine for [Symptom]?",
+            desc: "在日本藥局向店員或藥師問藥的核心句型。",
+            sampleJa: "咳と熱に効く薬はありますか？",
+            sampleJaRomaji: "Seki to netsu ni kiku kusuri wa arimasu ka?",
+            sampleEn: "Do you have medicine for cough and fever?"
+          },
+          {
+            id: 3,
+            title: "句型 3：詢問服藥時間與方法",
+            formulaJa: "どうやって飲みますか？",
+            formulaEn: "How should I take this?",
+            desc: "確認一次幾顆、一天幾次、何時服用。",
+            sampleJa: "1回に何錠飲みますか？",
+            sampleJaRomaji: "Ikkai ni nan-jō nomimasu ka?",
+            sampleEn: "How many pills should I take at a time?"
+          },
+          {
+            id: 4,
+            title: "句型 4：表明過敏史或特殊狀況",
+            formulaJa: "[成分/食物] + のアレルギーがあります。",
+            formulaEn: "I am allergic to [Allergen].",
+            desc: "向醫生或藥師告知藥物過敏史。",
+            sampleJa: "薬のアレルギーがあります。",
+            sampleJaRomaji: "Kusuri no arerugī ga arimasu.",
+            sampleEn: "I have a medicine allergy."
+          },
+          {
+            id: 5,
+            title: "句型 5：向醫院或飯店請求醫療證明",
+            formulaJa: "保険請求のための [文件] をください。",
+            formulaEn: "I need [Document] for my insurance claim.",
+            desc: "回國向保險公司理賠時必備。",
+            sampleJa: "保険用の診断書をお願いします。",
+            sampleJaRomaji: "Hoken-yō no shindansho o onegaishimasu.",
+            sampleEn: "I need a medical diagnosis for insurance claim."
+          }
+        ],
+        quiz: [
+          {
+            id: 1,
+            q: "我朋友感冒發燒了，有感冒藥嗎？",
+            target: "我朋友感冒發燒了，有感冒藥嗎？",
+            ja: "友達が風邪で熱があります。風邪薬はありますか？",
+            jaRomaji: "Tomodachi ga kaze de netsu ga arimasu. Kazegusuri wa arimasu ka?",
+            en: "My friend has a fever and a cold. Do you have cold medicine?"
+          },
+          {
+            id: 2,
+            q: "我肚子很痛，一直在拉肚子。",
+            target: "我肚子很痛，一直在拉肚子。",
+            ja: "お腹が痛くて、下痢をしています。",
+            jaRomaji: "Onaka ga itakute, geri o shiteimasu.",
+            en: "I have a stomachache and diarrhea."
+          },
+          {
+            id: 3,
+            q: "這個藥一天要吃幾次？",
+            target: "這個藥一天要吃幾次？",
+            ja: "1日に何回飲みますか？",
+            jaRomaji: "Ichinichi ni nan-kai nomimasu ka?",
+            en: "How many times a day should I take this?"
+          }
+        ]
+      },
+      lesson9: {
+        id: "lesson9",
+        title: "第 9 課：福岡經典景點導覽與購票",
+        description: "柳川遊船、太宰府天滿宮名物梅枝餅、門司港懷舊區漫步實戰",
+        tipDesc: "柳川買遊船票或景點買門票，指定大人張數：",
+        tipJaText: "乗船券を大人4枚お願いします。(Jōshaken o otona yon-mai onegaishimasu.)",
+        tipJaKey: "乗船券を大人4枚お願いします。",
+        tipEnText: "Four adult boat tickets, please.",
+        tipEnKey: "Four adult boat tickets, please.",
+        dialogues: [
+          {
+            scene: "場景 1：柳川遊船購票 (Yanagawa Canal Cruise)",
+            turns: [
+              {
+                role: "🚣 售票員",
+                roleBg: "bg-cyan-50 text-cyan-800",
+                zh: "歡迎來到柳川遊船！請問要購買乘船券嗎？",
+                ja: "いらっしゃいませ！柳川の川下りへようこそ。乗船券のご購入ですか？",
+                kana: "いらっしゃいませ！ やながわの かわくだりへ ようこそ。じょうしゃけんの ごこうにゅうですか？",
+                romaji: "Irasshaimase! Yanagawa no kawakudari e yōkoso. Jōshaken no gokōnyū desu ka?",
+                en: "Welcome to the Yanagawa canal cruise! Would you like to buy boat tickets?"
+              },
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "請給我 4 張大人票。請問遊船大概要花多少時間？",
+                ja: "大人4枚お願いします。舟下りはどのくらい時間がかかりますか？",
+                kana: "おとな よんまい おねがいします。ふなくだりは どのくらい じかんが かかりますか？",
+                romaji: "Otona yon-mai onegaishimasu. Funakudari wa dono kurai jikan ga kakarimasu ka?",
+                en: "Four adult tickets, please. How long does the boat ride take?"
+              }
+            ]
+          },
+          {
+            scene: "場景 2：太宰府表參道購買名物梅枝餅 (Umegae-mochi)",
+            turns: [
+              {
+                role: "🙋‍♂️ 你的回答",
+                roleBg: "bg-teal-600 text-white",
+                zh: "請給我們 4 個現烤的梅枝餅，我們要馬上吃。",
+                ja: "焼きたての梅ヶ枝餅を4つください。今すぐ食べます。",
+                kana: "やきたての うめがえもちを よっつ ください。いますぐ たべます。",
+                romaji: "Yakitate no Umegaemochi o yottsu kudasai. Ima sugu tabemasu.",
+                en: "Could we have four freshly baked Umegae-mochi? We'll eat them right now."
+              },
+              {
+                role: "🍡 店員",
+                roleBg: "bg-rose-50 text-rose-800",
+                zh: "好的，剛出爐熱騰騰的 4 個給您！小心燙口喔。",
+                ja: "はい、焼きたて熱々を4つどうぞ！熱いので気をつけてくださいね。",
+                kana: "はい、やきたて あつあつを よっつ どうぞ！ あついので きをつけて くださいね。",
+                romaji: "Hai, yakitate atsuatsu o yottsu dōzo! Atsui node ki o tsukete kudasai ne.",
+                en: "Here are four hot ones! Please be careful, they are very hot."
+              }
+            ]
+          },
+          {
+            scene: "場景 3：門司港觀光詢問 (Mojiko Retro & Curry)",
+            turns: [
+              {
+                role: "🙋‍♂️ 你的詢問",
+                roleBg: "bg-teal-600 text-white",
+                zh: "請問好吃的燒咖哩店在哪裡？另外關門海底隧道怎麼去？",
+                ja: "美味しい焼きカレーのお店はどこですか？あと、関門人道トンネルへはどう行けばいいですか？",
+                kana: "おいしい やきかれーの おみせは どこですか？ あと、かんもんじんどう とんねるへは どういけば いいですか？",
+                romaji: "Oishii yakikarē no omise wa doko desu ka? Ato, Kanmon jindō tonneru e wa dō ikeba ii desu ka?",
+                en: "Where can we find delicious baked curry? Also, how do we get to the Kanmon Pedestrian Tunnel?"
+              }
+            ]
+          }
+        ],
+        vocab: [
+          { zh: "觀光景點", ja: "観光スポット", kana: "かんこうすぽっと", romaji: "Kankō supotto", en: "Sightseeing spot" },
+          { zh: "乘船券 / 門票", ja: "乗船券 / 入場券", kana: "じょうしゃけん / にゅうじょうけん", romaji: "Jōshaken / Nyūjōken", en: "Boarding ticket / Admission ticket" },
+          { zh: "遊船 / 泛舟", ja: "川下り / 舟下り", kana: "かわくだり / ふなくだり", romaji: "Kawakudari / Funakudari", en: "Canal boat tour" },
+          { zh: "神社 / 參拜", ja: "神社 / 参拝", kana: "じんじゃ / さんぱい", romaji: "Jinja / Sanpai", en: "Shinto shrine / Worship" },
+          { zh: "伴手禮 / 特產", ja: "お土産 / 名物", kana: "おみやげ / めいぶつ", romaji: "Omiyage / Meibutsu", en: "Souvenir / Specialty" },
+          { zh: "燒咖哩", ja: "焼きカレー", kana: "やきかれー", romaji: "Yakikarē", en: "Baked curry / Grilled curry" },
+          { zh: "人行海底隧道", ja: "人道トンネル", kana: "じんどうとんねる", romaji: "Jindō tonneru", en: "Pedestrian undersea tunnel" },
+          { zh: "渡輪", ja: "連絡船 / フェリー", kana: "れんらくせん / ふぇりー", romaji: "Renrakusen / Ferī", en: "Ferry" },
+          { zh: "觀光案內所", ja: "観光案内所", kana: "かんこうあんないしょ", romaji: "Kankō annaisho", en: "Tourist information center" },
+          { zh: "大人 / 小孩", ja: "大人 / 子供", kana: "おとな / こども", romaji: "Otona / Kodomo", en: "Adult / Child" }
+        ],
+        mustLearn: [
+          { id: 1, zh: "請給我 4 張成人門票。", ja: "大人4枚ください。", romaji: "Otona yon-mai kudasai.", en: "Four adult tickets, please." },
+          { id: 2, zh: "請問遊船需要多久時間？", ja: "所要時間はどのくらいですか？", romaji: "Shoyō jikan wa dono kurai desu ka?", en: "How long does the tour take?" },
+          { id: 3, zh: "請問最後一班船是幾點？", ja: "最終便は何時ですか？", romaji: "Saishūbin wa nan-ji desu ka?", en: "What time is the last boat?" },
+          { id: 4, zh: "請給我現烤的梅枝餅。", ja: "焼きたての梅ヶ枝餅をください。", romaji: "Yakitate no Umegaemochi o kudasai.", en: "Freshly baked Umegae-mochi, please." },
+          { id: 5, zh: "請問這裡可以拍照嗎？", ja: "ここで写真を撮ってもいいですか？", romaji: "Koko de shashin o totte mo ii desu ka?", en: "Can I take pictures here?" },
+          { id: 6, zh: "請問御守在哪裡買？", ja: "お守りはどこで買えますか？", romaji: "Omamori wa doko de kaemasu ka?", en: "Where can I buy amulets/charms?" },
+          { id: 7, zh: "請問附近有推薦的燒咖哩餐廳嗎？", ja: "おすすめの焼きカレーのお店はありますか？", romaji: "Osusume no yakikarē no omise wa arimasu ka?", en: "Do you recommend any baked curry restaurants nearby?" },
+          { id: 8, zh: "走到海底隧道大概要多久？", ja: "人道トンネルまで歩いてどのくらいですか？", romaji: "Jindō tonneru made aruite dono kurai desu ka?", en: "How long is the walk to the pedestrian tunnel?" },
+          { id: 9, zh: "請問渡輪去下關在哪裡搭？", ja: "下関行きの船はどこから乗れますか？", romaji: "Shimonoseki yuki no fune wa doko kara noremasu ka?", en: "Where can we catch the ferry to Shimonoseki?" },
+          { id: 10, zh: "這裡有免費的觀光地圖嗎？", ja: "観光マップはありますか？", romaji: "Kankō mappu wa arimasu ka?", en: "Do you have a free tourist map?" }
+        ],
+        patterns: [
+          {
+            id: 1,
+            title: "句型 1：購買景點票券（指定人數）",
+            formulaJa: "大人 [人數] 枚お願いします。",
+            formulaEn: "[Number] adult tickets, please.",
+            desc: "買入場券、船票或展望台門票通用。",
+            sampleJa: "大人4枚お願いします。",
+            sampleJaRomaji: "Otona yon-mai onegaishimasu.",
+            sampleEn: "Four adult tickets, please."
+          },
+          {
+            id: 2,
+            title: "句型 2：詢問行程耗時",
+            formulaJa: "[活動/行程] + はどのくらい時間がかかりますか？",
+            formulaEn: "How long does [Activity] take?",
+            desc: "確認遊船、搭車、步行的時間長短。",
+            sampleJa: "舟下りはどのくらい時間がかかりますか？",
+            sampleJaRomaji: "Funakudari wa dono kurai jikan ga kakarimasu ka?",
+            sampleEn: "How long does the boat cruise take?"
+          },
+          {
+            id: 3,
+            title: "句型 3：購買熱騰騰的現做街頭小吃",
+            formulaJa: "焼きたて / 出来立ての [美食] + をください。",
+            formulaEn: "Freshly made [Food], please.",
+            desc: "買太宰府梅枝餅、現烤仙貝、章魚燒時專用。",
+            sampleJa: "焼きたてのを4つください。",
+            sampleJaRomaji: "Yakitate no o yottsu kudasai.",
+            sampleEn: "Four freshly baked ones, please."
+          },
+          {
+            id: 4,
+            title: "句型 4：詢問當地名產或推薦餐廳",
+            formulaJa: "美味しい [料理名] の店はどこですか？",
+            formulaEn: "Where is a good place for [Food]?",
+            desc: "門司港問燒咖哩、太宰府問拉麵或甜點。",
+            sampleJa: "美味しい焼きカレーの店はどこですか？",
+            sampleJaRomaji: "Oishii yakikarē no mise wa doko desu ka?",
+            sampleEn: "Where can I get authentic baked curry?"
+          },
+          {
+            id: 5,
+            title: "句型 5：詢問前往下一景點的方式",
+            formulaJa: "[景點] + へはどうやって行きますか？",
+            formulaEn: "How do we get to [Attraction]?",
+            desc: "詢問步行路線或公車搭法。",
+            sampleJa: "関門トンネルへはどうやって行きますか？",
+            sampleJaRomaji: "Kanmon tonneru e wa dō yatte ikimasu ka?",
+            sampleEn: "How do we get to the Kanmon Tunnel?"
+          }
+        ],
+        quiz: [
+          {
+            id: 1,
+            q: "請給我 4 張成人船票。",
+            target: "請給我 4 張成人船票。",
+            ja: "乗船券を大人4枚ください。",
+            jaRomaji: "Jōshaken o otona yon-mai kudasai.",
+            en: "Four adult boat tickets, please."
+          },
+          {
+            id: 2,
+            q: "現烤的梅枝餅請給我 4 個。",
+            target: "現烤的梅枝餅請給我 4 個。",
+            ja: "焼きたての梅ヶ枝餅を4つお願いします。",
+            jaRomaji: "Yakitate no Umegaemochi o yottsu onegaishimasu.",
+            en: "Four freshly baked Umegae-mochi, please."
+          },
+          {
+            id: 3,
+            q: "這附近哪裡有好吃的燒咖哩？",
+            target: "這附近哪裡有好吃的燒咖哩？",
+            ja: "この近くに美味しい焼きカレーの店はありますか？",
+            jaRomaji: "Kono chikaku ni oishii yakikarē no mise wa arimasu ka?",
+            en: "Is there any delicious baked curry around here?"
+          }
+        ]
       }
     };
 
@@ -830,7 +1939,7 @@
       }
     }
 
-    // 點擊按鈕調用發音 (安全無語法錯誤)
+    // 音聲按鈕點擊處理
     function handleSpeechClick(btn) {
       const text = btn.getAttribute('data-speech');
       const lang = btn.getAttribute('data-lang');
@@ -839,7 +1948,7 @@
       }
     }
 
-    // 核心 Web Speech 播放邏輯
+    // Web Speech API 播放核心
     function playAudio(text, lang) {
       if (!('speechSynthesis' in window)) {
         showPlayingToast("⚠️ 您的瀏覽器不支援語音合成朗讀");
@@ -847,22 +1956,20 @@
       }
 
       try {
-        // 喚醒 iOS / Android Chrome 語音引擎
         if (window.speechSynthesis.paused) {
           window.speechSynthesis.resume();
         }
         
-        window.speechSynthesis.cancel(); // 停止目前播放
+        window.speechSynthesis.cancel(); // 停止先前的播放
 
         const cleanText = text.trim();
         if (!cleanText) return;
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.lang = lang; // 'ja-JP' 或 'en-US'
+        utterance.lang = lang;
         utterance.rate = currentRate;
         utterance.pitch = 1.0;
 
-        // 優先選擇高品質相符語音包
         const voices = window.speechSynthesis.getVoices();
         if (voices && voices.length > 0) {
           const targetLang = lang.toLowerCase();
@@ -890,7 +1997,7 @@
       }
     }
 
-    // 提示列顯示 / 隱藏
+    // Toast 提示顯示/隱藏
     let toastTimer = null;
     function showPlayingToast(msg) {
       const toast = document.getElementById('playing-indicator');
@@ -923,17 +2030,23 @@
       }
       currentLessonId = lessonId;
 
-      // 更新課程選單按鈕樣式
       document.querySelectorAll('.lesson-tab-btn').forEach(btn => {
-        btn.className = 'lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300';
+        btn.className = 'lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300';
+        const iconDiv = btn.querySelector('.w-9');
+        if (iconDiv) iconDiv.className = 'w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg flex-shrink-0';
+        const badge = btn.querySelector('.text-\\[10px\\]');
+        if (badge) badge.className = 'text-[10px] font-extrabold uppercase text-slate-400 leading-none';
       });
 
       const activeBtn = document.getElementById(`lesson-btn-${lessonId}`);
       if (activeBtn) {
-        activeBtn.className = 'lesson-tab-btn py-2.5 px-2.5 rounded-2xl text-xs font-bold transition-all text-center flex flex-col items-center justify-center space-y-1 bg-teal-500 text-slate-950 shadow-sm border border-teal-400';
+        activeBtn.className = 'lesson-tab-btn tap-effect p-3 rounded-2xl text-left transition-all flex items-center space-x-3 bg-teal-500 text-slate-950 border border-teal-400 shadow-sm';
+        const iconDiv = activeBtn.querySelector('.w-9');
+        if (iconDiv) iconDiv.className = 'w-9 h-9 rounded-xl bg-slate-900/10 flex items-center justify-center text-lg flex-shrink-0';
+        const badge = activeBtn.querySelector('.text-\\[10px\\]');
+        if (badge) badge.className = 'text-[10px] font-extrabold uppercase opacity-80 leading-none';
       }
 
-      // 更新頂部 Banner 資訊與秘訣
       const data = lessonData[lessonId];
       document.getElementById('banner-title').innerText = data.title;
       document.getElementById('banner-desc').innerText = data.description;
@@ -942,13 +2055,11 @@
       document.getElementById('banner-tip-ja').innerText = `🇯🇵 ${data.tipJaText}`;
       document.getElementById('banner-tip-en').innerText = `🇺🇸 ${data.tipEnText}`;
 
-      // 綁定 Banner 發音資料
       const btnJa = document.getElementById('banner-audio-ja');
       const btnEn = document.getElementById('banner-audio-en');
       btnJa.setAttribute('data-speech', data.tipJaKey);
       btnEn.setAttribute('data-speech', data.tipEnKey);
 
-      // 重新渲染章節內容
       renderCurrentLesson();
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -971,7 +2082,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 渲染當前課程全套內容
+    // 渲染當前課程內容
     function renderCurrentLesson() {
       const data = lessonData[currentLessonId];
       if (!data) return;
@@ -1205,11 +2316,10 @@
       lucide.createIcons();
     }
 
-    // 頁面初次載入 initialization
+    // 頁面初次載入
     window.onload = function() {
       switchLesson('lesson1');
       
-      // 預加載系統語音包
       if ('speechSynthesis' in window) {
         window.speechSynthesis.onvoiceschanged = function() {
           window.speechSynthesis.getVoices();
