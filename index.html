@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>日英雙語旅遊實戰 隨身學習機</title>
   
+  <!-- PWA & 全螢幕 App 設定 (iOS Safari & Android Chrome) -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="日英語音實戰">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="application-name" content="日英語音實戰">
+  <meta name="msapplication-TileColor" content="#0f172a">
+
+  <!-- 動態生成之 Manifest 與 App 圖示 Link 標籤 -->
+  <link id="app-manifest" rel="manifest">
+  <link id="apple-touch-icon" rel="apple-touch-icon">
+  <link id="app-favicon" rel="icon" type="image/png">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
@@ -67,6 +81,12 @@
       <button id="speed-toggle" onclick="toggleSpeed()" class="tap-effect flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs sm:text-sm font-semibold text-teal-400 hover:bg-slate-700">
         <i data-lucide="gauge" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
         <span id="speed-text-mobile">1.0x 正常</span>
+      </button>
+
+      <!-- 加到主畫面 / 安裝 App 快捷按鈕 -->
+      <button id="pwa-install-btn" onclick="openInstallModal()" class="tap-effect flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 text-slate-950 text-xs sm:text-sm font-bold shadow-md hover:opacity-95">
+        <i data-lucide="smartphone" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
+        <span>加到主畫面</span>
       </button>
     </div>
   </header>
@@ -315,6 +335,105 @@
     </section>
 
   </main>
+
+  <!-- 加到主畫面 / PWA 安裝教學彈窗 (Install Modal) -->
+  <div id="install-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+    <div class="bg-white rounded-3xl p-5 md:p-6 max-w-md w-full shadow-2xl border border-slate-100 space-y-4 max-h-[90vh] overflow-y-auto no-scrollbar">
+      
+      <!-- 彈窗頂部 -->
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div class="flex items-center space-x-3">
+          <div id="modal-app-icon" class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center shadow-md overflow-hidden flex-shrink-0">
+            <!-- 由 Canvas 動態產生圖像填充 -->
+          </div>
+          <div>
+            <h3 class="font-black text-slate-900 text-base sm:text-lg leading-tight">加到手機主畫面</h3>
+            <p class="text-xs text-teal-600 font-semibold">全螢幕使用 • 專屬 App 圖示</p>
+          </div>
+        </div>
+        <button onclick="closeInstallModal()" class="tap-effect p-2 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Android 原生安裝支援按鈕 (若支援自動觸發) -->
+      <div id="android-native-prompt" class="hidden">
+        <button onclick="triggerAndroidInstall()" class="tap-effect w-full py-3.5 px-4 rounded-2xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-black text-sm flex items-center justify-center space-x-2 shadow-lg shadow-teal-500/30">
+          <i data-lucide="download" class="w-5 h-5"></i>
+          <span>一鍵立即安裝為 App</span>
+        </button>
+        <div class="relative flex py-2 items-center">
+          <div class="flex-grow border-t border-slate-200"></div>
+          <span class="flex-shrink mx-3 text-[11px] text-slate-400 font-medium">或手動設定</span>
+          <div class="flex-grow border-t border-slate-200"></div>
+        </div>
+      </div>
+
+      <!-- 系統切換 Tabs -->
+      <div class="flex bg-slate-100 p-1 rounded-2xl">
+        <button id="tab-btn-ios" onclick="switchGuideTab('ios')" class="flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all bg-white text-slate-900 shadow-xs flex items-center justify-center space-x-1.5">
+          <span>🍏 iPhone (Safari)</span>
+        </button>
+        <button id="tab-btn-android" onclick="switchGuideTab('android')" class="flex-1 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all text-slate-500 hover:text-slate-800 flex items-center justify-center space-x-1.5">
+          <span>🤖 Android (Chrome)</span>
+        </button>
+      </div>
+
+      <!-- iPhone 指南 -->
+      <div id="guide-ios" class="space-y-3 pt-1 text-slate-700 text-xs sm:text-sm">
+        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/70 space-y-2.5">
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+            <p>請確認使用 <strong>Safari 瀏覽器</strong> 開啟本網頁。</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+            <p>點擊螢幕底部的 <strong>「分享」圖示</strong> <span class="inline-block p-1 bg-slate-200 rounded text-slate-800 font-bold mx-1">􀈂</span>（方框帶向上箭頭）。</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+            <p>在選單中往下滾動，點選 <strong>「加入主畫面」</strong>（Add to Home Screen）。</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+            <p>右上角點擊 <strong>「新增」</strong> 即完成！從主畫面點擊圖示即可<strong>全螢幕無網址列</strong>秒開隨身機。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Android 指南 -->
+      <div id="guide-android" class="hidden space-y-3 pt-1 text-slate-700 text-xs sm:text-sm">
+        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/70 space-y-2.5">
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+            <p>請使用 <strong>Google Chrome</strong> 開啟本網頁。</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+            <p>點擊右上角的 <strong>「三個點」選單</strong>（⋮）。</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+            <p>選擇 <strong>「安裝應用程式」</strong> 或 <strong>「加到主螢幕」</strong>。</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+            <p>點選「新增/安裝」，桌面上就會建立獨立 App 圖示！</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 離線提醒小叮嚀 -->
+      <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-3 text-[11px] sm:text-xs text-amber-900 flex items-start space-x-2">
+        <i data-lucide="info" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+        <span><strong>離線發音提醒：</strong>請記得在出國前至手機「設定 ➔ 輔助使用 ➔ 語音內容 ➔ 聲音」預先下載日文語音包，無網路開飛航也能發音！</span>
+      </div>
+
+      <button onclick="closeInstallModal()" class="tap-effect w-full py-3 rounded-2xl bg-slate-900 text-white text-xs sm:text-sm font-bold shadow-md">
+        我知道了，開始練習
+      </button>
+    </div>
+  </div>
 
   <!-- 底部固定播放提示 Toast -->
   <div id="playing-indicator" class="fixed bottom-4 inset-x-4 max-w-md mx-auto bg-slate-900/95 backdrop-blur-md text-white px-4 py-3 rounded-2xl shadow-xl flex items-center justify-between border border-slate-800 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none z-50">
@@ -2316,9 +2435,158 @@
       lucide.createIcons();
     }
 
+    // 動態生成 512x512 高解析度 App 圖示 (Canvas)
+    function generateAppIcon() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
+
+      // 背景漸層 (Dark Navy to Teal)
+      const grad = ctx.createLinearGradient(0, 0, 512, 512);
+      grad.addColorStop(0, '#0f172a');
+      grad.addColorStop(0.6, '#134e4a');
+      grad.addColorStop(1, '#0d9488');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 512, 512);
+
+      // 裝飾外框線
+      ctx.lineWidth = 16;
+      ctx.strokeStyle = 'rgba(45, 212, 191, 0.4)';
+      ctx.strokeRect(16, 16, 480, 480);
+
+      // 中心白色發音氣泡底
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+      ctx.beginPath();
+      ctx.roundRect(86, 86, 340, 340, 70);
+      ctx.fill();
+
+      // Emoji 視覺主圖 (🗣️ & ✈️)
+      ctx.font = '150px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('🗣️', 256, 220);
+
+      // 底部英日字樣徽章
+      ctx.font = '900 48px sans-serif';
+      ctx.fillStyle = '#5eead4';
+      ctx.fillText('日 • 英 實戰', 256, 360);
+
+      const dataUrl = canvas.toDataURL('image/png');
+
+      // 綁定到 link 標籤
+      const appleTouchIcon = document.getElementById('apple-touch-icon');
+      if (appleTouchIcon) appleTouchIcon.href = dataUrl;
+
+      const favicon = document.getElementById('app-favicon');
+      if (favicon) favicon.href = dataUrl;
+
+      // 填充 Modal 內預覽圖
+      const modalIcon = document.getElementById('modal-app-icon');
+      if (modalIcon) {
+        modalIcon.innerHTML = `<img src="${dataUrl}" class="w-full h-full object-cover rounded-2xl" alt="App Icon">`;
+      }
+
+      // 生成動態 Web App Manifest (Data URI)
+      setupDynamicManifest(dataUrl);
+    }
+
+    // 動態設定 Web App Manifest 支援 Standalone 全螢幕模式
+    function setupDynamicManifest(iconUrl) {
+      const manifestData = {
+        name: "日英雙語旅遊實戰隨身機",
+        short_name: "日英語音",
+        description: "極簡聽力 • 即點即發音 • 雙語對照",
+        start_url: window.location.href,
+        display: "standalone",
+        background_color: "#0f172a",
+        theme_color: "#0f172a",
+        orientation: "portrait",
+        icons: [
+          {
+            src: iconUrl,
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any maskable"
+          }
+        ]
+      };
+
+      const manifestBlob = new Blob([JSON.stringify(manifestData)], { type: 'application/manifest+json' });
+      const manifestUrl = URL.createObjectURL(manifestBlob);
+      const manifestLink = document.getElementById('app-manifest');
+      if (manifestLink) {
+        manifestLink.setAttribute('href', manifestUrl);
+      }
+    }
+
+    // PWA 安裝彈窗與裝置偵測
+    let deferredPrompt = null;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const nativePromptDiv = document.getElementById('android-native-prompt');
+      if (nativePromptDiv) {
+        nativePromptDiv.classList.remove('hidden');
+      }
+    });
+
+    function triggerAndroidInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            closeInstallModal();
+          }
+          deferredPrompt = null;
+        });
+      }
+    }
+
+    function openInstallModal() {
+      const modal = document.getElementById('install-modal');
+      if (!modal) return;
+
+      // 自動偵測裝置預設開啟相應 Tab
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      switchGuideTab(isIOS ? 'ios' : 'android');
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+      lucide.createIcons();
+    }
+
+    function closeInstallModal() {
+      const modal = document.getElementById('install-modal');
+      if (!modal) return;
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function switchGuideTab(type) {
+      const btnIos = document.getElementById('tab-btn-ios');
+      const btnAndroid = document.getElementById('tab-btn-android');
+      const guideIos = document.getElementById('guide-ios');
+      const guideAndroid = document.getElementById('guide-android');
+
+      if (type === 'ios') {
+        btnIos.className = 'flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all bg-white text-slate-900 shadow-xs flex items-center justify-center space-x-1.5';
+        btnAndroid.className = 'flex-1 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all text-slate-500 hover:text-slate-800 flex items-center justify-center space-x-1.5';
+        guideIos.classList.remove('hidden');
+        guideAndroid.classList.add('hidden');
+      } else {
+        btnAndroid.className = 'flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all bg-white text-slate-900 shadow-xs flex items-center justify-center space-x-1.5';
+        btnIos.className = 'flex-1 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all text-slate-500 hover:text-slate-800 flex items-center justify-center space-x-1.5';
+        guideAndroid.classList.remove('hidden');
+        guideIos.classList.add('hidden');
+      }
+    }
+
     // 頁面初次載入
     window.onload = function() {
       switchLesson('lesson1');
+      generateAppIcon(); // 生成專屬 App 圖示與 Manifest
       
       if ('speechSynthesis' in window) {
         window.speechSynthesis.onvoiceschanged = function() {
